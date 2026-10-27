@@ -129,19 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* --------------------------------------------------------------------------
-     4. SCROLL REVEAL ENTRANCE ANIMATIONS (INTERSECTION OBSERVER)
+     4. SCROLL REVEAL ENTRANCE ANIMATIONS (FAIL-SAFE)
      -------------------------------------------------------------------------- */
   const initScrollAnimations = () => {
     const animElements = document.querySelectorAll(
       '.about-card, .venture-card, .timeline-card, .skill-card-modern, .edu-clean-card, .pursuit-card'
     );
 
-    if (!animElements.length) return;
-
-    if (!('IntersectionObserver' in window)) {
-      animElements.forEach(el => el.style.opacity = '1');
-      return;
-    }
+    if (!animElements.length || !('IntersectionObserver' in window)) return;
 
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
@@ -152,26 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, {
       root: null,
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.08,
+      rootMargin: '0px 0px -20px 0px'
     });
 
-    animElements.forEach((el, index) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${(index % 3) * 0.08}s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${(index % 3) * 0.08}s`;
-      observer.observe(el);
-    });
-
-    // Helper class to trigger view
-    const styleEl = document.createElement('style');
-    styleEl.textContent = `
-      .in-view {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-      }
-    `;
-    document.head.appendChild(styleEl);
+    animElements.forEach(el => observer.observe(el));
   };
 
   /* --------------------------------------------------------------------------

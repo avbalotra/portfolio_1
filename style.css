@@ -485,6 +485,26 @@ button {
   animation-delay: -6s;
 }
 
+/* Subtle Frosted Glass Mountain Ridge Contour in Left Background */
+.left-glass-mountain-contour {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 180px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.left-mountain-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 -2px 10px rgba(10, 42, 94, 0.03));
+}
+
 @keyframes blobFloat {
   0%   { transform: translate(0, 0) scale(1); }
   50%  { transform: translate(30px, 25px) scale(1.08); }
@@ -640,6 +660,70 @@ button {
   background: rgba(56, 189, 248, 0.25);
   bottom: 5%;
   left: 10%;
+}
+
+/* Glassmorphic Mountain Ridges in Background of Main Dashboard */
+.glass-mountains-backdrop {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 62%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.glass-mountain {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transform-origin: bottom center;
+}
+
+.glass-mountain-back {
+  height: 100%;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.glass-mountain-back .glass-mountain-svg {
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.25));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-mountain-mid {
+  height: 82%;
+  z-index: 2;
+  opacity: 0.9;
+}
+
+.glass-mountain-mid .glass-mountain-svg {
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-mountain-front {
+  height: 62%;
+  z-index: 3;
+  opacity: 0.95;
+}
+
+.glass-mountain-front .glass-mountain-svg {
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.15));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.glass-mountain-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* Profile Presentation Wrapper */

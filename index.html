@@ -116,6 +116,13 @@
           <div class="pastel-blob blob-light-blue" aria-hidden="true"></div>
           <div class="pastel-blob blob-peach" aria-hidden="true"></div>
 
+          <!-- Subtle Frosted Glass Mountain Ridge Contour in Left Background -->
+          <div class="left-glass-mountain-contour" aria-hidden="true">
+            <svg viewBox="0 0 700 240" class="left-mountain-svg" preserveAspectRatio="none">
+              <path d="M0 240 L0 160 L140 90 L280 180 L440 70 L580 170 L700 110 L700 240 Z" fill="rgba(241, 245, 249, 0.7)" stroke="rgba(10, 42, 94, 0.08)" stroke-width="1.5" />
+            </svg>
+          </div>
+
           <div class="hero-content-inner">
             
             <!-- Rounded Speech-Bubble Style Label (Like reference) -->
@@ -194,6 +201,54 @@
           <!-- Ambient Glow Blobs in Deep Blue Canvas -->
           <div class="ambient-glow glow-blue" aria-hidden="true"></div>
           <div class="ambient-glow glow-cyan" aria-hidden="true"></div>
+
+          <!-- Glassmorphic Mountain Ridges in Background (Alpine Peaks with Frost Blur) -->
+          <div class="glass-mountains-backdrop" aria-hidden="true">
+            <!-- Mountain Peak 1: High Distant Glass Ridge -->
+            <div class="glass-mountain glass-mountain-back">
+              <svg viewBox="0 0 600 320" class="glass-mountain-svg" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="glassPeakGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(255, 255, 255, 0.28)"/>
+                    <stop offset="60%" stop-color="rgba(56, 189, 248, 0.12)"/>
+                    <stop offset="100%" stop-color="rgba(10, 42, 94, 0.05)"/>
+                  </linearGradient>
+                </defs>
+                <polygon points="0,320 180,60 320,180 460,40 600,320" fill="url(#glassPeakGrad1)" stroke="rgba(255, 255, 255, 0.35)" stroke-width="1.5"/>
+                <!-- Snow cap highlight -->
+                <polygon points="180,60 145,115 215,115" fill="rgba(255, 255, 255, 0.5)"/>
+                <polygon points="460,40 425,95 495,95" fill="rgba(255, 255, 255, 0.5)"/>
+              </svg>
+            </div>
+
+            <!-- Mountain Peak 2: Mid Glass Ridge with Frosted Rim -->
+            <div class="glass-mountain glass-mountain-mid">
+              <svg viewBox="0 0 600 260" class="glass-mountain-svg" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="glassPeakGrad2" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(255, 255, 255, 0.22)"/>
+                    <stop offset="100%" stop-color="rgba(10, 42, 94, 0.2)"/>
+                  </linearGradient>
+                </defs>
+                <polygon points="0,260 110,120 250,220 380,80 520,200 600,260" fill="url(#glassPeakGrad2)" stroke="rgba(255, 255, 255, 0.45)" stroke-width="2"/>
+                <polygon points="380,80 345,130 415,130" fill="rgba(255, 255, 255, 0.6)"/>
+              </svg>
+            </div>
+
+            <!-- Mountain Peak 3: Foreground Crisp Glass Horizon -->
+            <div class="glass-mountain glass-mountain-front">
+              <svg viewBox="0 0 600 200" class="glass-mountain-svg" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="glassPeakGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(56, 189, 248, 0.25)"/>
+                    <stop offset="100%" stop-color="rgba(10, 42, 94, 0.4)"/>
+                  </linearGradient>
+                </defs>
+                <polygon points="0,200 70,110 200,190 310,90 470,170 600,200" fill="url(#glassPeakGrad3)" stroke="rgba(56, 189, 248, 0.6)" stroke-width="2"/>
+                <polygon points="310,90 280,130 340,130" fill="rgba(255, 255, 255, 0.75)"/>
+              </svg>
+            </div>
+          </div>
 
           <!-- Profile Photo with Clean Soft Mask -->
           <div class="profile-presentation-wrap">
