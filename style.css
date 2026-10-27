@@ -1113,31 +1113,143 @@ div[tabindex="0"]:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   10. SKILLS ARSENAL (CLEAN TECHNICAL GRID)
+   10. SKILLS ARSENAL (SCIENTIFIC RESEARCH INTERFACE & BALANCED 2-COL GRID)
    -------------------------------------------------------------------------- */
+#skills {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 100px;
+  scroll-margin-top: 80px;
+}
+
+/* Scientific Orbital & Grid Backdrop (Decorative behind content) */
+.skills-scientific-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.ssb-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255, 48, 48, 0.04) 0%, transparent 60%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+  opacity: 0.8;
+}
+
+.ssb-orbital-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 640px;
+  height: 640px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.55;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ssb-orbit-loop {
+  transform-origin: center;
+  animation: ssb-orbit-rotate 36s linear infinite;
+}
+
+.ssb-orbit-loop-rev {
+  transform-origin: center;
+  animation: ssb-orbit-rotate 28s linear infinite reverse;
+}
+
+@keyframes ssb-orbit-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.ssb-coord-tag {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.22);
+  pointer-events: none;
+}
+
+.ssb-coord-tl { top: 32px; left: 32px; }
+.ssb-coord-tr { top: 32px; right: 32px; }
+.ssb-coord-bl { bottom: 32px; left: 32px; }
+.ssb-coord-br { bottom: 32px; right: 32px; }
+
+/* Balanced 2-Column Responsive CSS Grid (Desktop default) */
 .skills-modern-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
 }
 
 .skill-item-card {
-  padding: 32px 28px;
-  background: var(--bg-surface);
+  padding: 36px 32px;
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-line);
   border-radius: var(--radius-card);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 140px;
-  transition: all var(--transition-fast);
+  min-width: 0;
+  box-sizing: border-box;
+  word-break: break-word;
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+  cursor: default;
 }
 
-.skill-item-card:hover {
+/* Corner Technical Markings */
+.skill-item-card::before,
+.skill-item-card::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+  transition: border-color var(--transition-fast);
+}
+
+.skill-item-card::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1.5px solid var(--accent-red);
+  border-left: 1.5px solid var(--accent-red);
+}
+
+.skill-item-card::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1.5px solid var(--accent-red);
+  border-right: 1.5px solid var(--accent-red);
+}
+
+.skill-item-card:hover,
+.skill-item-card:focus-visible {
   border-color: var(--accent-red-border);
-  background: var(--bg-surface-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px var(--accent-red-dim);
+  background: rgba(16, 16, 16, 0.95);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 22px var(--accent-red-dim);
+}
+
+.sic-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
 .sic-idx {
@@ -1148,13 +1260,81 @@ div[tabindex="0"]:focus-visible {
   font-weight: 700;
 }
 
+.sic-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-line);
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+}
+
+.sic-pulse-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--accent-red);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--accent-red);
+}
+
+.skill-item-card:hover .sic-pulse-dot {
+  animation: pulse-ring 1.5s infinite;
+}
+
 .sic-name {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
-  font-weight: 700;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 800;
   color: var(--text-pure);
-  margin-top: 16px;
   letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.sic-desc {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.68;
+  margin-bottom: 22px;
+}
+
+.sic-bottom-telemetry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.sbt-bar {
+  width: 60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sbt-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100%;
+  background: var(--accent-red);
+  transition: width 0.3s ease;
+}
+
+.skill-item-card:hover .sbt-fill {
+  width: 100%;
 }
 
 /* --------------------------------------------------------------------------
@@ -1527,6 +1707,15 @@ div[tabindex="0"]:focus-visible {
   }
   .skills-modern-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .ssb-orbital-svg {
+    width: 440px;
+    height: 440px;
+    opacity: 0.35;
+  }
+  .ssb-coord-tag {
+    display: none;
   }
   .secondary-projects-grid {
     grid-template-columns: 1fr;
@@ -1546,11 +1735,16 @@ div[tabindex="0"]:focus-visible {
   .editorial-sector {
     padding: 70px 0 50px;
   }
+  .skill-item-card {
+    padding: 24px 20px;
+  }
+  .sic-name {
+    font-size: 1.4rem;
+  }
   .epc-info-column,
   .epc-visual-column,
   .about-manifesto-pane,
   .trajectory-card,
-  .skill-modern-card,
   .education-editorial-card,
   .cuc-left-info,
   .cuc-right-channels {

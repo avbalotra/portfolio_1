@@ -394,16 +394,27 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
       }
 
-      // Skills Matrix
+      // Skills Matrix (Scientific & Futuristic Research Interface)
       const skillsContainer = document.getElementById('skillsMatrixContainer');
       if (skillsContainer && Array.isArray(skills)) {
         skillsContainer.innerHTML = skills.map(skill => {
           const name = typeof skill === 'string' ? skill : skill.name;
           const idx = typeof skill === 'object' && skill.idx ? skill.idx : '';
+          const code = typeof skill === 'object' && skill.code ? skill.code : 'MODULE';
+          const status = typeof skill === 'object' && skill.status ? skill.status : 'ACTIVE';
+          const desc = typeof skill === 'object' && skill.desc ? skill.desc : '';
           return `
-            <div class="skill-item-card">
-              ${idx ? `<span class="sic-idx">${idx}</span>` : ''}
+            <div class="skill-item-card" tabindex="0">
+              <div class="sic-top-row">
+                <span class="sic-idx">${idx} // ${code}</span>
+                <span class="sic-status-pill"><span class="sic-pulse-dot"></span>${status}</span>
+              </div>
               <h3 class="sic-name">${name}</h3>
+              ${desc ? `<p class="sic-desc">${desc}</p>` : ''}
+              <div class="sic-bottom-telemetry">
+                <span class="sbt-sig">SIGNAL: OPTIMAL</span>
+                <span class="sbt-bar"><span class="sbt-fill"></span></span>
+              </div>
             </div>
           `;
         }).join('');
@@ -535,6 +546,41 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* --------------------------------------------------------------------------
+     8. SCIENTIFIC SKILLS PARALLAX (SUBTLE ORBITAL REACTIVITY)
+     -------------------------------------------------------------------------- */
+  const initSkillsParallax = () => {
+    const skillsSection = document.getElementById('skills');
+    const orbitalSvg = document.querySelector('.ssb-orbital-svg');
+    if (!skillsSection || !orbitalSvg || prefersReducedMotion) return;
+
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+
+    let targetX = 0, targetY = 0;
+    let curX = 0, curY = 0;
+
+    skillsSection.addEventListener('mousemove', (e) => {
+      const rect = skillsSection.getBoundingClientRect();
+      const relX = (e.clientX - rect.left) / rect.width - 0.5;
+      const relY = (e.clientY - rect.top) / rect.height - 0.5;
+      targetX = relX * 18;
+      targetY = relY * 18;
+    }, { passive: true });
+
+    skillsSection.addEventListener('mouseleave', () => {
+      targetX = 0;
+      targetY = 0;
+    });
+
+    const updateParallax = () => {
+      curX += (targetX - curX) * 0.05;
+      curY += (targetY - curY) * 0.05;
+      orbitalSvg.style.transform = `translate(calc(-50% + ${curX.toFixed(2)}px), calc(-50% + ${curY.toFixed(2)}px))`;
+      requestAnimationFrame(updateParallax);
+    };
+    updateParallax();
+  };
+
+  /* --------------------------------------------------------------------------
      EXECUTE INITIALIZATION
      -------------------------------------------------------------------------- */
   hydrateFromPortfolioData();
@@ -544,4 +590,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initTelemetryClock();
   initClipboardAction();
   initNavigation();
+  initSkillsParallax();
 });

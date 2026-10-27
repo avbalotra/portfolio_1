@@ -111,10 +111,34 @@ const PORTFOLIO_DATA = {
   ],
 
   skills: [
-    { name: "Python", idx: "01" },
-    { name: "C", idx: "02" },
-    { name: "Networking", idx: "03" },
-    { name: "Prompting", idx: "04" }
+    {
+      name: "Python",
+      idx: "01",
+      code: "SCI_COMPUTE",
+      status: "ACTIVE [RUNTIME]",
+      desc: "Algorithmic scripting, numerical computing & machine intelligence workflows."
+    },
+    {
+      name: "C",
+      idx: "02",
+      code: "LOW_LEVEL_SYS",
+      status: "ACTIVE [KERNEL]",
+      desc: "Memory management, computational efficiency & foundational systems logic."
+    },
+    {
+      name: "Networking",
+      idx: "03",
+      code: "COMM_PROTOCOL",
+      status: "ACTIVE [NETWORK]",
+      desc: "Distributed architectures, socket communication & packet routing protocols."
+    },
+    {
+      name: "Prompting",
+      idx: "04",
+      code: "MODEL_INTERACTION",
+      status: "ACTIVE [INFERENCE]",
+      desc: "Context optimization, structured reasoning chains & generative model alignment."
+    }
   ],
 
   education: {
