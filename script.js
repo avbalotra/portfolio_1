@@ -1,9 +1,9 @@
 /**
  * ==============================================================================
- * ATHARAV BALOTRA — FIRST-YEAR CSE (AI/ML) & CREATIVE DEVELOPER
- * SCRIPT.JS: Experimental Cosmic Motion & Architecture Engine
- * Three.js WebGL Tunnel, Terrain & Celestial Sphere, Binary Stream Canvas,
- * Kinetic Character Scrambler, Telemetry HUD & Data Source Hydration
+ * ATHARAV BALOTRA — CREATIVE DEVELOPER & CSE (AI/ML)
+ * SCRIPT.JS: Wodniack-Inspired Creative-Developer Motion Architecture
+ * Generative Digital Wave Canvas, Architectural Schematic Pipeline,
+ * Kinetic Typography Scrambler, Live Telemetry & Data Source Hydration
  * ==============================================================================
  */
 
@@ -14,329 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* --------------------------------------------------------------------------
-     1. THREE.JS 3D COSMIC ENVIRONMENT
-     - Perspective wireframe tunnel
-     - Continuously morphing wireframe terrain
-     - Restrained central geometric sphere & orbital paths
-     - Subtle star field
+     1. GENERATIVE DIGITAL WAVE CANVAS (BACKGROUND LAYER)
+     Mathematical interactive mesh responding to cursor velocity and scroll
      -------------------------------------------------------------------------- */
-  const init3DUniverse = () => {
-    const canvas = document.getElementById('universe3dCanvas');
-    if (!canvas) return;
-
-    if (typeof THREE === 'undefined') {
-      console.warn('Three.js CDN unavailable. 3D cosmic layer bypassed.');
-      return;
-    }
-
-    // WebGL context check
-    try {
-      const testCanvas = document.createElement('canvas');
-      const gl = testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl');
-      if (!gl) {
-        console.warn('WebGL unsupported in current browser.');
-        return;
-      }
-    } catch (e) {
-      console.warn('WebGL detection error:', e);
-      return;
-    }
-
-    try {
-      let width = window.innerWidth;
-      let height = window.innerHeight;
-
-      const renderer = new THREE.WebGLRenderer({
-        canvas: canvas,
-        alpha: true,
-        antialias: true,
-        powerPreference: 'high-performance'
-      });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setSize(width, height);
-      renderer.setClearColor(0x030303, 1);
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 2000);
-      camera.position.set(0, 15, 270);
-
-      // Mouse Parallax Targets
-      let mouseX = 0;
-      let mouseY = 0;
-      let targetMouseX = 0;
-      let targetMouseY = 0;
-      let scrollY = window.scrollY || 0;
-      let targetScrollY = scrollY;
-
-      // ------------------------------------------------------------------------
-      // A. Starfield Layer (Subtle silver & sparse red accent stars)
-      // ------------------------------------------------------------------------
-      const starCount = width < 768 ? 700 : 1300;
-      const starGeo = new THREE.BufferGeometry();
-      const starPositions = new Float32Array(starCount * 3);
-      const starColors = new Float32Array(starCount * 3);
-
-      for (let i = 0; i < starCount * 3; i += 3) {
-        starPositions[i] = (Math.random() - 0.5) * 1600;
-        starPositions[i + 1] = (Math.random() - 0.5) * 1400;
-        starPositions[i + 2] = (Math.random() - 0.5) * 1200 - 100;
-
-        const rand = Math.random();
-        if (rand > 0.94) {
-          // Sparse Accent Red Stars
-          starColors[i] = 1.0;
-          starColors[i + 1] = 0.19;
-          starColors[i + 2] = 0.19;
-        } else {
-          // Silver/White Stars
-          const b = 0.65 + Math.random() * 0.35;
-          starColors[i] = b;
-          starColors[i + 1] = b;
-          starColors[i + 2] = b;
-        }
-      }
-
-      starGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-      starGeo.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
-
-      const starMat = new THREE.PointsMaterial({
-        size: 1.5,
-        vertexColors: true,
-        transparent: true,
-        opacity: 0.75
-      });
-
-      const starField = new THREE.Points(starGeo, starMat);
-      scene.add(starField);
-
-      // ------------------------------------------------------------------------
-      // B. Perspective Wireframe Tunnel (Concentric rings & longitudinal rails)
-      // ------------------------------------------------------------------------
-      const tunnelGroup = new THREE.Group();
-      scene.add(tunnelGroup);
-
-      const ringCount = 12;
-      const tunnelLength = 700;
-      const tunnelRings = [];
-      const ringRadius = 140;
-
-      for (let i = 0; i < ringCount; i++) {
-        const ringGeo = new THREE.BufferGeometry();
-        const segments = 48;
-        const ringPts = [];
-        for (let s = 0; s <= segments; s++) {
-          const theta = (s / segments) * Math.PI * 2;
-          ringPts.push(new THREE.Vector3(Math.cos(theta) * ringRadius, Math.sin(theta) * ringRadius, 0));
-        }
-        ringGeo.setFromPoints(ringPts);
-
-        const isAccent = i === 4;
-        const ringMat = new THREE.LineBasicMaterial({
-          color: isAccent ? 0xff3030 : 0xf4f4f4,
-          transparent: true,
-          opacity: isAccent ? 0.28 : 0.09
-        });
-
-        const ringMesh = new THREE.LineLoop(ringGeo, ringMat);
-        const zPos = 80 - (i * (tunnelLength / ringCount));
-        ringMesh.position.set(0, 5, zPos);
-        tunnelGroup.add(ringMesh);
-        tunnelRings.push(ringMesh);
-      }
-
-      // Longitudinal Rail Lines extending into the tunnel
-      const railCount = 8;
-      for (let r = 0; r < railCount; r++) {
-        const theta = (r / railCount) * Math.PI * 2;
-        const x = Math.cos(theta) * ringRadius;
-        const y = Math.sin(theta) * ringRadius;
-
-        const railGeo = new THREE.BufferGeometry().setFromPoints([
-          new THREE.Vector3(x, y + 5, 80),
-          new THREE.Vector3(x, y + 5, 80 - tunnelLength)
-        ]);
-
-        const railMat = new THREE.LineBasicMaterial({
-          color: 0xffffff,
-          transparent: true,
-          opacity: 0.06
-        });
-
-        const railLine = new THREE.Line(railGeo, railMat);
-        tunnelGroup.add(railLine);
-      }
-
-      // ------------------------------------------------------------------------
-      // C. Central Geometric Wireframe Sphere & Orbital Paths
-      // Positioned at (0, 10, -85) for spatial depth behind hero text
-      // ------------------------------------------------------------------------
-      const coreGroup = new THREE.Group();
-      coreGroup.position.set(0, 10, -85);
-      scene.add(coreGroup);
-
-      const icosaGeo = new THREE.IcosahedronGeometry(44, 2);
-      const icosaMat = new THREE.MeshBasicMaterial({
-        color: 0xf4f4f4,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.15
-      });
-      const celestialCore = new THREE.Mesh(icosaGeo, icosaMat);
-      coreGroup.add(celestialCore);
-
-      // Inner Core Points (Restrained Red Accent)
-      const innerGeo = new THREE.IcosahedronGeometry(32, 1);
-      const innerMat = new THREE.PointsMaterial({
-        color: 0xff3030,
-        size: 1.8,
-        transparent: true,
-        opacity: 0.45
-      });
-      const innerPoints = new THREE.Points(innerGeo, innerMat);
-      coreGroup.add(innerPoints);
-
-      // Thin Orbital Wireframe Rings
-      const createOrbitalRing = (radius, tiltX, tiltZ, opacity, color = 0xf4f4f4) => {
-        const segments = 96;
-        const ringPoints = [];
-        for (let i = 0; i <= segments; i++) {
-          const theta = (i / segments) * Math.PI * 2;
-          ringPoints.push(new THREE.Vector3(Math.cos(theta) * radius, 0, Math.sin(theta) * radius));
-        }
-        const rGeo = new THREE.BufferGeometry().setFromPoints(ringPoints);
-        const rMat = new THREE.LineBasicMaterial({
-          color: color,
-          transparent: true,
-          opacity: opacity
-        });
-        const rLoop = new THREE.LineLoop(rGeo, rMat);
-        rLoop.rotation.x = tiltX;
-        rLoop.rotation.z = tiltZ;
-        return rLoop;
-      };
-
-      const ring1 = createOrbitalRing(80, Math.PI * 0.28, Math.PI * 0.12, 0.2, 0xf4f4f4);
-      const ring2 = createOrbitalRing(110, -Math.PI * 0.22, Math.PI * 0.35, 0.18, 0xff3030);
-      const ring3 = createOrbitalRing(136, Math.PI * 0.42, -Math.PI * 0.18, 0.1, 0x7a1018);
-
-      coreGroup.add(ring1);
-      coreGroup.add(ring2);
-      coreGroup.add(ring3);
-
-      // ------------------------------------------------------------------------
-      // D. Procedural Morphing Wireframe Horizon Terrain
-      // ------------------------------------------------------------------------
-      const terrainWidth = 1400;
-      const terrainDepth = 900;
-      const gridSegmentsX = width < 768 ? 24 : 38;
-      const gridSegmentsY = width < 768 ? 16 : 26;
-
-      const terrainGeo = new THREE.PlaneGeometry(terrainWidth, terrainDepth, gridSegmentsX, gridSegmentsY);
-      terrainGeo.rotateX(-Math.PI / 2);
-
-      const basePositions = terrainGeo.attributes.position.array.slice();
-
-      const terrainMat = new THREE.MeshBasicMaterial({
-        color: 0xf4f4f4,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.11
-      });
-
-      const terrainMesh = new THREE.Mesh(terrainGeo, terrainMat);
-      terrainMesh.position.set(0, -135, -160);
-      scene.add(terrainMesh);
-
-      // Event Listeners for Parallax & Scroll
-      const onMouseMove = (e) => {
-        targetMouseX = ((e.clientX / width) - 0.5) * 2;
-        targetMouseY = ((e.clientY / height) - 0.5) * 2;
-      };
-      window.addEventListener('mousemove', onMouseMove, { passive: true });
-
-      const onScroll = () => {
-        targetScrollY = window.scrollY || 0;
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-
-      const onResize = () => {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-        renderer.setSize(width, height);
-      };
-      window.addEventListener('resize', onResize);
-
-      // Animation Loop
-      let clock = new THREE.Clock();
-
-      const animate = () => {
-        requestAnimationFrame(animate);
-
-        const elapsedTime = clock.getElapsedTime();
-
-        if (!prefersReducedMotion) {
-          mouseX += (targetMouseX - mouseX) * 0.04;
-          mouseY += (targetMouseY - mouseY) * 0.04;
-          scrollY += (targetScrollY - scrollY) * 0.06;
-
-          camera.position.x = mouseX * 22;
-          camera.position.y = 15 - (mouseY * 12) - (scrollY * 0.035);
-          camera.lookAt(0, -scrollY * 0.02, -100);
-
-          // Rotate Celestial Sphere
-          celestialCore.rotation.x = elapsedTime * 0.06;
-          celestialCore.rotation.y = elapsedTime * 0.09;
-
-          innerPoints.rotation.x = -elapsedTime * 0.08;
-          innerPoints.rotation.z = elapsedTime * 0.05;
-
-          ring1.rotation.y = elapsedTime * 0.1;
-          ring2.rotation.y = -elapsedTime * 0.08;
-          ring3.rotation.z = elapsedTime * 0.06;
-
-          starField.rotation.y = elapsedTime * 0.01;
-
-          // Animate Wireframe Tunnel Rings (Forward continuous translation)
-          tunnelRings.forEach((r, idx) => {
-            let z = 80 - (((idx * (tunnelLength / ringCount)) - (elapsedTime * 28)) % tunnelLength);
-            if (z > 80) z -= tunnelLength;
-            r.position.z = z;
-          });
-
-          // Continuously Morphing Terrain Wave Motion
-          const positions = terrainGeo.attributes.position.array;
-          const count = positions.length / 3;
-
-          for (let i = 0; i < count; i++) {
-            const i3 = i * 3;
-            const x = basePositions[i3];
-            const z = basePositions[i3 + 2];
-
-            const wave1 = Math.sin(x * 0.008 + elapsedTime * 1.05) * 14;
-            const wave2 = Math.cos(z * 0.009 + elapsedTime * 0.8) * 15;
-            const wave3 = Math.sin((x + z) * 0.006 + elapsedTime * 0.6) * 8;
-
-            positions[i3 + 1] = basePositions[i3 + 1] + wave1 + wave2 + wave3;
-          }
-          terrainGeo.attributes.position.needsUpdate = true;
-        }
-
-        renderer.render(scene, camera);
-      };
-
-      animate();
-    } catch (err) {
-      console.warn('Three.js initialization notice:', err);
-    }
-  };
-
-  /* --------------------------------------------------------------------------
-     2. GENERATIVE DIGITAL BINARY STREAM CANVAS (2D MATRIX LAYER)
-     -------------------------------------------------------------------------- */
-  const initBinaryStreams = () => {
-    const canvas = document.getElementById('binaryCanvas');
+  const initGenerativeWave = () => {
+    const canvas = document.getElementById('generativeCanvas');
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
@@ -345,76 +27,263 @@ document.addEventListener('DOMContentLoaded', () => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
+    let mouseX = width / 2;
+    let mouseY = height / 2;
+    let targetMouseX = mouseX;
+    let targetMouseY = mouseY;
+    let mouseSpeed = 0;
+    let prevMouseX = mouseX;
+    let prevMouseY = mouseY;
+
     const onResize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
+      initGrid();
     };
     window.addEventListener('resize', onResize);
 
-    const chars = '01010101Δ∇✕◇0xAB';
-    const fontSize = 12;
-    const columns = Math.floor(width / (fontSize * 2.2));
-    const drops = [];
+    const onMouseMove = (e) => {
+      targetMouseX = e.clientX;
+      targetMouseY = e.clientY;
+      const dx = targetMouseX - prevMouseX;
+      const dy = targetMouseY - prevMouseY;
+      mouseSpeed = Math.min(Math.sqrt(dx * dx + dy * dy), 35);
+      prevMouseX = targetMouseX;
+      prevMouseY = targetMouseY;
+    };
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
 
-    for (let i = 0; i < columns; i++) {
-      drops[i] = Math.floor(Math.random() * -50);
-    }
+    // Grid nodes configuration
+    let cols = 0;
+    let rows = 0;
+    const spacing = 48;
+    let points = [];
 
-    let lastDraw = 0;
-    const draw = (timestamp) => {
-      requestAnimationFrame(draw);
+    const initGrid = () => {
+      cols = Math.ceil(width / spacing) + 2;
+      rows = Math.ceil(height / spacing) + 2;
+      points = [];
 
-      if (prefersReducedMotion) return;
-      if (timestamp - lastDraw < 55) return; // ~18 FPS for retro digital stream
-      lastDraw = timestamp;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          points.push({
+            baseX: c * spacing - spacing,
+            baseY: r * spacing - spacing,
+            x: c * spacing - spacing,
+            y: r * spacing - spacing,
+            isAccent: (c * r) % 23 === 0
+          });
+        }
+      }
+    };
+    initGrid();
 
-      ctx.fillStyle = 'rgba(3, 3, 3, 0.12)';
-      ctx.fillRect(0, 0, width, height);
+    let time = 0;
 
-      ctx.font = `${fontSize}px 'JetBrains Mono', monospace`;
+    const render = () => {
+      requestAnimationFrame(render);
 
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        const x = i * (fontSize * 2.2);
-        const y = drops[i] * fontSize;
+      // Smooth mouse interpolation
+      mouseX += (targetMouseX - mouseX) * 0.08;
+      mouseY += (targetMouseY - mouseY) * 0.08;
+      mouseSpeed *= 0.94;
+      time += prefersReducedMotion ? 0 : 0.016;
 
-        // Occasional red accent glyph
-        if (Math.random() > 0.96) {
+      ctx.clearRect(0, 0, width, height);
+
+      // Render digital wave points and connecting lines
+      ctx.lineWidth = 0.6;
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+
+      for (let i = 0; i < points.length; i++) {
+        const p = points[i];
+
+        if (!prefersReducedMotion) {
+          // Dynamic wave harmonics
+          const waveX = Math.sin(p.baseY * 0.006 + time * 1.2) * 12;
+          const waveY = Math.cos(p.baseX * 0.005 + time * 0.9) * 10;
+
+          // Mouse proximity displacement
+          const dx = mouseX - p.baseX;
+          const dy = mouseY - p.baseY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const maxDist = 180;
+
+          let pushX = 0;
+          let pushY = 0;
+          if (dist < maxDist) {
+            const force = (1 - dist / maxDist) * (mouseSpeed * 0.45 + 10);
+            pushX = -(dx / dist) * force;
+            pushY = -(dy / dist) * force;
+          }
+
+          p.x = p.baseX + waveX + pushX;
+          p.y = p.baseY + waveY + pushY;
+        }
+
+        // Draw particle dot
+        if (p.isAccent) {
           ctx.fillStyle = '#FF3030';
+          ctx.fillRect(p.x - 1.5, p.y - 1.5, 3, 3);
         } else {
-          ctx.fillStyle = 'rgba(244, 244, 244, 0.45)';
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.16)';
+          ctx.fillRect(p.x - 0.75, p.y - 0.75, 1.5, 1.5);
         }
 
-        ctx.fillText(text, x, y);
-
-        if (y > height && Math.random() > 0.985) {
-          drops[i] = 0;
+        // Draw connecting horizontal line to neighbor
+        const colIdx = i % cols;
+        if (colIdx < cols - 1) {
+          const nextP = points[i + 1];
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(nextP.x, nextP.y);
+          ctx.stroke();
         }
-        drops[i]++;
       }
     };
 
-    requestAnimationFrame(draw);
+    render();
+  };
+
+  /* --------------------------------------------------------------------------
+     2. INTERACTIVE ARCHITECTURAL PIPELINE CANVAS (PITSTOP AI)
+     Dynamic computational node diagram with active signal packets
+     -------------------------------------------------------------------------- */
+  const initSchematicCanvas = () => {
+    const canvas = document.getElementById('schematicCanvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = (canvas.width = canvas.parentElement.clientWidth);
+    let height = (canvas.height = canvas.parentElement.clientHeight || 280);
+
+    const onResize = () => {
+      width = canvas.width = canvas.parentElement.clientWidth;
+      height = canvas.height = canvas.parentElement.clientHeight || 280;
+    };
+    window.addEventListener('resize', onResize);
+
+    const nodes = [
+      { id: '01', x: 0.18, y: 0.5, label: 'INPUT' },
+      { id: '02', x: 0.40, y: 0.28, label: 'ROUTER' },
+      { id: '03', x: 0.62, y: 0.72, label: 'INFERENCE' },
+      { id: '04', x: 0.84, y: 0.5, label: 'OUTPUT' }
+    ];
+
+    const packets = [
+      { from: 0, to: 1, progress: 0.1, speed: 0.012 },
+      { from: 1, to: 2, progress: 0.5, speed: 0.009 },
+      { from: 2, to: 3, progress: 0.8, speed: 0.014 }
+    ];
+
+    let t = 0;
+
+    const animateSchematic = () => {
+      requestAnimationFrame(animateSchematic);
+      t += 0.02;
+
+      ctx.clearRect(0, 0, width, height);
+
+      // Grid background in schematic
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+      ctx.lineWidth = 1;
+      const step = 20;
+      for (let x = 0; x < width; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+      for (let y = 0; y < height; y += step) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+
+      // Draw connecting channels
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+      ctx.lineWidth = 1.2;
+
+      const getCoords = (n) => ({ x: n.x * width, y: n.y * height });
+
+      ctx.beginPath();
+      const p0 = getCoords(nodes[0]);
+      ctx.moveTo(p0.x, p0.y);
+      for (let i = 1; i < nodes.length; i++) {
+        const p = getCoords(nodes[i]);
+        ctx.lineTo(p.x, p.y);
+      }
+      ctx.stroke();
+
+      // Render animated signal packets
+      packets.forEach(pkt => {
+        pkt.progress += pkt.speed;
+        if (pkt.progress >= 1) pkt.progress = 0;
+
+        const start = getCoords(nodes[pkt.from]);
+        const end = getCoords(nodes[pkt.to]);
+
+        const curX = start.x + (end.x - start.x) * pkt.progress;
+        const curY = start.y + (end.y - start.y) * pkt.progress;
+
+        // Packet glow
+        ctx.fillStyle = '#FF3030';
+        ctx.beginPath();
+        ctx.arc(curX, curY, 3, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = 'rgba(255, 48, 48, 0.3)';
+        ctx.beginPath();
+        ctx.arc(curX, curY, 7, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Render Node stations
+      nodes.forEach((n, idx) => {
+        const { x, y } = getCoords(n);
+
+        // Node Outer Box
+        ctx.strokeStyle = '#FF3030';
+        ctx.fillStyle = '#0a0a0a';
+        ctx.lineWidth = 1.2;
+        ctx.fillRect(x - 14, y - 14, 28, 28);
+        ctx.strokeRect(x - 14, y - 14, 28, 28);
+
+        // Node Index
+        ctx.font = '10px "JetBrains Mono", monospace';
+        ctx.fillStyle = '#ffffff';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(n.id, x, y);
+
+        // Node Label
+        ctx.font = '9px "JetBrains Mono", monospace';
+        ctx.fillStyle = '#8E8E93';
+        ctx.fillText(n.label, x, y + 24);
+      });
+    };
+
+    animateSchematic();
   };
 
   /* --------------------------------------------------------------------------
      3. KINETIC TYPOGRAPHY CHARACTER SCRAMBLER
      -------------------------------------------------------------------------- */
   const initKineticScrambler = () => {
-    const titleEl = document.getElementById('kineticHeroTitle');
+    const titleEl = document.getElementById('heroMassiveTitle');
     if (!titleEl) return;
 
-    const finalString = titleEl.getAttribute('data-scramble') || 'ATHARAV BALOTRA';
     const glyphs = '0123456789ABCDEFΔ∇✕◇░▒▓';
-    let iteration = 0;
-    let scrambleInterval = null;
 
-    const runScramble = () => {
-      clearInterval(scrambleInterval);
-      iteration = 0;
+    const scrambleWord = (element, targetText) => {
+      let iteration = 0;
+      clearInterval(element._scrambleTimer);
 
-      scrambleInterval = setInterval(() => {
-        titleEl.innerHTML = finalString
+      element._scrambleTimer = setInterval(() => {
+        element.innerHTML = targetText
           .split('')
           .map((letter, index) => {
             if (letter === ' ') return ' ';
@@ -424,34 +293,36 @@ document.addEventListener('DOMContentLoaded', () => {
           })
           .join('');
 
-        if (iteration >= finalString.length) {
-          clearInterval(scrambleInterval);
-          titleEl.textContent = finalString;
+        if (iteration >= targetText.length) {
+          clearInterval(element._scrambleTimer);
+          element.textContent = targetText;
         }
 
-        iteration += 1 / 2.5;
+        iteration += 1 / 2.2;
       }, 35);
     };
 
-    // Run on initial load
-    setTimeout(runScramble, 200);
+    const lines = titleEl.querySelectorAll('.title-line');
+    lines.forEach((line, idx) => {
+      const originalText = line.getAttribute('data-text') || line.textContent.trim();
+      setTimeout(() => {
+        scrambleWord(line, originalText);
+      }, idx * 140 + 100);
 
-    // Run on hover
-    titleEl.addEventListener('mouseenter', () => {
-      if (!prefersReducedMotion) runScramble();
+      line.addEventListener('mouseenter', () => {
+        if (!prefersReducedMotion) scrambleWord(line, originalText);
+      });
     });
   };
 
   /* --------------------------------------------------------------------------
-     4. TELEMETRY STATUS HUD UPDATER
+     4. HEADER LIVE UTC TELEMETRY
      -------------------------------------------------------------------------- */
-  const initTelemetryHUD = () => {
+  const initTelemetryClock = () => {
     const clockEl = document.getElementById('telemetryClock');
-    const fpsEl = document.getElementById('fpsTelemetry');
+    if (!clockEl) return;
 
-    // Update UTC Clock
     const updateClock = () => {
-      if (!clockEl) return;
       const now = new Date();
       const h = String(now.getUTCHours()).padStart(2, '0');
       const m = String(now.getUTCMinutes()).padStart(2, '0');
@@ -460,84 +331,43 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     setInterval(updateClock, 1000);
     updateClock();
-
-    // Micro FPS telemetry
-    if (fpsEl) {
-      let frameCount = 0;
-      let lastTime = performance.now();
-      const calcFPS = (now) => {
-        frameCount++;
-        if (now >= lastTime + 1000) {
-          const fps = Math.round((frameCount * 1000) / (now - lastTime));
-          fpsEl.textContent = `${Math.min(fps, 60)} FPS`;
-          frameCount = 0;
-          lastTime = now;
-        }
-        requestAnimationFrame(calcFPS);
-      };
-      requestAnimationFrame(calcFPS);
-    }
   };
 
   /* --------------------------------------------------------------------------
-     5. CONTENT DATA SOURCE HYDRATION (MAINTAINABLE CONTENT REQUIREMENT)
-     Hydrates dynamic elements from window.PORTFOLIO_DATA
+     5. CONTENT DATA SOURCE HYDRATION (MAINTAINABLE CONTENT ARCHITECTURE)
      -------------------------------------------------------------------------- */
   const hydrateFromPortfolioData = () => {
-    if (typeof PORTFOLIO_DATA === 'undefined') {
-      console.info('PORTFOLIO_DATA object loaded from static HTML fallback.');
-      return;
-    }
+    if (typeof PORTFOLIO_DATA === 'undefined') return;
 
     try {
-      const { meta, about, featuredProject, experience, skills, education, contact } = PORTFOLIO_DATA;
+      const { about, featuredProject, secondaryProjects, experience, skills, education, contact } = PORTFOLIO_DATA;
 
-      // Meta & Tagline
-      const heroRoleLead = document.getElementById('heroRoleLead');
-      if (heroRoleLead && meta.tagline) {
-        heroRoleLead.innerHTML = `Exploring intelligent systems. Building software. <span class="accent-text">Creating new digital experiences.</span>`;
-      }
-
-      // About Body Paragraphs
-      const aboutBodyEl = document.getElementById('aboutBodyContainer');
-      if (aboutBodyEl && about && about.paragraphs) {
-        aboutBodyEl.innerHTML = about.paragraphs.map(p => `<p>${p}</p>`).join('');
+      // About Manifesto Paragraphs
+      const aboutContainer = document.getElementById('aboutManifestoContainer');
+      if (aboutContainer && about && about.paragraphs) {
+        aboutContainer.innerHTML = about.paragraphs.map(p => `<p>${p}</p>`).join('');
       }
 
       // About Principles
-      const principlesEl = document.getElementById('principlesContainer');
-      if (principlesEl && about && about.principles) {
-        principlesEl.innerHTML = about.principles.map(item => `
-          <div class="principle-cell">
-            <div class="pc-top">
-              <span class="pc-code">${item.code}</span>
+      const principlesContainer = document.getElementById('principlesContainer');
+      if (principlesContainer && about && about.principles) {
+        principlesContainer.innerHTML = about.principles.map(item => `
+          <div class="principle-block">
+            <div class="pb-header">
+              <span>${item.code}</span>
             </div>
-            <h4 class="pc-title">${item.title}</h4>
-            <p class="pc-desc">${item.description}</p>
+            <h4 class="pb-title">${item.title}</h4>
+            <p class="pb-desc">${item.description}</p>
           </div>
         `).join('');
       }
 
-      // Pitstop AI Schematic Nodes
-      const schematicContainer = document.getElementById('schematicNodesContainer');
-      if (schematicContainer && featuredProject && featuredProject.schematicNodes) {
-        schematicContainer.innerHTML = featuredProject.schematicNodes.map(node => `
-          <div class="schematic-node">
-            <span class="sn-step">${node.step}</span>
-            <div class="sn-info">
-              <span class="sn-title">${node.label}</span>
-              <span class="sn-desc">${node.desc}</span>
-            </div>
-          </div>
-        `).join('');
-      }
-
-      // Secondary Projects Grid (Maintainable additions from portfolio-data.js)
-      const secondaryContainer = document.getElementById('secondaryProjectsContainer');
-      if (secondaryContainer && Array.isArray(PORTFOLIO_DATA.secondaryProjects)) {
-        secondaryContainer.innerHTML = PORTFOLIO_DATA.secondaryProjects.map(proj => `
-          <div class="secondary-project-card card-corner-tech">
-            <div class="spc-top">
+      // Secondary Projects Grid
+      const secContainer = document.getElementById('secondaryProjectsContainer');
+      if (secContainer && Array.isArray(secondaryProjects)) {
+        secContainer.innerHTML = secondaryProjects.map(proj => `
+          <div class="sec-project-card">
+            <div class="spc-meta">
               <span class="spc-cat">${proj.category}</span>
               <span class="spc-status">${proj.status}</span>
             </div>
@@ -547,101 +377,89 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
       }
 
-      // Experience Timeline
-      const expContainer = document.getElementById('experienceTimelineContainer');
+      // Experience Trajectory
+      const expContainer = document.getElementById('experienceTrajectoryContainer');
       if (expContainer && Array.isArray(experience)) {
         expContainer.innerHTML = experience.map(exp => `
-          <div class="exp-card card-corner-tech">
-            <div class="exp-header-row">
+          <div class="trajectory-card">
+            <div class="tc-top-row">
               <div>
-                <h3 class="exp-role-title">${exp.role}</h3>
-                <div class="exp-entity-sub">${exp.entity}</div>
+                <h3 class="tc-role">${exp.role}</h3>
+                <div class="tc-entity">${exp.entity}</div>
               </div>
-              <span class="exp-meta-badge">
-                <span class="tag-dot"></span>
-                <span>${exp.type} // ${exp.period}</span>
-              </span>
+              <span class="tc-meta-pill">${exp.type} // ${exp.period}</span>
             </div>
-            <p class="exp-desc">${exp.description}</p>
+            <p class="tc-desc">${exp.description}</p>
           </div>
         `).join('');
       }
 
-      // Skills Editorial Grid
-      const skillsContainer = document.getElementById('skillsGridContainer');
+      // Skills Matrix
+      const skillsContainer = document.getElementById('skillsMatrixContainer');
       if (skillsContainer && Array.isArray(skills)) {
         skillsContainer.innerHTML = skills.map(cat => `
-          <div class="skill-category-card card-corner-tech">
-            <div class="scc-header">
-              <h3 class="scc-title">${cat.category}</h3>
-              <span class="scc-count">[${cat.items.length} MODULES]</span>
+          <div class="skill-modern-card">
+            <div class="smc-header">
+              <h3 class="smc-title">${cat.category}</h3>
+              <span class="smc-count">[${cat.items.length}]</span>
             </div>
-            <div class="skill-pills-wrap">
-              ${cat.items.map(pill => `<span class="skill-pill">${pill}</span>`).join('')}
+            <div class="smc-pills-wrap">
+              ${cat.items.map(p => `<span class="smc-pill">${p}</span>`).join('')}
             </div>
           </div>
         `).join('');
       }
 
       // Education Focus Areas
-      const eduFocusContainer = document.getElementById('eduFocusListContainer');
-      if (eduFocusContainer && education && education.focusAreas) {
-        eduFocusContainer.innerHTML = education.focusAreas.map(f => `<li>${f}</li>`).join('');
+      const eduListContainer = document.getElementById('eduFocusItemsContainer');
+      if (eduListContainer && education && education.focusAreas) {
+        eduListContainer.innerHTML = education.focusAreas.map(f => `<li>${f}</li>`).join('');
       }
 
-      // Contact details
-      const contactEmailText = document.getElementById('contactEmailText');
-      if (contactEmailText && contact && contact.email) {
-        contactEmailText.textContent = contact.email;
+      // Contact Email
+      const emailVal = document.getElementById('contactEmailVal');
+      if (emailVal && contact && contact.email) {
+        emailVal.textContent = contact.email;
       }
-
-      console.info('Portfolio successfully hydrated from maintainable PORTFOLIO_DATA module.');
     } catch (e) {
-      console.warn('Error hydrating from PORTFOLIO_DATA:', e);
+      console.warn('Hydration notice:', e);
     }
   };
 
   /* --------------------------------------------------------------------------
-     6. INTERACTIVE CONTACT ACTIONS (1-CLICK CLIPBOARD COPY & TOAST)
+     6. INTERACTIVE 1-CLICK CLIPBOARD COPY & FEEDBACK TOAST
      -------------------------------------------------------------------------- */
-  const initContactActions = () => {
+  const initClipboardAction = () => {
     const copyBtn = document.getElementById('copyEmailBtn');
     const toast = document.getElementById('copyToast');
-    const emailToCopy = 'atharavbalotra83@gmail.com';
+    const emailStr = 'atharavbalotra83@gmail.com';
 
     if (copyBtn) {
+      const showToast = () => {
+        if (!toast) return;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      };
+
       copyBtn.addEventListener('click', (e) => {
         e.preventDefault();
-
-        const showToast = () => {
-          if (!toast) return;
-          toast.classList.add('show');
-          setTimeout(() => {
-            toast.classList.remove('show');
-          }, 3200);
-        };
-
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(emailToCopy)
-            .then(showToast)
-            .catch(() => {
-              // Fallback
-              const textarea = document.createElement('textarea');
-              textarea.value = emailToCopy;
-              document.body.appendChild(textarea);
-              textarea.select();
-              document.execCommand('copy');
-              document.body.removeChild(textarea);
-              showToast();
-            });
+          navigator.clipboard.writeText(emailStr).then(showToast).catch(() => {
+            const ta = document.createElement('textarea');
+            ta.value = emailStr;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showToast();
+          });
         } else {
-          // Fallback
-          const textarea = document.createElement('textarea');
-          textarea.value = emailToCopy;
-          document.body.appendChild(textarea);
-          textarea.select();
+          const ta = document.createElement('textarea');
+          ta.value = emailStr;
+          document.body.appendChild(ta);
+          ta.select();
           document.execCommand('copy');
-          document.body.removeChild(textarea);
+          document.body.removeChild(ta);
           showToast();
         }
       });
@@ -649,14 +467,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* --------------------------------------------------------------------------
-     7. NAVIGATION, ACCESSIBLE MOBILE DRAWER & SCROLLSPY
+     7. NAVIGATION, MOBILE DRAWER & ACTIVE SCROLLSPY
      -------------------------------------------------------------------------- */
   const initNavigation = () => {
-    const toggleBtn = document.getElementById('menuToggleBtn');
-    const drawer = document.getElementById('mobileDrawer');
-    const navLinks = document.querySelectorAll('.desktop-nav .nav-item, .mobile-drawer .mobile-link');
+    const toggleBtn = document.getElementById('mobileNavToggle');
+    const drawer = document.getElementById('mobileDrawerMenu');
+    const navLinks = document.querySelectorAll('.header-nav .nav-link-item, .mobile-drawer-menu .mobile-item');
 
-    // Mobile menu toggle
+    // Drawer toggle
     if (toggleBtn && drawer) {
       toggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -673,8 +491,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       // Close on link click
-      drawer.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+      drawer.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
           drawer.classList.remove('open');
           drawer.setAttribute('aria-hidden', 'true');
           toggleBtn.setAttribute('aria-expanded', 'false');
@@ -691,11 +509,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // ScrollSpy
+    // Scrollspy
     const sections = document.querySelectorAll('section[id]');
-    const onScrollSpy = () => {
-      const scrollPos = window.scrollY + 200;
-
+    const onScroll = () => {
+      const scrollPos = window.scrollY + 180;
       sections.forEach(sec => {
         const top = sec.offsetTop;
         const height = sec.offsetHeight;
@@ -703,8 +520,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (scrollPos >= top && scrollPos < top + height) {
           navLinks.forEach(link => {
-            const target = link.getAttribute('href');
-            if (target === `#${id}`) {
+            const href = link.getAttribute('href');
+            if (href === `#${id}`) {
               link.classList.add('active');
             } else {
               link.classList.remove('active');
@@ -714,18 +531,18 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
-    window.addEventListener('scroll', onScrollSpy, { passive: true });
-    onScrollSpy();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   };
 
   /* --------------------------------------------------------------------------
-     INITIALIZE ALL SUBSYSTEMS
+     EXECUTE INITIALIZATION
      -------------------------------------------------------------------------- */
   hydrateFromPortfolioData();
-  init3DUniverse();
-  initBinaryStreams();
+  initGenerativeWave();
+  initSchematicCanvas();
   initKineticScrambler();
-  initTelemetryHUD();
-  initContactActions();
+  initTelemetryClock();
+  initClipboardAction();
   initNavigation();
 });
