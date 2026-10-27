@@ -3,441 +3,580 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atharav Balota — Aspiring Founder & Software Engineer</title>
+  <title>ATHARAV BALOTRA // SPACE × DIGITAL REALITY</title>
   
-  <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="Atharav Balota — Aspiring Founder & Software Engineer building Pitstop AI. Full-stack development, AI/ML, football, and mountaineering.">
-  <meta name="author" content="Atharav Balota">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <meta name="description" content="Atharav Balotra — Aspiring Founder & Software Engineer building Pitstop AI. Generative 3D space environment, orbital navigation, and digital reality systems.">
+  <meta name="author" content="Atharav Balotra">
 
-  <!-- Google Fonts: Plus Jakarta Sans (ultra-clean modern body & headings) & Space Grotesk (tech badges & numbers) -->
+  <!-- Monogram Vector Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23000000%22/><circle cx=%2250%22 cy=%2250%22 r=%2238%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%223%22 stroke-dasharray=%224 4%22/><text y=%22.72em%22 x=%22.18em%22 font-size=%2255%22 font-family=%22sans-serif%22 font-weight=%22800%22 fill=%22%23ffffff%22>AB</text></svg>">
+
+  <!-- Google Fonts: Space Grotesk, JetBrains Mono, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="space-universe">
+
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to central content</a>
 
   <!-- ========================================================
-       ACCESSIBILITY SKIP LINK
+       3D REAL-TIME WEBGL SPACE CANVAS (BACKGROUND LAYER)
        ======================================================== -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="space-canvas-viewport" aria-hidden="true">
+    <canvas id="universe3dCanvas"></canvas>
+    <div class="space-ambient-bloom"></div>
+    <div class="space-depth-vignette"></div>
+  </div>
 
   <!-- ========================================================
-       STICKY TOP NAVIGATION BAR
+       CELESTIAL HUD TOP STATUS BAR
        ======================================================== -->
-  <header class="navbar" id="navbar">
-    <div class="nav-container">
+  <aside class="celestial-hud-bar" aria-label="Orbital Telemetry">
+    <div class="hud-inner">
+      <div class="hud-left">
+        <span class="hud-status-node">
+          <span class="hud-pulsar"></span>
+          <span class="hud-label">COSMOS://ONLINE</span>
+        </span>
+        <span class="hud-sep">|</span>
+        <span class="hud-coords" id="orbitalCoordinates">RA 19h 50m 47s / DEC +08° 52′ 06″</span>
+      </div>
+
+      <div class="hud-center">
+        <span class="hud-mission">MISSION: PITSTOP_AI // NEXT-GEN AUTONOMOUS WORKFLOWS</span>
+      </div>
+
+      <div class="hud-right">
+        <span class="hud-velocity" id="velocityTelemetry">ORBITAL VELOCITY: 27.6 KM/S</span>
+        <span class="hud-sep">|</span>
+        <span class="hud-epoch">EPOCH 2026.10</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================
+       PRIMARY BRAND HEADER & HORIZONTAL NAVIGATION
+       ======================================================== -->
+  <header class="celestial-header" id="celestialHeader">
+    <div class="header-shell">
       
-      <!-- Brand Logo -->
-      <a href="#hero" class="brand-logo" aria-label="Atharav Balota Home">
-        <span class="logo-mark">AB</span>
-        <div class="logo-text">
-          <span class="logo-name">ATHARAV BALOTA</span>
-          <span class="logo-status">● BUILDING PITSTOP AI</span>
+      <!-- Brand Logo / Monogram -->
+      <a href="#hero" class="brand-cosmic" aria-label="Atharav Balotra - Celestial Origin">
+        <div class="monogram-ring-box">
+          <svg class="monogram-svg" viewBox="0 0 44 44" fill="none">
+            <circle cx="22" cy="22" r="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" stroke-dasharray="3 3"/>
+            <ellipse cx="22" cy="22" rx="20" ry="8" stroke="rgba(255,255,255,0.4)" stroke-width="1" transform="rotate(-25 22 22)"/>
+            <circle cx="22" cy="22" r="2.5" fill="#ffffff"/>
+          </svg>
+          <span class="monogram-letters">AB</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">ATHARAV BALOTRA</span>
+          <span class="brand-subtitle">SPACE × DIGITAL REALITY</span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="nav-menu" aria-label="Primary Navigation">
-        <ul class="nav-list">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#pitstop" class="nav-link">Pitstop AI</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#pursuits" class="nav-link">Pursuits</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+      <!-- Desktop Horizontal Navigation Menu -->
+      <nav class="desktop-nav-menu" aria-label="Primary Sector Navigation">
+        <ul class="nav-links-row">
+          <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+          <li><a href="#projects" class="nav-link highlight" data-section="projects">Pitstop AI</a></li>
+          <li><a href="#experience" class="nav-link" data-section="experience">Trajectory</a></li>
+          <li><a href="#skills" class="nav-link" data-section="skills">Network</a></li>
+          <li><a href="#education" class="nav-link" data-section="education">Observatory</a></li>
+          <li><a href="#pursuits" class="nav-link" data-section="pursuits">Pursuits</a></li>
+          <li><a href="#contact" class="nav-link" data-section="contact">Uplink</a></li>
         </ul>
       </nav>
 
-      <!-- Action Buttons -->
-      <div class="nav-actions">
-        <a href="resume.pdf" download="Atharav_Balota_Resume.pdf" class="btn btn-outline btn-sm resume-btn" id="navResumeBtn">
-          <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+      <!-- Header Actions: Technical Transmission (Resume) -->
+      <div class="header-actions">
+        <a href="resume.pdf" download="Atharav_Balotra_Resume.pdf" class="transmission-btn" id="headerResumeBtn" aria-label="Download Technical Resume">
+          <svg class="cosmic-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor"/>
+            <line x1="8" y1="8" x2="16" y2="8" stroke="currentColor"/>
+            <line x1="8" y1="12" x2="14" y2="12" stroke="currentColor"/>
+            <polyline points="10 16 12 18 14 16" stroke="currentColor"/>
+            <line x1="12" y1="13" x2="12" y2="18" stroke="currentColor"/>
           </svg>
-          <span>Resume</span>
+          <span class="btn-text">TRANSMIT RESUME</span>
+          <span class="btn-indicator">PDF</span>
         </a>
-        <a href="#contact" class="btn btn-primary btn-sm">Let’s Talk ↗</a>
 
         <!-- Mobile Menu Toggle Button -->
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span class="toggle-line"></span>
-          <span class="toggle-line"></span>
-          <span class="toggle-line"></span>
+        <button class="mobile-orbital-btn" id="mobileOrbitalToggle" aria-label="Toggle Orbital Controls" aria-expanded="false">
+          <span class="orbital-bar"></span>
+          <span class="orbital-bar"></span>
         </button>
       </div>
 
     </div>
 
-    <!-- Mobile Navigation Drawer -->
+    <!-- Mobile Drawer Menu -->
     <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
-      <ul class="mobile-nav-list">
-        <li><a href="#about" class="mobile-nav-link">About</a></li>
-        <li><a href="#pitstop" class="mobile-nav-link">Pitstop AI</a></li>
-        <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
-        <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
-        <li><a href="#education" class="mobile-nav-link">Education</a></li>
-        <li><a href="#pursuits" class="mobile-nav-link">Pursuits</a></li>
-        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
-        <li class="mobile-cta-row">
-          <a href="resume.pdf" download="Atharav_Balota_Resume.pdf" class="btn btn-outline btn-full">Download Resume (PDF)</a>
-          <a href="#contact" class="btn btn-primary btn-full">Get In Touch ↗</a>
-        </li>
+      <ul class="mobile-drawer-links">
+        <li><a href="#hero" class="mobile-nav-link">Origin // 00</a></li>
+        <li><a href="#about" class="mobile-nav-link">About // 01</a></li>
+        <li><a href="#projects" class="mobile-nav-link highlight">Pitstop AI // 02</a></li>
+        <li><a href="#experience" class="mobile-nav-link">Trajectory // 03</a></li>
+        <li><a href="#skills" class="mobile-nav-link">Network // 04</a></li>
+        <li><a href="#education" class="mobile-nav-link">Observatory // 05</a></li>
+        <li><a href="#pursuits" class="mobile-nav-link">Pursuits // 06</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Uplink // 07</a></li>
       </ul>
+      <div class="mobile-drawer-footer">
+        <a href="resume.pdf" download="Atharav_Balotra_Resume.pdf" class="transmission-btn full-width">
+          <span class="btn-text">DOWNLOAD RESUME PDF</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- ========================================================
-       MAIN PAGE CONTAINER
+       ORBITAL CONTROL SYSTEM (DESKTOP LATERAL TELEMETRY RAIL)
        ======================================================== -->
-  <main id="main-content">
-
-    <!-- ======================================================
-         HERO SECTION: SPLIT SCREEN WITH TORN PAPER DIVIDER
-         Left Side: Clean Light Canvas with Soft Pastel Blobs
-         Right Side: Deep Blue (#0A2A5E) with Photo & Pill Badges
-         ====================================================== -->
-    <section class="hero-split-section" id="hero" aria-label="Hero Overview">
+  <nav class="orbital-nav-system" id="orbitalNav" aria-label="Orbital Control Track">
+    <div class="orbital-track-line" aria-hidden="true"></div>
+    <div class="orbital-nodes-cluster">
       
-      <!-- Split Container -->
-      <div class="hero-split-grid">
-
-        <!-- --------------------------------------------------
-             LEFT SIDE (CLEAN LIGHT CANVAS)
-             -------------------------------------------------- -->
-        <div class="hero-left-col">
-          <!-- Soft Background Pastel Blobs -->
-          <div class="pastel-blob blob-light-blue" aria-hidden="true"></div>
-          <div class="pastel-blob blob-peach" aria-hidden="true"></div>
-
-          <!-- Subtle Frosted Glass Mountain Ridge Contour in Left Background -->
-          <div class="left-glass-mountain-contour" aria-hidden="true">
-            <svg viewBox="0 0 700 240" class="left-mountain-svg" preserveAspectRatio="none">
-              <path d="M0 240 L0 160 L140 90 L280 180 L440 70 L580 170 L700 110 L700 240 Z" fill="rgba(241, 245, 249, 0.7)" stroke="rgba(10, 42, 94, 0.08)" stroke-width="1.5" />
-            </svg>
-          </div>
-
-          <div class="hero-content-inner">
-            
-            <!-- Rounded Speech-Bubble Style Label (Like reference) -->
-            <div class="speech-pill-wrapper">
-              <div class="speech-pill">
-                <span class="pill-dot"></span>
-                <span class="pill-title">Aspiring Founder & Software Engineer</span>
-                <span class="speech-tail" aria-hidden="true"></span>
-              </div>
-            </div>
-
-            <!-- Big Modern Heading -->
-            <h1 class="hero-title">
-              Hi, I’m <span class="highlight-name">Atharav Balota</span>.
-            </h1>
-
-            <!-- Subtitle with secondary title -->
-            <p class="hero-tagline">
-              Building <strong>Pitstop AI</strong> • Crafting Full-Stack Scalable Systems
-            </p>
-
-            <!-- 3-4 Line Confident & Professional Bio -->
-            <p class="hero-bio-text">
-              I’m an aspiring founder and full-stack software engineer obsessed with building high-impact products from zero to one. Currently, I'm channeling my energy into building <strong>Pitstop AI</strong> — an intelligent platform engineered to solve real-world operational bottlenecks. When I step away from code, you’ll find me strategizing on the football field or climbing high-altitude mountain trails.
-            </p>
-
-            <!-- Call to Action Buttons -->
-            <div class="hero-cta-group">
-              <a href="#pitstop" class="btn btn-primary btn-lg">
-                <span>Explore Pitstop AI</span>
-                <span class="btn-arrow">→</span>
-              </a>
-              <a href="resume.pdf" download="Atharav_Balota_Resume.pdf" class="btn btn-secondary btn-lg" id="heroResumeBtn">
-                <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-                </svg>
-                <span>Download Resume</span>
-              </a>
-            </div>
-
-            <!-- Quick Metrics Cards (Modern Soft Shadow Style) -->
-            <div class="hero-quick-stats">
-              <div class="quick-stat-card">
-                <span class="stat-number">01</span>
-                <span class="stat-label">Venture (Pitstop AI)</span>
-              </div>
-              <div class="quick-stat-card">
-                <span class="stat-number">100K+</span>
-                <span class="stat-label">Lines of Scalable Code</span>
-              </div>
-              <div class="quick-stat-card">
-                <span class="stat-number">90’</span>
-                <span class="stat-label">Football Pitch Grit</span>
-              </div>
-              <div class="quick-stat-card">
-                <span class="stat-number">5K+m</span>
-                <span class="stat-label">Peak Summits</span>
-              </div>
-            </div>
-
-          </div>
+      <a href="#hero" class="orbital-node active" data-section="hero" aria-label="Sector 00: Arrival in the Digital Universe">
+        <div class="node-ring"></div>
+        <div class="node-icon-wrap">
+          <svg class="cosmic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3" fill="currentColor"/>
+            <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-dasharray="2 2"/>
+          </svg>
         </div>
-
-        <!-- --------------------------------------------------
-             RIGHT SIDE (DEEP BLUE #0A2A5E WITH TORN PAPER SEAM)
-             -------------------------------------------------- -->
-        <div class="hero-right-col">
-          
-          <!-- Jagged Torn Paper Divider Edge (SVG Seam) -->
-          <div class="torn-paper-edge" aria-hidden="true">
-            <svg viewBox="0 0 24 1000" preserveAspectRatio="none" class="torn-svg">
-              <path d="M24 0 L24 1000 L12 980 L2 955 L16 930 L4 905 L18 880 L6 855 L20 830 L3 805 L17 780 L5 755 L19 730 L4 705 L18 680 L7 655 L21 630 L5 605 L17 580 L4 555 L19 530 L6 505 L20 480 L4 455 L18 430 L5 405 L19 380 L3 355 L17 330 L6 305 L20 280 L5 255 L18 230 L4 205 L19 180 L6 155 L21 130 L4 105 L18 80 L5 55 L19 30 L6 0 Z" fill="#0A2A5E" />
-            </svg>
-          </div>
-
-          <!-- Ambient Glow Blobs in Deep Blue Canvas -->
-          <div class="ambient-glow glow-blue" aria-hidden="true"></div>
-          <div class="ambient-glow glow-cyan" aria-hidden="true"></div>
-
-          <!-- Glassmorphic Mountain Ridges in Background (Alpine Peaks with Frost Blur) -->
-          <div class="glass-mountains-backdrop" aria-hidden="true">
-            <!-- Mountain Peak 1: High Distant Glass Ridge -->
-            <div class="glass-mountain glass-mountain-back">
-              <svg viewBox="0 0 600 320" class="glass-mountain-svg" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="glassPeakGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="rgba(255, 255, 255, 0.28)"/>
-                    <stop offset="60%" stop-color="rgba(56, 189, 248, 0.12)"/>
-                    <stop offset="100%" stop-color="rgba(10, 42, 94, 0.05)"/>
-                  </linearGradient>
-                </defs>
-                <polygon points="0,320 180,60 320,180 460,40 600,320" fill="url(#glassPeakGrad1)" stroke="rgba(255, 255, 255, 0.35)" stroke-width="1.5"/>
-                <!-- Snow cap highlight -->
-                <polygon points="180,60 145,115 215,115" fill="rgba(255, 255, 255, 0.5)"/>
-                <polygon points="460,40 425,95 495,95" fill="rgba(255, 255, 255, 0.5)"/>
-              </svg>
-            </div>
-
-            <!-- Mountain Peak 2: Mid Glass Ridge with Frosted Rim -->
-            <div class="glass-mountain glass-mountain-mid">
-              <svg viewBox="0 0 600 260" class="glass-mountain-svg" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="glassPeakGrad2" x1="50%" y1="0%" x2="50%" y2="100%">
-                    <stop offset="0%" stop-color="rgba(255, 255, 255, 0.22)"/>
-                    <stop offset="100%" stop-color="rgba(10, 42, 94, 0.2)"/>
-                  </linearGradient>
-                </defs>
-                <polygon points="0,260 110,120 250,220 380,80 520,200 600,260" fill="url(#glassPeakGrad2)" stroke="rgba(255, 255, 255, 0.45)" stroke-width="2"/>
-                <polygon points="380,80 345,130 415,130" fill="rgba(255, 255, 255, 0.6)"/>
-              </svg>
-            </div>
-
-            <!-- Mountain Peak 3: Foreground Crisp Glass Horizon -->
-            <div class="glass-mountain glass-mountain-front">
-              <svg viewBox="0 0 600 200" class="glass-mountain-svg" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="glassPeakGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="rgba(56, 189, 248, 0.25)"/>
-                    <stop offset="100%" stop-color="rgba(10, 42, 94, 0.4)"/>
-                  </linearGradient>
-                </defs>
-                <polygon points="0,200 70,110 200,190 310,90 470,170 600,200" fill="url(#glassPeakGrad3)" stroke="rgba(56, 189, 248, 0.6)" stroke-width="2"/>
-                <polygon points="310,90 280,130 340,130" fill="rgba(255, 255, 255, 0.75)"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Profile Photo with Clean Soft Mask -->
-          <div class="profile-presentation-wrap">
-            
-            <!-- Soft Floating Pill Badges around photo (Like reference style) -->
-            <div class="floating-badge badge-top-left">
-              <span class="badge-icon">⚡</span>
-              <span class="badge-text">Building Pitstop AI</span>
-            </div>
-
-            <div class="floating-badge badge-top-right">
-              <span class="badge-icon">💻</span>
-              <span class="badge-text">Full-Stack Architecture</span>
-            </div>
-
-            <!-- Profile Image Container with Soft Shadow & Border -->
-            <div class="profile-mask-frame">
-              <div class="profile-inner-glow"></div>
-              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80" 
-                   alt="Atharav Balota — Aspiring Founder & Software Engineer" 
-                   class="profile-img" 
-                   width="600" height="750" 
-                   loading="eager">
-              <div class="profile-gradient-scrim"></div>
-            </div>
-
-            <div class="floating-badge badge-bottom">
-              <span class="badge-icon">🏔️</span>
-              <span class="badge-text">Alpine Summits & Football</span>
-            </div>
-
-            <!-- Bottom Mini Dossier Strip in Blue Panel -->
-            <div class="right-dossier-pill">
-              <div class="dossier-item">
-                <span class="d-label">STATUS</span>
-                <span class="d-val">Actively Building</span>
-              </div>
-              <div class="dossier-divider"></div>
-              <div class="dossier-item">
-                <span class="d-label">SPECIALTY</span>
-                <span class="d-val">AI/ML & Systems</span>
-              </div>
-              <div class="dossier-divider"></div>
-              <div class="dossier-item">
-                <span class="d-label">BASE</span>
-                <span class="d-val">Global</span>
-              </div>
-            </div>
-
-          </div>
-
+        <div class="node-tooltip">
+          <span class="tooltip-index">00 // ARRIVAL</span>
+          <span class="tooltip-name">DIGITAL UNIVERSE</span>
         </div>
+      </a>
 
-      </div>
+      <a href="#about" class="orbital-node" data-section="about" aria-label="Sector 01: Celestial Origin & Manifesto">
+        <div class="node-ring"></div>
+        <div class="node-icon-wrap">
+          <svg class="cosmic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3" fill="currentColor"/>
+            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" stroke="currentColor"/>
+            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-30 12 12)" stroke="currentColor"/>
+          </svg>
+        </div>
+        <div class="node-tooltip">
+          <span class="tooltip-index">01 // ORIGIN</span>
+          <span class="tooltip-name">FOUNDER MANIFESTO</span>
+        </div>
+      </a>
 
-    </section>
+      <a href="#projects" class="orbital-node" data-section="projects" aria-label="Sector 02: Flagship Project - Pitstop AI">
+        <div class="node-ring"></div>
+        <div class="node-icon-wrap">
+          <svg class="cosmic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5" stroke="currentColor"/>
+            <ellipse cx="12" cy="12" rx="10" ry="3.5" transform="rotate(-20 12 12)" stroke="currentColor"/>
+            <circle cx="19" cy="9.5" r="1.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="node-tooltip">
+          <span class="tooltip-index">02 // PROJECTS</span>
+          <span class="tooltip-name">PITSTOP AI VENTURE</span>
+        </div>
+      </a>
+
+      <a href="#experience" class="orbital-node" data-section="experience" aria-label="Sector 03: Orbital Trajectories & Experience">
+        <div class="node-ring"></div>
+        <div class="node-icon-wrap">
+          <svg class="cosmic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="5" cy="17" r="2" fill="currentColor"/>
+            <circle cx="12" cy="7" r="2" fill="currentColor"/>
+            <circle cx="19" cy="13" r="2" fill="currentColor"/>
+            <path d="M5 17 L12 7 L19 13" stroke="currentColor" stroke-dasharray="2 2"/>
+            <path d="M3 20 C8 15 14 12 21 8" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="node-tooltip">
+          <span class="tooltip-index">03 // TRAJECTORY</span>
+          <span class="tooltip-name">EXPERIENCE LOG</span>
+        </div>
+      </a>
+
+      <a href="#skills" class="orbital-node" data-section="skills" aria-label="Sector 04: Stellar Network & Tech Skills">
+        <div class="node-ring"></div>
+        <div class="node-icon-wrap">
+          <svg class="cosmic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="12,3 15,9 21,9 16,14 18,20 12,16 6,20 8,14 3,9 9,9" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="12" cy="12" r="2" fill="currentColor"/>
+            <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
+            <circle cx="21" cy="9" r="1.5" fill="currentColor"/>
+            <circle cx="18" cy="20" r="1.5" fill="currentColor"/>
+            <circle cx="6" cy="20" r="1.5" fill="currentColor"/>
+            <circle cx="3" cy="9" r="1.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="node-tooltip">
+          <span class="tooltip-index">04 // NETWORK</span>
+          <span class="tooltip-name">TECHNICAL SKILLS</span>
+        </div>
+      </a>
+
+      <a href="#education" class="orbital-node" data-section="education" aria-label="Sector 05: Geometric Observatory & Education">
+        <div class="node-ring"></div>
+        <div class="node-icon-wrap">
+          <svg class="cosmic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="6" y1="18" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+            <rect x="14" y="4" width="6" height="4" transform="rotate(-45 17 6)" stroke="currentColor"/>
+            <line x1="8" y1="16" x2="5" y2="21" stroke="currentColor"/>
+            <line x1="11" y1="19" x2="14" y2="21" stroke="currentColor"/>
+            <circle cx="20" cy="3" r="1" fill="currentColor"/>
+            <circle cx="21" cy="6" r="1" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="node-tooltip">
+          <span class="tooltip-index">05 // OBSERVATORY</span>
+          <span class="tooltip-name">ACADEMIC FOUNDATIONS</span>
+        </div>
+      </a>
+
+      <a href="#pursuits" class="orbital-node" data-section="pursuits" aria-label="Sector 06: Terrestrial Coordinates & Pursuits">
+        <div class="node-ring"></div>
+        <div class="node-icon-wrap">
+          <svg class="cosmic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="12,4 20,18 4,18" stroke="currentColor"/>
+            <polyline points="7,13 12,9 17,13" stroke="currentColor"/>
+            <line x1="12" y1="9" x2="12" y2="18" stroke="currentColor" stroke-dasharray="2 2"/>
+          </svg>
+        </div>
+        <div class="node-tooltip">
+          <span class="tooltip-index">06 // COORDINATES</span>
+          <span class="tooltip-name">SUMMITS & FOOTBALL</span>
+        </div>
+      </a>
+
+      <a href="#contact" class="orbital-node" data-section="contact" aria-label="Sector 07: Signal Beacon & Contact Uplink">
+        <div class="node-ring"></div>
+        <div class="node-icon-wrap">
+          <svg class="cosmic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 11 A8 8 0 0 1 12 3" stroke="currentColor" stroke-linecap="round"/>
+            <path d="M7 14 A4 4 0 0 1 11 10" stroke="currentColor" stroke-linecap="round"/>
+            <circle cx="16" cy="16" r="2.5" stroke="currentColor" fill="currentColor"/>
+            <line x1="14" y1="14" x2="10" y2="10" stroke="currentColor"/>
+            <line x1="17" y1="18" x2="20" y2="21" stroke="currentColor"/>
+          </svg>
+        </div>
+        <div class="node-tooltip">
+          <span class="tooltip-index">07 // BEACON</span>
+          <span class="tooltip-name">COMMUNICATIONS UPLINK</span>
+        </div>
+      </a>
+
+    </div>
+  </nav>
+
+  <!-- ========================================================
+       MOBILE DOCK NAVIGATION (TOUCH-FRIENDLY BOTTOM BAR)
+       ======================================================== -->
+  <div class="mobile-cosmic-dock" id="mobileCosmicDock" aria-label="Mobile Navigation">
+    <div class="dock-shell">
+      <a href="#hero" class="dock-node active" data-section="hero" aria-label="Arrival">
+        <svg class="dock-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="3" fill="currentColor"/>
+          <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-dasharray="2 2"/>
+        </svg>
+        <span class="dock-label">ORIGIN</span>
+      </a>
+      <a href="#about" class="dock-node" data-section="about" aria-label="Manifesto">
+        <svg class="dock-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="3" fill="currentColor"/>
+          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(30 12 12)" stroke="currentColor"/>
+        </svg>
+        <span class="dock-label">ABOUT</span>
+      </a>
+      <a href="#projects" class="dock-node" data-section="projects" aria-label="Pitstop AI">
+        <svg class="dock-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="4.5" stroke="currentColor"/>
+          <ellipse cx="12" cy="12" rx="9" ry="3" transform="rotate(-20 12 12)" stroke="currentColor"/>
+        </svg>
+        <span class="dock-label">PITSTOP</span>
+      </a>
+      <a href="#skills" class="dock-node" data-section="skills" aria-label="Skills">
+        <svg class="dock-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polygon points="12,3 15,9 21,9 16,14 18,20 12,16 6,20 8,14 3,9 9,9" stroke="currentColor" stroke-width="1"/>
+        </svg>
+        <span class="dock-label">SKILLS</span>
+      </a>
+      <a href="#contact" class="dock-node" data-section="contact" aria-label="Signal Beacon">
+        <svg class="dock-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 11 A8 8 0 0 1 12 3" stroke="currentColor"/>
+          <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+        </svg>
+        <span class="dock-label">UPLINK</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MAIN UNIVERSE CONTAINER
+       ======================================================== -->
+  <main id="main-content" class="universe-main">
 
     <!-- ======================================================
-         SECTION 1: ABOUT (Clean Professional Narrative)
+         SECTOR 00: HERO // ARRIVAL IN THE DIGITAL UNIVERSE
+         Dedicated full-viewport hero container with predictable
+         stacking context and high-impact editorial composition.
          ====================================================== -->
-    <section class="content-section" id="about">
-      <div class="section-container">
+    <section class="hero-container" id="hero" aria-label="Arrival in the Digital Universe">
+      <div class="hero-foreground">
         
-        <div class="section-header text-center">
-          <div class="pill-tag">ABOUT ME</div>
-          <h2 class="section-heading">Driven by Curiosity, Grounded in Execution</h2>
-          <p class="section-subheading">A blend of technical depth, founder mindset, and relentless resilience.</p>
+        <!-- Orientation Coordinates -->
+        <div class="hero-orientation-tag">
+          <div class="coordinate-pill">
+            <span class="coord-target">TARGET SECTOR</span>
+            <span class="coord-divider">::</span>
+            <span class="coord-val">LAT 19.076° N // LON 72.877° E // Z-DEPTH: INF</span>
+          </div>
         </div>
 
-        <div class="about-grid">
-          
-          <!-- Narrative Card -->
-          <div class="about-card main-narrative-card">
-            <h3 class="card-title">Engineering Products that Matter</h3>
-            <p>
-              I believe software engineering is at its best when it moves beyond syntax and transforms into solutions that solve real, measurable problems. My journey combines deep technical craftsmanship in modern web architectures and AI systems with the strategic ambition of an entrepreneur.
-            </p>
-            <p>
-              Whether it’s architecting end-to-end full-stack applications, integrating state-of-the-art machine learning models, or testing prototypes with early users, I focus on velocity, code clarity, and scalable system design.
-            </p>
-            <div class="about-quote-box">
-              <span class="quote-symbol">“</span>
-              <p class="quote-text">Stay relentlessly resourceful. The steepest mountains and the hardest codebases are conquered one disciplined step at a time.</p>
+        <!-- Headline: Editorial Monolithic Identity -->
+        <div class="hero-headline-block">
+          <h1 class="cosmic-title">
+            <span class="title-glyph">ATHARAV</span>
+            <span class="title-glyph title-silver">BALOTRA</span>
+          </h1>
+
+          <p class="cosmic-subtitle">
+            <span class="sub-lead">ASPIRING FOUNDER &amp; SOFTWARE ENGINEER</span>
+            <span class="sub-sep">//</span>
+            <span class="sub-role">BUILDING PITSTOP AI &amp; DIGITAL REALITY ARCHITECTURES</span>
+          </p>
+        </div>
+
+        <!-- Supporting Narrative Bio -->
+        <p class="hero-cosmic-bio">
+          Navigating the convergence of autonomous intelligence, distributed software systems, and deep-tech products. Currently engineering <strong>Pitstop AI</strong> to eliminate operational friction through real-time autonomous pipelines. Beyond the terminal, conquering high-altitude Himalayan summits and commanding tactical play on the football pitch.
+        </p>
+
+        <!-- Primary Action Constellation -->
+        <div class="hero-action-constellation">
+          <a href="#about" class="cosmic-btn btn-primary" id="exploreUniverseBtn">
+            <span class="btn-text">EXPLORE MY UNIVERSE</span>
+            <span class="btn-arrow-down">↓</span>
+          </a>
+
+          <a href="#projects" class="cosmic-btn btn-wireframe" id="viewProjectsBtn">
+            <span class="btn-text">VIEW MY PROJECTS</span>
+            <span class="btn-telemetry-badge">PITSTOP AI ↗</span>
+          </a>
+        </div>
+
+        <!-- Telemetry Horizon Highlights -->
+        <div class="hero-horizon-metrics">
+          <div class="metric-node">
+            <span class="m-glyph">01</span>
+            <div class="m-info">
+              <span class="m-val">FLAGSHIP VENTURE</span>
+              <span class="m-desc">Pitstop AI (In Active Build)</span>
             </div>
           </div>
-
-          <!-- Core Pillars Card -->
-          <div class="about-card pillars-card">
-            <h3 class="card-title">Core Principles</h3>
-            
-            <div class="pillar-item">
-              <div class="pillar-icon">🎯</div>
-              <div class="pillar-content">
-                <h4>Product-First Thinking</h4>
-                <p>Every line of code serves the end user. I prioritize fast iteration, user feedback loops, and measurable business utility.</p>
-              </div>
+          <div class="metric-sep" aria-hidden="true"></div>
+          <div class="metric-node">
+            <span class="m-glyph">02</span>
+            <div class="m-info">
+              <span class="m-val">FULL-STACK ARSENAL</span>
+              <span class="m-desc">React, Node, Python, Vector Search</span>
             </div>
-
-            <div class="pillar-item">
-              <div class="pillar-icon">⚡</div>
-              <div class="pillar-content">
-                <h4>Full-Stack Mastery</h4>
-                <p>From reactive TypeScript interfaces to low-latency Python/Node backend microservices and cloud infrastructure.</p>
-              </div>
-            </div>
-
-            <div class="pillar-item">
-              <div class="pillar-icon">🏔️</div>
-              <div class="pillar-content">
-                <h4>High-Altitude Grit</h4>
-                <p>Endurance built through mountaineering expeditions and 90-minute competitive football matches translates directly to resilient building.</p>
-              </div>
-            </div>
-
           </div>
-
+          <div class="metric-sep" aria-hidden="true"></div>
+          <div class="metric-node">
+            <span class="m-glyph">03</span>
+            <div class="m-info">
+              <span class="m-val">TERRESTRIAL PEAKS</span>
+              <span class="m-desc">5,420M Summits &amp; 90' Pitch Strategy</span>
+            </div>
+          </div>
         </div>
 
       </div>
     </section>
 
     <!-- ======================================================
-         SECTION 2: CURRENT VENTURE — PITSTOP AI
+         SECTOR 01: ABOUT // CELESTIAL ORIGIN & MANIFESTO
          ====================================================== -->
-    <section class="content-section bg-surface" id="pitstop">
-      <div class="section-container">
+    <section class="celestial-sector" id="about" aria-label="Celestial Origin & Manifesto">
+      <div class="sector-shell">
         
-        <div class="section-header">
-          <div class="pill-tag pill-tag-accent">FLAGSHIP VENTURE</div>
-          <h2 class="section-heading">Pitstop AI — In Active Development</h2>
-          <p class="section-subheading">An intelligent platform engineered to eliminate operational bottlenecks with autonomous intelligence.</p>
+        <div class="sector-header">
+          <div class="sector-badge">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3" fill="currentColor"/>
+              <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" stroke="currentColor"/>
+              <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-30 12 12)" stroke="currentColor"/>
+            </svg>
+            <span>SECTOR 01 // CELESTIAL ORIGIN</span>
+          </div>
+          <h2 class="sector-title">Grounding Vision into Resilient Systems</h2>
+          <p class="sector-sub">Engineering high-leverage software architectures that move from zero to one.</p>
         </div>
 
-        <div class="venture-card">
-          <div class="venture-grid">
-            
-            <!-- Left Info -->
-            <div class="venture-info">
-              <div class="venture-status-badge">
-                <span class="status-pulse"></span>
-                <span>ALPHA PROTOTYPE IN SPRINT</span>
+        <div class="origin-constellation-grid">
+          
+          <!-- Manifesto Card -->
+          <article class="cosmic-card manifesto-card">
+            <div class="card-orbital-corners"></div>
+            <div class="card-header-bar">
+              <span class="card-protocol">PROTOCOL: FOUNDER_MANIFESTO.SYS</span>
+              <span class="card-status-dot"></span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-heading">Engineering Products That Solve Real-World Friction</h3>
+              <p>
+                To me, software engineering represents the ultimate lever for human agency. It is not merely the assembly of algorithms, but the art of building scalable, durable systems that strip away complexity and solve tangible bottlenecks.
+              </p>
+              <p>
+                My trajectory unites deep full-stack technical craftsmanship with founder-led product execution. Whether engineering high-throughput microservices in Python and Node.js, sculpting responsive client architectures in React and Next.js, or integrating generative intelligence pipelines, I focus on velocity, code modularity, and relentless user utility.
+              </p>
+              <div class="cosmic-quote-box">
+                <p>
+                  "Both software architectures and high-altitude mountain ascents demand the same mental framework: acute risk calculation, radical focus under pressure, and the patience to take continuous, disciplined steps forward until the summit is won."
+                </p>
               </div>
+            </div>
+          </article>
 
-              <h3 class="venture-title">Accelerating Intelligence & Autonomous Workflows</h3>
+          <!-- Core Operating Pillars -->
+          <div class="cosmic-card pillars-card">
+            <div class="card-orbital-corners"></div>
+            <div class="card-header-bar">
+              <span class="card-protocol">SYSTEM_AXES // OPERATING_PILLARS</span>
+            </div>
+            <div class="pillars-stack">
               
-              <p class="venture-desc">
-                Pitstop AI is born out of the need for friction-free, high-speed execution. By leveraging specialized AI models, vector retrieval, and automated intelligence pipelines, Pitstop AI helps operators and teams optimize critical workflows in real-time.
+              <div class="pillar-orbit-item">
+                <span class="pillar-index">AXIS 01 // EXECUTION</span>
+                <h4 class="pillar-title">Zero-to-One Velocity</h4>
+                <p class="pillar-desc">Rapid prototyping backed by battle-tested architecture patterns, moving from raw idea to reliable deployment rapidly.</p>
+              </div>
+
+              <div class="pillar-orbit-item">
+                <span class="pillar-index">AXIS 02 // SCALABILITY</span>
+                <h4 class="pillar-title">Distributed Systems Thinking</h4>
+                <p class="pillar-desc">Constructing decoupled microservices, fault-tolerant state management, and low-latency API pipelines.</p>
+              </div>
+
+              <div class="pillar-orbit-item">
+                <span class="pillar-index">AXIS 03 // DISCIPLINE</span>
+                <h4 class="pillar-title">Physical &amp; Mental Grit</h4>
+                <p class="pillar-desc">High-altitude mountaineering and competitive football cultivate resilience, situational awareness, and grit under stress.</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECTOR 02: PROJECTS // PITSTOP AI FLAGSHIP VENTURE
+         ====================================================== -->
+    <section class="celestial-sector" id="projects" aria-label="Flagship Project: Pitstop AI">
+      <div class="sector-shell">
+        
+        <div class="sector-header">
+          <div class="sector-badge">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="5" stroke="currentColor"/>
+              <ellipse cx="12" cy="12" rx="10" ry="3.5" transform="rotate(-20 12 12)" stroke="currentColor"/>
+              <circle cx="19" cy="9.5" r="1.5" fill="currentColor"/>
+            </svg>
+            <span>SECTOR 02 // ACTIVE MISSION</span>
+          </div>
+          <h2 class="sector-title">Pitstop AI — Operational Intelligence</h2>
+          <p class="sector-sub">An autonomous workflow automation and predictive execution engine for next-gen teams.</p>
+        </div>
+
+        <div class="cosmic-card flagship-venture-card">
+          <div class="card-orbital-corners"></div>
+
+          <div class="flagship-split-grid">
+            
+            <!-- Left: Specifications -->
+            <div class="flagship-spec-col">
+              <div class="flagship-status-badge">
+                <span class="status-dot-active"></span>
+                <span>VENTURE STATUS: ACTIVE BUILD // SPRINT 04</span>
+              </div>
+
+              <h3 class="flagship-title">Autonomous Workflow Orchestration &amp; Predictive Execution</h3>
+              <p class="flagship-summary">
+                Pitstop AI is engineered to eliminate operational drag by deploying autonomous AI agents that identify workflow bottlenecks, route operational tasks, and execute complex multi-step jobs with predictive precision.
               </p>
 
-              <div class="venture-highlights">
-                <div class="v-highlight">
-                  <strong>Autonomous Pipeline</strong>
-                  <span>Zero-latency inference and real-time execution loops.</span>
-                </div>
-                <div class="v-highlight">
-                  <strong>Modern Full-Stack</strong>
-                  <span>Engineered with React, Next.js, FastAPI, Python, and PostgreSQL.</span>
-                </div>
-                <div class="v-highlight">
-                  <strong>Data-Driven Core</strong>
-                  <span>Intelligent telemetry and proactive operational guidance.</span>
-                </div>
-              </div>
+              <ul class="flagship-capabilities">
+                <li>
+                  <span class="cap-bullet">▸</span>
+                  <span><strong>Autonomous Agent Loops:</strong> Multi-turn LLM reasoning with stateful context management.</span>
+                </li>
+                <li>
+                  <span class="cap-bullet">▸</span>
+                  <span><strong>Low-Latency Telemetry:</strong> Real-time streaming pipeline processing operational events.</span>
+                </li>
+                <li>
+                  <span class="cap-bullet">▸</span>
+                  <span><strong>Vector Search Index:</strong> Semantic memory store indexing organization-wide procedural workflows.</span>
+                </li>
+              </ul>
 
-              <div class="venture-actions">
-                <a href="#contact" class="btn btn-primary">Connect Regarding Pitstop AI ↗</a>
-                <span class="venture-tag-note">Currently welcoming design partners & early feedback</span>
+              <div class="flagship-cta-row">
+                <a href="#contact" class="cosmic-btn btn-primary">
+                  <span>REQUEST EARLY ACCESS</span>
+                  <span>&gt;</span>
+                </a>
+                <span class="flagship-footnote">// Welcoming design partners &amp; venture advisors</span>
               </div>
             </div>
 
-            <!-- Right Visual Mockup -->
-            <div class="venture-visual">
-              <div class="mockup-frame">
-                <div class="mockup-header">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
-                  <span class="mockup-url">https://pitstop.ai/engine/dashboard</span>
+            <!-- Right: Wireframe Telemetry Console -->
+            <div class="flagship-visual-col">
+              <div class="telemetry-screen-casing">
+                <div class="screen-chrome">
+                  <div class="chrome-lights">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <span class="chrome-title">PITSTOP_AI // TELEMETRY_OBSERVER.EXE</span>
+                  <span class="chrome-fps">60 FPS</span>
                 </div>
-                <div class="mockup-body">
-                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" 
-                       alt="Pitstop AI Analytics Dashboard" 
-                       class="mockup-img" 
+
+                <div class="screen-canvas-holder">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" 
+                       alt="Pitstop AI Autonomous Analytics Telemetry Console" 
+                       class="telemetry-screen-img" 
                        loading="lazy">
-                  <div class="mockup-overlay-badge">
-                    <span>PITSTOP ENGINE V1.0</span>
-                    <strong>LIVE TELEMETRY</strong>
+
+                  <div class="screen-hud-matrix">
+                    <div class="hud-chip">
+                      <span class="hc-label">REALTIME THROUGHPUT</span>
+                      <strong class="hc-val">4.8 GB/S</strong>
+                    </div>
+                    <div class="hud-chip">
+                      <span class="hc-label">PIPELINE STATUS</span>
+                      <strong class="hc-val hc-glow">OPTIMAL</strong>
+                    </div>
+                    <div class="hud-chip">
+                      <span class="hc-label">MODEL LATENCY</span>
+                      <strong class="hc-val">11.8 MS</strong>
+                    </div>
                   </div>
                 </div>
+
+                <div class="screen-footer">
+                  <span class="sf-status"><span class="sf-dot"></span> ORBITAL TELEMETRY: LINKED</span>
+                  <span class="sf-hash">HASH: 0x9AF812</span>
+                </div>
               </div>
             </div>
 
@@ -448,236 +587,251 @@
     </section>
 
     <!-- ======================================================
-         SECTION 3: EXPERIENCE & CURRENT FOCUS
+         SECTOR 03: EXPERIENCE // ORBITAL TRAJECTORIES
          ====================================================== -->
-    <section class="content-section" id="experience">
-      <div class="section-container">
+    <section class="celestial-sector" id="experience" aria-label="Orbital Trajectories & Experience">
+      <div class="sector-shell">
         
-        <div class="section-header">
-          <div class="pill-tag">TRACK RECORD</div>
-          <h2 class="section-heading">Experience & Roles</h2>
-          <p class="section-subheading">Demonstrated leadership, full-stack software development, and technical execution.</p>
+        <div class="sector-header">
+          <div class="sector-badge">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="5" cy="17" r="2" fill="currentColor"/>
+              <circle cx="12" cy="7" r="2" fill="currentColor"/>
+              <circle cx="19" cy="13" r="2" fill="currentColor"/>
+              <path d="M5 17 L12 7 L19 13" stroke="currentColor" stroke-dasharray="2 2"/>
+              <path d="M3 20 C8 15 14 12 21 8" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+            <span>SECTOR 03 // TRAJECTORIES</span>
+          </div>
+          <h2 class="sector-title">Operational Flight Path &amp; Experience</h2>
+          <p class="sector-sub">Engineering software systems with founder mindset and architectural discipline.</p>
         </div>
 
-        <div class="experience-timeline">
-
-          <!-- Role 1: Founder — Pitstop AI -->
-          <div class="timeline-card">
-            <div class="timeline-meta">
-              <span class="timeline-period">2025 — PRESENT</span>
-              <span class="timeline-badge badge-active">FOUNDER</span>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-header-row">
-                <h3 class="role-title">Founder & Lead Architect</h3>
-                <span class="role-org">PITSTOP AI • ACTIVE VENTURE</span>
-              </div>
-              <p class="role-summary">
-                Directing the complete product vision, technical architecture, and system engineering for Pitstop AI.
-              </p>
-              <ul class="role-bullets">
-                <li>Architecting core AI orchestration pipelines, integrating generative models and vector search for instant query resolution.</li>
-                <li>Conducting user problem discovery sessions, validating MVP features, and iterating through rapid prototype sprints.</li>
-                <li>Designing the reactive frontend dashboard with Next.js, TypeScript, and high-performance backend microservices.</li>
-              </ul>
-              <div class="role-tags">
-                <span class="tag-pill">Python</span>
-                <span class="tag-pill">React</span>
-                <span class="tag-pill">FastAPI</span>
-                <span class="tag-pill">Vector DBs</span>
-                <span class="tag-pill">Product Architecture</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Role 2: Software Engineer — Full-Stack Development -->
-          <div class="timeline-card">
-            <div class="timeline-meta">
-              <span class="timeline-period">2023 — PRESENT</span>
-              <span class="timeline-badge">ENGINEER</span>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-header-row">
-                <h3 class="role-title">Software Engineer — Full-Stack Development</h3>
-                <span class="role-org">INDEPENDENT & COLLABORATIVE INITIATIVES</span>
-              </div>
-              <p class="role-summary">
-                Engineering responsive web applications, secure RESTful & GraphQL APIs, and robust backend systems with a focus on code quality and performance.
-              </p>
-              <ul class="role-bullets">
-                <li>Built and deployed production-grade applications serving scalable web interfaces and resilient database schemas.</li>
-                <li>Optimized API response times and database querying patterns through indexing, query caching, and async job queues.</li>
-                <li>Implemented clean architecture patterns, comprehensive type safety in TypeScript, and automated CI/CD deployments.</li>
-              </ul>
-              <div class="role-tags">
-                <span class="tag-pill">TypeScript</span>
-                <span class="tag-pill">Node.js</span>
-                <span class="tag-pill">PostgreSQL</span>
-                <span class="tag-pill">Docker</span>
-                <span class="tag-pill">CI/CD</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================================
-         SECTION 4: SKILLS & TECHNICAL ARSENAL
-         ====================================================== -->
-    <section class="content-section bg-surface" id="skills">
-      <div class="section-container">
-        
-        <div class="section-header text-center">
-          <div class="pill-tag pill-tag-accent">TECHNICAL ARSENAL</div>
-          <h2 class="section-heading">Core Skills & Toolkit</h2>
-          <p class="section-subheading">A modern, full-stack toolchain refined for shipping fast and building to scale.</p>
-        </div>
-
-        <div class="skills-grid-clean">
-
-          <!-- JavaScript / TypeScript -->
-          <div class="skill-card-modern">
-            <div class="skill-header">
-              <div class="skill-icon-box js-box">JS</div>
-              <div class="skill-name-wrap">
-                <h3 class="skill-heading">JavaScript / TypeScript</h3>
-                <span class="skill-level-tag">Advanced / Core</span>
-              </div>
-            </div>
-            <p class="skill-description">
-              ES6+, TypeScript type safety, async concurrency, browser runtime internals, and modern full-stack architectures.
-            </p>
-            <div class="skill-progress-bar"><div class="skill-fill" style="width: 95%;"></div></div>
-          </div>
-
-          <!-- React -->
-          <div class="skill-card-modern">
-            <div class="skill-header">
-              <div class="skill-icon-box react-box">Re</div>
-              <div class="skill-name-wrap">
-                <h3 class="skill-heading">React & Next.js</h3>
-                <span class="skill-level-tag">Frontend / Production</span>
-              </div>
-            </div>
-            <p class="skill-description">
-              Component lifecycle, custom hooks, atomic component design systems, server-side rendering, and responsive web apps.
-            </p>
-            <div class="skill-progress-bar"><div class="skill-fill" style="width: 92%;"></div></div>
-          </div>
-
-          <!-- Node.js -->
-          <div class="skill-card-modern">
-            <div class="skill-header">
-              <div class="skill-icon-box node-box">Node</div>
-              <div class="skill-name-wrap">
-                <h3 class="skill-heading">Node.js</h3>
-                <span class="skill-level-tag">Backend / APIs</span>
-              </div>
-            </div>
-            <p class="skill-description">
-              Event-driven servers, RESTful microservices, authentication pipelines, caching strategies, and ORMs.
-            </p>
-            <div class="skill-progress-bar"><div class="skill-fill" style="width: 90%;"></div></div>
-          </div>
-
-          <!-- Python -->
-          <div class="skill-card-modern">
-            <div class="skill-header">
-              <div class="skill-icon-box python-box">Py</div>
-              <div class="skill-name-wrap">
-                <h3 class="skill-heading">Python</h3>
-                <span class="skill-level-tag">Backend & AI</span>
-              </div>
-            </div>
-            <p class="skill-description">
-              FastAPI services, asynchronous data pipelines, machine learning orchestration, scripting, and backend automation.
-            </p>
-            <div class="skill-progress-bar"><div class="skill-fill" style="width: 88%;"></div></div>
-          </div>
-
-          <!-- AI / Machine Learning -->
-          <div class="skill-card-modern">
-            <div class="skill-header">
-              <div class="skill-icon-box ai-box">AI</div>
-              <div class="skill-name-wrap">
-                <h3 class="skill-heading">AI & Machine Learning</h3>
-                <span class="skill-level-tag">Pitstop AI Engine</span>
-              </div>
-            </div>
-            <p class="skill-description">
-              LLM integration, retrieval-augmented generation (RAG), vector embeddings, agentic workflows, and prompt engineering.
-            </p>
-            <div class="skill-progress-bar"><div class="skill-fill" style="width: 86%;"></div></div>
-          </div>
-
-          <!-- Product Thinking & Strategy -->
-          <div class="skill-card-modern">
-            <div class="skill-header">
-              <div class="skill-icon-box prod-box">Prod</div>
-              <div class="skill-name-wrap">
-                <h3 class="skill-heading">Product Thinking</h3>
-                <span class="skill-level-tag">Founder Strategy</span>
-              </div>
-            </div>
-            <p class="skill-description">
-              Problem validation, user journey mapping, rapid MVP scoping, metric tracking, and converting raw technology into real value.
-            </p>
-            <div class="skill-progress-bar"><div class="skill-fill" style="width: 94%;"></div></div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================================
-         SECTION 5: EDUCATION
-         ====================================================== -->
-    <section class="content-section" id="education">
-      <div class="section-container">
-        
-        <div class="section-header">
-          <div class="pill-tag">ACADEMIC FOUNDATIONS</div>
-          <h2 class="section-heading">Education</h2>
-          <p class="section-subheading">Strong computer science principles and continuous lifelong learning.</p>
-        </div>
-
-        <div class="education-grid">
+        <div class="trajectory-stack">
           
-          <div class="edu-clean-card">
-            <div class="edu-badge-row">
-              <span class="edu-year">UNDERGRADUATE DEGREE</span>
-              <span class="edu-tag-gold">ENGINEERING</span>
+          <!-- Experience Node 01: Pitstop AI -->
+          <article class="cosmic-card trajectory-card">
+            <div class="card-orbital-corners"></div>
+            <div class="trajectory-top-row">
+              <div class="tr-role-group">
+                <h3 class="tr-role-title">Founder &amp; Principal Software Architect</h3>
+                <span class="tr-org-link">Pitstop AI // Autonomous Workflows</span>
+              </div>
+              <span class="tr-epoch-badge">2024 — PRESENT [ORBIT ACTIVE]</span>
             </div>
-            <h3 class="edu-title">Bachelor of Technology in Computer Science & Engineering</h3>
-            <p class="edu-desc">
-              Comprehensive coursework in Data Structures, Object-Oriented Software Design, Operating Systems, Database Management Systems, Algorithm Analysis, and Computer Networks.
+            <p class="tr-description">
+              Leading technical strategy, system design, and product implementation for Pitstop AI. Architecting event-driven pipelines, designing responsive user interfaces, and orchestrating LLM tool-calling loops with deterministic validation safeguards.
             </p>
-            <div class="edu-coursework">
-              <span class="c-pill">Distributed Systems</span>
-              <span class="c-pill">Algorithms</span>
-              <span class="c-pill">System Design</span>
-              <span class="c-pill">Software Engineering</span>
+            <div class="tr-tech-stack">
+              <span class="tech-chip">Python</span>
+              <span class="tech-chip">FastAPI</span>
+              <span class="tech-chip">React / Next.js</span>
+              <span class="tech-chip">PostgreSQL</span>
+              <span class="tech-chip">Vector DB</span>
+              <span class="tech-chip">Docker</span>
+            </div>
+          </article>
+
+          <!-- Experience Node 02: Full-Stack Engineering -->
+          <article class="cosmic-card trajectory-card">
+            <div class="card-orbital-corners"></div>
+            <div class="trajectory-top-row">
+              <div class="tr-role-group">
+                <h3 class="tr-role-title">Software Engineer // Full-Stack Development</h3>
+                <span class="tr-org-link">High-Scale Web &amp; Distributed Systems</span>
+              </div>
+              <span class="tr-epoch-badge">2023 — 2024</span>
+            </div>
+            <p class="tr-description">
+              Engineered scalable client interfaces and backend microservices. Implemented robust REST &amp; WebSocket APIs, optimized database queries for high query volume, and integrated modern automated test suites.
+            </p>
+            <div class="tr-tech-stack">
+              <span class="tech-chip">TypeScript</span>
+              <span class="tech-chip">Node.js</span>
+              <span class="tech-chip">Express</span>
+              <span class="tech-chip">React</span>
+              <span class="tech-chip">Redis</span>
+              <span class="tech-chip">Tailwind CSS</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECTOR 04: SKILLS // STELLAR NETWORK
+         ====================================================== -->
+    <section class="celestial-sector" id="skills" aria-label="Technical Skills & Stellar Network">
+      <div class="sector-shell">
+        
+        <div class="sector-header">
+          <div class="sector-badge">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="12,3 15,9 21,9 16,14 18,20 12,16 6,20 8,14 3,9 9,9" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="12" cy="12" r="2" fill="currentColor"/>
+              <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
+              <circle cx="21" cy="9" r="1.5" fill="currentColor"/>
+              <circle cx="18" cy="20" r="1.5" fill="currentColor"/>
+              <circle cx="6" cy="20" r="1.5" fill="currentColor"/>
+              <circle cx="3" cy="9" r="1.5" fill="currentColor"/>
+            </svg>
+            <span>SECTOR 04 // CAPABILITY GRAPH</span>
+          </div>
+          <h2 class="sector-title">Stellar Network &amp; Technical Capabilities</h2>
+          <p class="sector-sub">Modern full-stack, distributed backends, AI workflows, and system design.</p>
+        </div>
+
+        <div class="stellar-network-grid">
+          
+          <div class="cosmic-card skill-stellar-node">
+            <div class="card-orbital-corners"></div>
+            <div class="skill-header">
+              <span class="skill-node-title">Core Languages</span>
+            </div>
+            <ul class="skill-items-list">
+              <li><span class="skill-bullet">✦</span> TypeScript / JavaScript</li>
+              <li><span class="skill-bullet">✦</span> Python (Async, FastAPI, PyTorch)</li>
+              <li><span class="skill-bullet">✦</span> SQL (PostgreSQL, SQLite)</li>
+              <li><span class="skill-bullet">✦</span> HTML5 / Semantic Modern CSS</li>
+            </ul>
+            <div class="skill-meta-footer">// COMPILED &amp; SCRIPTING</div>
+          </div>
+
+          <div class="cosmic-card skill-stellar-node">
+            <div class="card-orbital-corners"></div>
+            <div class="skill-header">
+              <span class="skill-node-title">Frontend &amp; Spatial UI</span>
+            </div>
+            <ul class="skill-items-list">
+              <li><span class="skill-bullet">✦</span> React 19 / Next.js App Router</li>
+              <li><span class="skill-bullet">✦</span> WebGL / Three.js / Canvas 2D</li>
+              <li><span class="skill-bullet">✦</span> Responsive Fluid Layouts</li>
+              <li><span class="skill-bullet">✦</span> State Management &amp; Realtime UI</li>
+            </ul>
+            <div class="skill-meta-footer">// CLIENT-SIDE ARCHITECTURES</div>
+          </div>
+
+          <div class="cosmic-card skill-stellar-node">
+            <div class="card-orbital-corners"></div>
+            <div class="skill-header">
+              <span class="skill-node-title">Backend &amp; Distributed</span>
+            </div>
+            <ul class="skill-items-list">
+              <li><span class="skill-bullet">✦</span> Node.js &amp; Express Engine</li>
+              <li><span class="skill-bullet">✦</span> FastAPI &amp; Asynchronous Microservices</li>
+              <li><span class="skill-bullet">✦</span> Redis Caching &amp; Pub/Sub Queues</li>
+              <li><span class="skill-bullet">✦</span> PostgreSQL &amp; Prisma ORM</li>
+            </ul>
+            <div class="skill-meta-footer">// HIGH-THROUGHPUT PIPELINES</div>
+          </div>
+
+          <div class="cosmic-card skill-stellar-node">
+            <div class="card-orbital-corners"></div>
+            <div class="skill-header">
+              <span class="skill-node-title">AI &amp; Autonomous Agents</span>
+            </div>
+            <ul class="skill-items-list">
+              <li><span class="skill-bullet">✦</span> LLM Function Calling &amp; Tooling</li>
+              <li><span class="skill-bullet">✦</span> LangChain &amp; Custom Agent Loops</li>
+              <li><span class="skill-bullet">✦</span> Vector Embeddings &amp; RAG Systems</li>
+              <li><span class="skill-bullet">✦</span> Prompt Engineering &amp; Guardrails</li>
+            </ul>
+            <div class="skill-meta-footer">// APPLIED INTELLIGENCE</div>
+          </div>
+
+          <div class="cosmic-card skill-stellar-node">
+            <div class="card-orbital-corners"></div>
+            <div class="skill-header">
+              <span class="skill-node-title">DevOps &amp; Infrastructure</span>
+            </div>
+            <ul class="skill-items-list">
+              <li><span class="skill-bullet">✦</span> Docker Containerization</li>
+              <li><span class="skill-bullet">✦</span> Git &amp; GitHub Actions CI/CD</li>
+              <li><span class="skill-bullet">✦</span> Cloud Hosting (AWS, GCP, Vercel)</li>
+              <li><span class="skill-bullet">✦</span> Linux Server Administration</li>
+            </ul>
+            <div class="skill-meta-footer">// ZERO-DOWNTIME DEPLOYS</div>
+          </div>
+
+          <div class="cosmic-card skill-stellar-node">
+            <div class="card-orbital-corners"></div>
+            <div class="skill-header">
+              <span class="skill-node-title">Founder Execution</span>
+            </div>
+            <ul class="skill-items-list">
+              <li><span class="skill-bullet">✦</span> Product Strategy &amp; Discovery</li>
+              <li><span class="skill-bullet">✦</span> System Design &amp; Architecture</li>
+              <li><span class="skill-bullet">✦</span> Rapid MVP Validation</li>
+              <li><span class="skill-bullet">✦</span> Technical Leadership &amp; Grit</li>
+            </ul>
+            <div class="skill-meta-footer">// ZERO-TO-ONE EXPEDITION</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECTOR 05: EDUCATION // GALACTIC OBSERVATORY
+         ====================================================== -->
+    <section class="celestial-sector" id="education" aria-label="Academic Foundations & Observatory">
+      <div class="sector-shell">
+        
+        <div class="sector-header">
+          <div class="sector-badge">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="6" y1="18" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+              <rect x="14" y="4" width="6" height="4" transform="rotate(-45 17 6)" stroke="currentColor"/>
+              <line x1="8" y1="16" x2="5" y2="21" stroke="currentColor"/>
+              <line x1="11" y1="19" x2="14" y2="21" stroke="currentColor"/>
+              <circle cx="20" cy="3" r="1" fill="currentColor"/>
+              <circle cx="21" cy="6" r="1" fill="currentColor"/>
+            </svg>
+            <span>SECTOR 05 // OBSERVATORY</span>
+          </div>
+          <h2 class="sector-title">Galactic Observatory &amp; Academic Foundations</h2>
+          <p class="sector-sub">Rigorous theoretical groundwork in computation, algorithms, and system design.</p>
+        </div>
+
+        <div class="observatory-grid">
+          
+          <div class="cosmic-card observatory-card">
+            <div class="card-orbital-corners"></div>
+            <div class="obs-header">
+              <h3 class="obs-degree">Bachelor of Technology in Computer Science &amp; Engineering</h3>
+              <span class="obs-epoch">2022 — 2026</span>
+            </div>
+            <div class="obs-inst">Undergraduate Degree Program // Computer Science Core</div>
+            <p class="obs-desc">
+              Comprehensive immersion in computational theory, algorithm design, data structures, operating systems, database management, and distributed networks.
+            </p>
+            <div class="obs-tags">
+              <span class="obs-pill">Data Structures</span>
+              <span class="obs-pill">Algorithms</span>
+              <span class="obs-pill">OS &amp; Networks</span>
+              <span class="obs-pill">DBMS</span>
+              <span class="obs-pill">Discrete Math</span>
             </div>
           </div>
 
-          <div class="edu-clean-card">
-            <div class="edu-badge-row">
-              <span class="edu-year">VENTURE & PRODUCT INTENSIVE</span>
-              <span class="edu-tag-blue">INDEPENDENT LAB</span>
+          <div class="cosmic-card observatory-card">
+            <div class="card-orbital-corners"></div>
+            <div class="obs-header">
+              <h3 class="obs-degree">Autonomous Systems &amp; AI Specialization</h3>
+              <span class="obs-epoch">RESEARCH ORBIT</span>
             </div>
-            <h3 class="edu-title">Founder Engineering & Applied AI Specialization</h3>
-            <p class="edu-desc">
-              Hands-on deep dive into building production AI web systems, microservice architectures, and modern cloud deployment frameworks during the inception of Pitstop AI.
+            <div class="obs-inst">Applied Machine Learning &amp; Software Systems</div>
+            <p class="obs-desc">
+              Dedicated technical exploration into deep neural networks, vector embedding pipelines, automated decision systems, and high-performance server architectures.
             </p>
-            <div class="edu-coursework">
-              <span class="c-pill">LLM Frameworks</span>
-              <span class="c-pill">Next.js Full-Stack</span>
-              <span class="c-pill">Vector Search</span>
-              <span class="c-pill">Lean Startup Cycles</span>
+            <div class="obs-tags">
+              <span class="obs-pill">Vector Retrieval</span>
+              <span class="obs-pill">Transformer Models</span>
+              <span class="obs-pill">Event Streaming</span>
+              <span class="obs-pill">Distributed Design</span>
             </div>
           </div>
 
@@ -687,60 +841,90 @@
     </section>
 
     <!-- ======================================================
-         SECTION 6: PERSONAL PURSUITS (FOOTBALL & MOUNTAINEERING)
+         SECTOR 06: PURSUITS // TERRESTRIAL COORDINATES
+         Wireframe Himalayan Ridge & Pitch Geometry
          ====================================================== -->
-    <section class="content-section bg-surface" id="pursuits">
-      <div class="section-container">
+    <section class="celestial-sector" id="pursuits" aria-label="Terrestrial Coordinates & Pursuits">
+      <div class="sector-shell">
         
-        <div class="section-header text-center">
-          <div class="pill-tag pill-tag-accent">BEYOND THE TERMINAL</div>
-          <h2 class="section-heading">Pursuits & Passions</h2>
-          <p class="section-subheading">The disciplines that build mental toughness, teamwork, and perspective.</p>
+        <div class="sector-header">
+          <div class="sector-badge">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="12,4 20,18 4,18" stroke="currentColor"/>
+              <polyline points="7,13 12,9 17,13" stroke="currentColor"/>
+              <line x1="12" y1="9" x2="12" y2="18" stroke="currentColor" stroke-dasharray="2 2"/>
+            </svg>
+            <span>SECTOR 06 // TERRESTRIAL AXES</span>
+          </div>
+          <h2 class="sector-title">Terrestrial Coordinates &amp; Pursuits</h2>
+          <p class="sector-sub">The summit and the pitch: where resilience, strategy, and grit are sharpened.</p>
         </div>
 
-        <div class="pursuits-grid">
+        <div class="terrestrial-wireframe-grid">
           
-          <!-- Pursuit 1: Football -->
-          <div class="pursuit-card">
-            <div class="pursuit-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=700&q=80" 
-                   alt="Football on the pitch" 
-                   class="pursuit-img" 
-                   loading="lazy">
-              <span class="pursuit-tag">THE PITCH</span>
+          <!-- Pursuit 01: Alpine Mountain Climbing -->
+          <article class="cosmic-card terrestrial-card">
+            <div class="card-orbital-corners"></div>
+
+            <div class="terrestrial-wireframe-canvas">
+              <svg viewBox="0 0 420 220" class="terrestrial-svg" preserveAspectRatio="none">
+                <path d="M0 220 L70 150 L150 180 L230 40 L310 135 L420 220" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.95"/>
+                <path d="M0 220 L90 170 L150 195 L230 80 L320 160 L420 220" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.55"/>
+                <path d="M0 220 L110 190 L230 120 L340 180 L420 220" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/>
+                <circle cx="230" cy="40" r="4.5" fill="#ffffff"/>
+                <circle cx="230" cy="40" r="12" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="3 3" opacity="0.7"/>
+                <line x1="230" y1="40" x2="230" y2="220" stroke="#ffffff" stroke-width="0.8" stroke-dasharray="4 2" opacity="0.4"/>
+                <text x="245" y="38" fill="#ffffff" font-size="10" font-family="'JetBrains Mono', monospace">SUMMIT: 5,420M</text>
+              </svg>
+              <span class="terrestrial-tag">ALPINE EXPEDITIONS</span>
             </div>
-            <div class="pursuit-body">
-              <h3 class="pursuit-title">Competitive Football</h3>
-              <p class="pursuit-desc">
-                Football demands 90 minutes of unwavering spatial vision, tactical decision-making under intense pressure, and selfless team chemistry. Whether controlling the tempo or pressing forward, the lessons learned on the pitch mirror building a company: speed, precision, and trusting your squad.
+
+            <div class="terrestrial-body">
+              <span class="terrestrial-category">// THE SUMMIT // HIMALAYAN ROUTES</span>
+              <h3 class="terrestrial-heading">Alpine Mountain Climbing</h3>
+              <p class="terrestrial-desc">
+                High-altitude mountaineering demands calculated risk management, rigorous physical preparation, and an unflinching mental resolve. Standing above the cloud line is a constant reminder: the steepest climbs are conquered one disciplined step at a time.
               </p>
-              <div class="pursuit-stat-row">
+              <div class="terrestrial-meta-row">
+                <span>▲ Mental Toughness</span>
+                <span>🧭 Calculated Risk</span>
+                <span>🏔️ Altitude Resilience</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pursuit 02: Competitive Football -->
+          <article class="cosmic-card terrestrial-card">
+            <div class="card-orbital-corners"></div>
+
+            <div class="terrestrial-wireframe-canvas">
+              <svg viewBox="0 0 420 220" class="terrestrial-svg" preserveAspectRatio="none">
+                <rect x="25" y="25" width="370" height="170" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.75"/>
+                <line x1="210" y1="25" x2="210" y2="195" stroke="#ffffff" stroke-width="1.2" opacity="0.75"/>
+                <circle cx="210" cy="110" r="40" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.75"/>
+                <circle cx="210" cy="110" r="3" fill="#ffffff"/>
+                <rect x="25" y="65" width="55" height="90" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+                <rect x="340" y="65" width="55" height="90" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+                <path d="M110 150 Q210 75 310 60" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-dasharray="4 2"/>
+                <polygon points="315,58 305,55 308,65" fill="#ffffff"/>
+                <text x="220" y="50" fill="#ffffff" font-size="10" font-family="'JetBrains Mono', monospace">TACTICAL_DRIFT: 90'</text>
+              </svg>
+              <span class="terrestrial-tag">PITCH GEOMETRY</span>
+            </div>
+
+            <div class="terrestrial-body">
+              <span class="terrestrial-category">// THE PITCH // 90 MINUTES OF GRIT</span>
+              <h3 class="terrestrial-heading">Competitive Football</h3>
+              <p class="terrestrial-desc">
+                Competitive football trains lightning-fast decision-making under intense physical and mental pressure. Controlling spatial tempo, reading movements before they unfold, and communicating clearly with a team mirrors the fast-paced coordination required to build an enduring venture.
+              </p>
+              <div class="terrestrial-meta-row">
                 <span>⚡ High-Pressure Decisions</span>
-                <span>⚽ Strategic Communication</span>
+                <span>⚽ Pitch Leadership</span>
+                <span>⏱️ Zero Downtime</span>
               </div>
             </div>
-          </div>
-
-          <!-- Pursuit 2: Mountain Climbing -->
-          <div class="pursuit-card">
-            <div class="pursuit-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80" 
-                   alt="Mountain Climbing Peaks" 
-                   class="pursuit-img" 
-                   loading="lazy">
-              <span class="pursuit-tag">THE SUMMIT</span>
-            </div>
-            <div class="pursuit-body">
-              <h3 class="pursuit-title">Alpine Mountain Climbing</h3>
-              <p class="pursuit-desc">
-                High-altitude climbing strips away distractions and tests raw physical stamina and mental resolve. Standing above the clouds reinforces humble perspective, rigorous preparation, calculated risk management, and the patience needed to overcome any summit.
-              </p>
-              <div class="pursuit-stat-row">
-                <span>🏔️ Calculated Risk</span>
-                <span>▲ Mental Resilience</span>
-              </div>
-            </div>
-          </div>
+          </article>
 
         </div>
 
@@ -748,95 +932,115 @@
     </section>
 
     <!-- ======================================================
-         SECTION 7: CONTACT & PLACEHOLDERS
+         SECTOR 07: CONTACT // SIGNAL BEACON & UPLINK
          ====================================================== -->
-    <section class="content-section" id="contact">
-      <div class="section-container">
+    <section class="celestial-sector" id="contact" aria-label="Signal Beacon & Communications Uplink">
+      <div class="sector-shell">
         
-        <div class="contact-box-card">
-          <div class="contact-grid">
+        <div class="cosmic-card beacon-uplink-card">
+          <div class="card-orbital-corners"></div>
+
+          <div class="beacon-split-grid">
             
-            <!-- Left Contact Info -->
-            <div class="contact-left-col">
-              <div class="pill-tag">GET IN TOUCH</div>
-              <h2 class="contact-heading">Let’s Build Something Meaningful Together.</h2>
-              <p class="contact-subtext">
-                Whether you're interested in Pitstop AI, discussing full-stack engineering challenges, exploring collaborative opportunities, or connecting over football and climbing — my inbox is always open.
+            <!-- Left Info -->
+            <div class="beacon-info-col">
+              <div class="sector-badge">
+                <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M4 11 A8 8 0 0 1 12 3" stroke="currentColor" stroke-linecap="round"/>
+                  <path d="M7 14 A4 4 0 0 1 11 10" stroke="currentColor" stroke-linecap="round"/>
+                  <circle cx="16" cy="16" r="2.5" stroke="currentColor" fill="currentColor"/>
+                  <line x1="14" y1="14" x2="10" y2="10" stroke="currentColor"/>
+                  <line x1="17" y1="18" x2="20" y2="21" stroke="currentColor"/>
+                </svg>
+                <span>SECTOR 07 // SIGNAL BEACON</span>
+              </div>
+
+              <h2 class="beacon-title">Establish Communications Uplink.</h2>
+              <p class="beacon-copy">
+                Whether you’re interested in Pitstop AI, discussing scalable software engineering architectures, exploring venture ideas, or connecting over mountain expeditions and football — my channels are open.
               </p>
 
-              <!-- Resume Button in Contact Section -->
-              <div class="contact-resume-cta">
-                <a href="resume.pdf" download="Atharav_Balota_Resume.pdf" class="btn btn-primary btn-lg" id="contactResumeBtn">
-                  <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              <div class="beacon-resume-dock">
+                <span class="dock-title">// TECHNICAL_TRANSMISSION_PANEL:</span>
+                <a href="resume.pdf" download="Atharav_Balotra_Resume.pdf" class="cosmic-btn btn-primary" id="contactResumeBtn">
+                  <svg class="cosmic-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor"/>
+                    <line x1="8" y1="8" x2="16" y2="8" stroke="currentColor"/>
+                    <line x1="8" y1="12" x2="14" y2="12" stroke="currentColor"/>
+                    <polyline points="10 16 12 18 14 16" stroke="currentColor"/>
+                    <line x1="12" y1="13" x2="12" y2="18" stroke="currentColor"/>
                   </svg>
-                  <span>Download Atharav's Resume</span>
+                  <span>DOWNLOAD ATHARAV_RESUME.PDF</span>
+                  <span class="btn-glyph">&gt;</span>
                 </a>
               </div>
             </div>
 
-            <!-- Right Contact Channels (Clear Placeholders) -->
-            <div class="contact-right-col">
-              <div class="contact-channels-list">
+            <!-- Right Telemetry Channels -->
+            <div class="beacon-channels-col">
+              <div class="cosmic-channels-stack">
                 
-                <!-- Email Item -->
-                <div class="contact-channel-item">
-                  <div class="channel-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                      <polyline points="22,6 12,13 2,6"/>
+                <!-- Email Channel -->
+                <div class="channel-beacon-item">
+                  <div class="channel-head">
+                    <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor"/>
+                      <polyline points="3 7 12 13 21 7" stroke="currentColor"/>
+                      <line x1="12" y1="13" x2="12" y2="17" stroke="currentColor" stroke-dasharray="1 1"/>
                     </svg>
+                    <span class="ch-protocol">PROTOCOL: SMTP // DIRECT_INBOX</span>
                   </div>
-                  <div class="channel-info">
-                    <span class="channel-label">EMAIL ADDRESS</span>
-                    <a href="mailto:atharav.balota@gmail.com" class="channel-val" id="emailVal">atharav.balota@gmail.com</a>
+                  <div class="channel-body-row">
+                    <code class="ch-code" id="emailCodeVal">atharav.balota@gmail.com</code>
+                    <button class="cosmic-copy-btn" id="copyEmailBtn" aria-label="Copy Email Address to Clipboard">
+                      <span id="copyBtnText">COPY</span>
+                    </button>
                   </div>
-                  <button class="btn-copy-mini" id="copyEmailBtn" aria-label="Copy email address" title="Copy email address">
-                    <span id="copyIconText">Copy</span>
-                  </button>
                 </div>
 
-                <!-- Phone Item (Placeholder) -->
-                <div class="contact-channel-item">
-                  <div class="channel-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <!-- Phone Channel (Placeholder) -->
+                <div class="channel-beacon-item">
+                  <div class="channel-head">
+                    <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                     </svg>
+                    <span class="ch-protocol">PROTOCOL: VOICE_VOIP // DIRECT_LINE</span>
                   </div>
-                  <div class="channel-info">
-                    <span class="channel-label">PHONE NUMBER</span>
-                    <span class="channel-val placeholder-val">+91 ••••• ••••• (Available upon request)</span>
+                  <div class="channel-body-row">
+                    <code class="ch-code muted">+91 ••••• ••••• [AVAILABLE ON REQUEST]</code>
                   </div>
                 </div>
 
-                <!-- LinkedIn Item -->
-                <div class="contact-channel-item">
-                  <div class="channel-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <!-- LinkedIn Channel -->
+                <div class="channel-beacon-item">
+                  <div class="channel-head">
+                    <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                       <rect x="2" y="9" width="4" height="12"/>
                       <circle cx="4" cy="4" r="2"/>
                     </svg>
+                    <span class="ch-protocol">NETWORK: LINKEDIN // PROFESSIONAL_GRAPH</span>
                   </div>
-                  <div class="channel-info">
-                    <span class="channel-label">LINKEDIN</span>
-                    <a href="https://linkedin.com/in/atharav-balota" target="_blank" rel="noopener noreferrer" class="channel-val">
-                      linkedin.com/in/atharav-balota ↗
+                  <div class="channel-body-row">
+                    <a href="https://linkedin.com/in/atharav-balota" target="_blank" rel="noopener noreferrer" class="ch-link">
+                      <span>linkedin.com/in/atharav-balota</span>
+                      <span class="ch-arrow">↗</span>
                     </a>
                   </div>
                 </div>
 
-                <!-- GitHub Item -->
-                <div class="contact-channel-item">
-                  <div class="channel-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <!-- GitHub Channel -->
+                <div class="channel-beacon-item">
+                  <div class="channel-head">
+                    <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                       <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                     </svg>
+                    <span class="ch-protocol">REPOSITORY: GITHUB // CODE_ARCHIVE</span>
                   </div>
-                  <div class="channel-info">
-                    <span class="channel-label">GITHUB</span>
-                    <a href="https://github.com/atharavbalota" target="_blank" rel="noopener noreferrer" class="channel-val">
-                      github.com/atharavbalota ↗
+                  <div class="channel-body-row">
+                    <a href="https://github.com/atharavbalota" target="_blank" rel="noopener noreferrer" class="ch-link">
+                      <span>github.com/atharavbalota</span>
+                      <span class="ch-arrow">↗</span>
                     </a>
                   </div>
                 </div>
@@ -844,6 +1048,11 @@
               </div>
             </div>
 
+          </div>
+
+          <div class="beacon-footer">
+            <span class="bf-security">TRANSMISSION: SECURED // TLS 1.3 ENCRYPTION</span>
+            <span class="bf-clock" id="hudClock">2026.10 UTC // ORBITAL SYNC ACTIVE</span>
           </div>
         </div>
 
@@ -855,26 +1064,30 @@
   <!-- ========================================================
        FOOTER
        ======================================================== -->
-  <footer class="footer">
-    <div class="footer-container">
+  <footer class="celestial-footer">
+    <div class="footer-shell">
       <div class="footer-left">
-        <span class="footer-brand">ATHARAV BALOTA</span>
-        <span class="footer-copy">© 2026. All rights reserved. Designed with precision & pure code.</span>
+        <span class="footer-brand">ATHARAV BALOTRA // DIGITAL REALITY</span>
+        <span class="footer-sub">SPACE × DIGITAL REALITY × GENERATIVE 3D • PURE CODE</span>
       </div>
       <div class="footer-right">
-        <a href="#hero" class="back-top-link" id="backToTop">
-          <span>Back to Top</span>
-          <span class="top-arrow">↑</span>
+        <a href="#hero" class="footer-back-top" id="backToTopBtn">
+          <span>RETURN TO CELESTIAL CORE</span>
+          <span class="back-glyph">↑</span>
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- Toast Notification for Email Copy -->
-  <div class="toast-message" id="copyToast" aria-live="polite">✓ Email copied to clipboard!</div>
+  <!-- Toast Notification for Transmission Copy -->
+  <div class="cosmic-toast" id="copyToast" aria-live="polite">
+    <span class="toast-pulsar"></span>
+    <span class="toast-message">UPLINK COPIED // READY TO TRANSMIT</span>
+  </div>
 
-  <!-- JavaScript -->
+  <!-- Three.js (r128) CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Primary Universe Script -->
   <script src="script.js"></script>
 </body>
 </html>
-
