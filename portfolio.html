@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATHARAV BALOTA — Aspiring Founder & Software Engineer (2026)</title>
+
+  <!-- Meta tags for social previews and SEO -->
+  <meta name="description"
+    content="Personal portfolio of Atharav Balota — Aspiring Founder & Software Engineer building Pitstop AI. Football player & mountain climber. Scrapbook torn-paper design.">
+  <meta name="author" content="Atharav Balota">
+
+  <!-- Favicon doodle -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Google Fonts: Bebas Neue (huge headline), Caveat (handwritten cursive signature & notes), Plus Jakarta Sans (clean body), Space Grotesk & Space Mono (editorial labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ========================================================
+       ACCESSIBILITY SKIP LINK
+       ======================================================== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================
+       UNIQUE SPIDER-MAN ANIMATION & INTERACTIVE RIG
+       Swings down on a web thread from top of the screen
+       ======================================================== -->
+  <div class="spiderman-web-rig" id="spidermanRig" aria-label="Interactive Spider-Man Character">
+    <!-- Web thread running from the top of the browser -->
+    <div class="web-thread-line" id="webThreadLine"></div>
+
+    <!-- Hanging Spider-Man Character -->
+    <div class="spiderman-character" id="spidermanCharacter" tabindex="0" role="button"
+      aria-label="Spider-Man: Click to swing or trigger web action">
+
+      <!-- Speech bubble showing playful quips -->
+      <div class="spidey-speech-bubble" id="spideyBubble" role="status">
+        <span class="bubble-tag">SPIDEY-SENSE:</span>
+        <p class="bubble-text" id="spideyBubbleText">THWIP! 🕸️ Looking for an engineer who climbs peaks & ships AI?</p>
+        <div class="bubble-actions">
+          <button class="spidey-btn-mini" id="spideyResumeMiniBtn">📄 GRAB RESUME</button>
+          <span class="bubble-hint">(click me to swing!)</span>
+        </div>
+      </div>
+
+      <!-- Spider-Man Upside-Down Hanging Vector Character -->
+      <svg class="spidey-svg" viewBox="0 0 110 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Web thread connector at hands -->
+        <line x1="55" y1="0" x2="55" y2="28" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="3 1.5" />
+        <line x1="55" y1="0" x2="55" y2="28" stroke="#cbd5e1" stroke-width="1.2" />
+
+        <!-- Hanging Legs (knees bent reaching to web) -->
+        <path d="M42 36 L55 12 L47 4" stroke="#1d4ed8" stroke-width="7.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <path d="M68 36 L55 12 L63 4" stroke="#e11d48" stroke-width="7.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+
+        <!-- Hands clutching web -->
+        <circle cx="51" cy="7" r="4.5" fill="#e11d48" stroke="#111111" stroke-width="1.5" />
+        <circle cx="59" cy="7" r="4.5" fill="#e11d48" stroke="#111111" stroke-width="1.5" />
+
+        <!-- Classic Red & Blue Suit Torso (hanging upside down) -->
+        <path d="M38 42 C38 32, 72 32, 72 42 L68 82 C68 88, 42 88, 42 82 Z" fill="#e11d48" stroke="#111111"
+          stroke-width="2.5" />
+        <!-- Blue torso side flanks -->
+        <path d="M38 46 C41 60, 44 72, 45 80 L40 78 C38 68, 36 58, 38 46 Z" fill="#1d4ed8" />
+        <path d="M72 46 C69 60, 66 72, 65 80 L70 78 C72 68, 74 58, 72 46 Z" fill="#1d4ed8" />
+
+        <!-- Black spider logo emblem on chest -->
+        <path d="M55 58 L55 72 M53 62 L48 57 M57 62 L62 57 M53 66 L47 71 M57 66 L63 71 M54 64 L46 64 M56 64 L64 64"
+          stroke="#111111" stroke-width="1.8" stroke-linecap="round" />
+
+        <!-- Dynamic Hanging Arms -->
+        <path d="M38 44 L25 62 L32 75" stroke="#e11d48" stroke-width="6.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <path d="M72 44 L85 62 L78 75" stroke="#e11d48" stroke-width="6.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <!-- Gauntlet wrist bands -->
+        <circle cx="32" cy="75" r="3.5" fill="#1d4ed8" />
+        <circle cx="78" cy="75" r="3.5" fill="#1d4ed8" />
+
+        <!-- Upside-down Head with mask -->
+        <ellipse cx="55" cy="108" rx="21" ry="25" fill="#e11d48" stroke="#111111" stroke-width="2.5" />
+        <!-- Mask web lines -->
+        <line x1="55" y1="84" x2="55" y2="132" stroke="#111111" stroke-width="1.2" opacity="0.6" />
+        <line x1="34" y1="108" x2="76" y2="108" stroke="#111111" stroke-width="1.2" opacity="0.6" />
+        <path d="M40 94 Q55 102 70 94" stroke="#111111" stroke-width="1" fill="none" opacity="0.6" />
+        <path d="M38 120 Q55 112 72 120" stroke="#111111" stroke-width="1" fill="none" opacity="0.6" />
+
+        <!-- Big expressive white mask eyes with bold black rim -->
+        <path d="M39 101 Q50 96 52 112 Q42 116 39 101 Z" fill="#ffffff" stroke="#111111" stroke-width="2.5" />
+        <path d="M71 101 Q60 96 58 112 Q68 116 71 101 Z" fill="#ffffff" stroke="#111111" stroke-width="2.5" />
+      </svg>
+
+      <!-- Web blast shot emitter effect -->
+      <div class="spidey-thwip-burst" id="spideyThwipBurst">
+        <span class="burst-text">THWIP! 🕸️</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       TOP NOTIFICATION / TICKER TAPE BAR
+       ======================================================== -->
+  <div class="top-bar-tape" role="region" aria-label="Status Bar">
+    <div class="top-bar-content">
+      <span>● ACTIVELY BUILDING PITSTOP AI</span>
+      <span class="bar-separator">✦</span>
+      <span>ASPIRING FOUNDER & SOFTWARE ENGINEER</span>
+      <span class="bar-separator">✦</span>
+      <span>FOOTBALL PLAYER & MOUNTAIN CLIMBER</span>
+      <span class="bar-separator">✦</span>
+      <span>EDITION NO. 26 • SCROLL TO EXPLORE ARCHIVE</span>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MAIN NAVIGATION (STICKY TAPE STYLE)
+       ======================================================== -->
+  <header class="main-header" id="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <div class="nav-brand">
+        <a href="#hero" class="brand-badge">
+          <span class="brand-pin">📌</span>
+          <span class="brand-name">ATHARAV.DEV</span>
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#hello" class="nav-tape-link"><span class="nav-hash">#01</span> HELLO</a></li>
+        <li><a href="#education" class="nav-tape-link"><span class="nav-hash">#02</span> EDUCATION</a></li>
+        <li><a href="#skills" class="nav-tape-link"><span class="nav-hash">#03</span> SKILLS</a></li>
+        <li><a href="#experience" class="nav-tape-link"><span class="nav-hash">#04</span> EXPERIENCE</a></li>
+        <li><a href="#studio" class="nav-tape-link"><span class="nav-hash">#05</span> THE STUDIO</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="resume-nav-btn" id="resumeNavBtn" aria-label="Download Atharav's Resume PDF">
+          <span class="btn-icon">📄</span>
+          <span>RESUME</span>
+          <span class="btn-sub-tag">PDF</span>
+        </button>
+        <a href="#contact" class="stamp-btn">
+          <span>GET IN TOUCH</span>
+          <span class="stamp-arrow">↗</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Dropdown Nav Menu -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="#hello" class="mobile-nav-link"><span>01</span> HELLO (BIO)</a></li>
+        <li><a href="#education" class="mobile-nav-link"><span>02</span> EDUCATION</a></li>
+        <li><a href="#skills" class="mobile-nav-link"><span>03</span> SKILLS</a></li>
+        <li><a href="#experience" class="mobile-nav-link"><span>04</span> EXPERIENCE</a></li>
+        <li><a href="#studio" class="mobile-nav-link"><span>05</span> THE STUDIO</a></li>
+        <li><button class="mobile-nav-link resume-mobile-btn" id="resumeMobileBtn"><span>📄</span> DOWNLOAD RESUME
+            (PDF)</button></li>
+        <li><a href="#contact" class="mobile-nav-link highlight"><span>06</span> GET IN TOUCH ↗</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       PAGE CONTAINER (GRAPH PAPER BACKGROUND WRAPPER)
+       ======================================================== -->
+  <main id="main-content" class="scrapbook-page">
+
+    <!-- ======================================================
+         HERO SECTION: Title, Logo, Year, Signature, Cutout & Marquee
+         ====================================================== -->
+    <section class="hero-section" id="hero" aria-label="Introduction & Visual Showcase">
+
+      <!-- Top Small Subtitle: Updated to ASPIRING FOUNDER / SOFTWARE ENGINEER -->
+      <div class="hero-eyebrow-container">
+        <div class="tape-strip top-eyebrow-tape">
+          <span class="eyebrow-text">ASPIRING FOUNDER / SOFTWARE ENGINEER</span>
+        </div>
+      </div>
+
+      <!-- Huge Bold "PORTFOLIO" with stylized face logo and 2026 badge -->
+      <div class="hero-title-wrapper">
+        <h1 class="hero-mega-title">
+          <span class="title-word-part">PORT</span>
+
+          <!-- Stylized Face Logo in the middle of PORTFOLIO -->
+          <div class="stylized-face-logo" title="Atharav's Stylized Doodle Mascot" aria-label="Stylized Face Logo">
+            <svg class="face-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Face round outline with sketchy imperfect edge -->
+              <circle cx="50" cy="50" r="44" stroke="#111111" stroke-width="4.5" fill="#facc15" />
+              <!-- Curly wild hair loops -->
+              <path d="M22 34 C18 20, 32 14, 40 24 C45 12, 60 14, 62 26 C72 16, 84 26, 78 38 C86 42, 85 54, 78 56"
+                stroke="#111111" stroke-width="4.5" stroke-linecap="round" fill="#111111" />
+              <!-- Cool sunglasses / spectacles -->
+              <rect x="25" y="42" width="20" height="15" rx="3" fill="#111111" />
+              <rect x="55" y="42" width="20" height="15" rx="3" fill="#111111" />
+              <line x1="45" y1="48" x2="55" y2="48" stroke="#111111" stroke-width="4" stroke-linecap="round" />
+              <!-- Glare highlights -->
+              <line x1="28" y1="46" x2="35" y2="53" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="58" y1="46" x2="65" y2="53" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+              <!-- Smirking smile -->
+              <path d="M38 68 Q50 82 62 68" stroke="#111111" stroke-width="4" stroke-linecap="round" fill="none" />
+              <!-- Founder lightning badge -->
+              <circle cx="21" cy="56" r="3" fill="#e63946" stroke="#111111" stroke-width="2" />
+            </svg>
+            <span class="face-tag-label">ME!</span>
+          </div>
+
+          <span class="title-word-part">FOLIO</span>
+
+          <!-- Angled 2026 stamp badge on right -->
+          <div class="year-stamp-badge" title="Edition 2026">
+            <span class="stamp-inner-text">2026</span>
+            <span class="stamp-sub">FOUNDER ED.</span>
+          </div>
+        </h1>
+      </div>
+
+      <!-- Handwritten-style signature under the logo: Atharav Balota -->
+      <div class="hero-signature-row">
+        <div class="signature-holder">
+          <p class="handwritten-signature">Atharav Balota</p>
+          <div class="signature-doodle-arrow">
+            <svg width="120" height="30" viewBox="0 0 120 30" fill="none">
+              <path d="M4 18 C35 28, 85 24, 114 8" stroke="#e63946" stroke-width="3" stroke-linecap="round"
+                stroke-dasharray="2 1" />
+              <path d="M102 5 L116 8 L110 18" stroke="#e63946" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span class="doodle-note">that's me!</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================
+           HERO COMPOSITION: LEFT PHOTO FRAME + LOWER RED CUTOUT
+           ==================================================== -->
+      <div class="hero-stage-layout">
+
+        <!-- LEFT SIDE: Vertical Photo Frame (Pinkish border, cycles 5 photos) -->
+        <aside class="left-photo-frame-container" aria-label="Casual Outfit, Football & Mountain Life Photo Cycle">
+
+          <!-- Decorative Scotch Tape at top -->
+          <div class="washi-tape-strip tape-pink-top"></div>
+
+          <div class="pink-photo-frame" id="photoFrame">
+            <!-- Frame Header Badge -->
+            <div class="frame-header-bar">
+              <span class="frame-rec-dot">● LIVE</span>
+              <span class="frame-counter" id="photoCounter">01 / 05</span>
+            </div>
+
+            <!-- Slides wrapper -->
+            <div class="frame-slides-viewport">
+              <!-- Slide 1 -->
+              <div class="frame-slide active" data-index="0">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=700&q=80"
+                  alt="Atharav Balota coding Pitstop AI" loading="eager" width="700" height="950">
+                <div class="slide-caption">01 • BUILDING PITSTOP AI</div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="frame-slide" data-index="1">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80"
+                  alt="Atharav on mountain peak" loading="lazy" width="700" height="950">
+                <div class="slide-caption">02 • MOUNTAIN CLIMBING EXPEDITION</div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="frame-slide" data-index="2">
+                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=700&q=80"
+                  alt="Football on the pitch" loading="lazy" width="700" height="950">
+                <div class="slide-caption">03 • FOOTBALL MATCHDAY</div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="frame-slide" data-index="3">
+                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=700&q=80"
+                  alt="Atharav in engineering workshop" loading="lazy" width="700" height="950">
+                <div class="slide-caption">04 • SOFTWARE LAB & ARCHITECTURE</div>
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="frame-slide" data-index="4">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=80"
+                  alt="Atharav candid portrait outdoors" loading="lazy" width="700" height="950">
+                <div class="slide-caption">05 • SUMMIT REFLECTION</div>
+              </div>
+            </div>
+
+            <!-- Frame Footer controls -->
+            <div class="frame-footer-bar">
+              <button class="frame-arrow-btn" id="framePrevBtn" aria-label="Previous photo">❮</button>
+
+              <!-- Indicator Dots -->
+              <div class="frame-dots-group" id="frameDots" role="tablist" aria-label="Photo Slides">
+                <button class="frame-dot active" role="tab" aria-selected="true" data-slide="0"
+                  aria-label="Slide 1"></button>
+                <button class="frame-dot" role="tab" aria-selected="false" data-slide="1" aria-label="Slide 2"></button>
+                <button class="frame-dot" role="tab" aria-selected="false" data-slide="2" aria-label="Slide 3"></button>
+                <button class="frame-dot" role="tab" aria-selected="false" data-slide="3" aria-label="Slide 4"></button>
+                <button class="frame-dot" role="tab" aria-selected="false" data-slide="4" aria-label="Slide 5"></button>
+              </div>
+
+              <button class="frame-arrow-btn" id="frameNextBtn" aria-label="Next photo">❯</button>
+            </div>
+          </div>
+
+          <!-- Handwritten caption under photo frame -->
+          <div class="frame-handwritten-note">
+            <span class="note-pin">📎</span>
+            <p>"building products that matter, scoring on the pitch & summiting peaks."</p>
+          </div>
+        </aside>
+
+        <!-- CENTER / RIGHT HERO: Portrait & Torn Marquee Banner Stage -->
+        <div class="hero-center-stage">
+
+          <!-- Scrapbook Sticker Badges floating around -->
+          <div class="scrapbook-badge badge-top-right">
+            <div class="badge-barcode">|||| ||| ||||| ||||</div>
+            <span>FOUNDER & ENGINEER</span>
+          </div>
+
+          <!-- THE CONTINUOUS HORIZONTAL BLACK TORN-PAPER MARQUEE BANNER
+               Updated with: ATHARAV BALOTA • ASPIRING FOUNDER • SOFTWARE ENGINEER • PITSTOP AI • FOOTBALL • MOUNTAIN CLIMBING -->
+          <div class="torn-marquee-banner-wrapper" aria-label="Scrolling Highlights Banner">
+            <div class="torn-paper-banner-strip">
+              <div class="marquee-track" id="marqueeTrack">
+                <!-- Repeated text for seamless continuous scroll -->
+                <div class="marquee-content">
+                  <span class="marquee-item accent-red">ATHARAV BALOTA</span>
+                  <span class="marquee-bullet">★</span>
+                  <span class="marquee-item">ASPIRING FOUNDER</span>
+                  <span class="marquee-bullet">★</span>
+                  <span class="marquee-item">SOFTWARE ENGINEER</span>
+                  <span class="marquee-bullet">★</span>
+                  <span class="marquee-item accent-red">PITSTOP AI</span>
+                  <span class="marquee-bullet">★</span>
+                  <span class="marquee-item">FOOTBALL</span>
+                  <span class="marquee-bullet">★</span>
+                  <span class="marquee-item">MOUNTAIN CLIMBING</span>
+                  <span class="marquee-bullet">★</span>
+                </div>
+                <!-- Duplicate for uninterrupted loop -->
+                <div class="marquee-content" aria-hidden="true">
+                  <span class="marquee-item accent-red">ATHARAV BALOTA</span>
+                  <span class="marquee-bullet">★</span>
+                  <span class="marquee-item">ASPIRING FOUNDER</span>
+                  <span class="marquee-bullet">★</span>
+                  <span class="marquee-item">SOFTWARE ENGINEER</span>
+                  <span class="marquee-bullet">★</span>
+                  <span class="marquee-item accent-red">PITSTOP AI</span>
+                  <span class="marquee-bullet">★</span>
+                  <span class="marquee-item">FOOTBALL</span>
+                  <span class="marquee-bullet">★</span>
+                  <span class="marquee-item">MOUNTAIN CLIMBING</span>
+                  <span class="marquee-bullet">★</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LARGE RED JAGGED CUT-OUT STYLE PORTRAIT (Young man with curly hair) -->
+          <div class="cutout-portrait-wrapper" aria-label="Cutout Portrait of Atharav Balota">
+            <!-- Jagged red paper backing cutout -->
+            <div class="red-jagged-backdrop"></div>
+
+            <!-- Red accent border cut-out frame -->
+            <div class="cutout-image-container">
+              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80"
+                alt="Atharav Balota — young man with curly hair in stylish red cut-out collage frame" class="cutout-img"
+                width="800" height="960">
+
+              <!-- Red stamp sticker on cutout -->
+              <div class="cutout-rubber-stamp">
+                <span>FOUNDER</span>
+                <strong>PITSTOP AI</strong>
+                <span>CRAFT 26</span>
+              </div>
+
+              <!-- Yellow masking tape corner -->
+              <div class="corner-tape-cutout"></div>
+            </div>
+
+            <!-- Lower sticker label -->
+            <div class="portrait-caption-tag">
+              <span class="tag-icon">⚡</span>
+              <span class="tag-title">BUILDER ID: AB-FOUNDER-2026</span>
+              <span class="tag-status">● BUILDING</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================
+         MAIN CONTENT SHEETS (WHITE PAPER WITH SOFT SHADOWS & TORN EDGES)
+         ======================================================== -->
+    <div class="content-paper-stack">
+
+      <!-- ======================================================
+           SECTION 1: HELLO (Natural Bio with Atharav's exact words)
+           ====================================================== -->
+      <section class="paper-sheet hello-paper-sheet" id="hello">
+        <!-- Top Tape & Pin -->
+        <div class="sheet-tape sheet-tape-center"></div>
+        <div class="sheet-corner-stamp">CASE #01 / DOSSIER</div>
+
+        <div class="sheet-header">
+          <div class="section-tag-row">
+            <span class="section-num">[ 01 ]</span>
+            <span class="section-label">ORIGIN STORY</span>
+          </div>
+          <h2 class="section-heading">HELLO WORLD. I’M ATHARAV.</h2>
+        </div>
+
+        <div class="hello-grid">
+          <!-- Left Bio Narrative (Exact natural bio requested) -->
+          <div class="hello-main-text">
+            <p class="lead-text">
+              Hi, I'm <strong>Atharav Balota</strong>.
+            </p>
+            <p class="lead-text">
+              I’m an aspiring founder and software engineer who loves building products that solve real problems.
+              Currently I’m working on <strong>Pitstop AI</strong> — a project I’m deeply passionate about.
+            </p>
+            <p>
+              When I’m not coding or working on Pitstop AI, you’ll find me on the football field or climbing mountains.
+              Both keep me grounded and push me to go further.
+            </p>
+
+            <!-- Handwritten aside -->
+            <div class="bio-aside-note">
+              <span class="note-arrow">⤷</span>
+              <p class="handwritten-p">"Push past the comfort zone — whether on the summit, the pitch, or in the
+                codebase."</p>
+            </div>
+          </div>
+
+          <!-- Right Highlights & Fast Facts (Sticky Note / Scrapbook Badges) -->
+          <div class="hello-sidebar">
+            <div class="yellow-sticky-note">
+              <div class="sticky-pin">📌</div>
+              <h3 class="sticky-title">QUICK VITALS</h3>
+              <ul class="sticky-list">
+                <li><strong>Current Venture:</strong> Pitstop AI (Building)</li>
+                <li><strong>Roles:</strong> Aspiring Founder & Software Engineer</li>
+                <li><strong>Passions:</strong> Football & Mountain Climbing</li>
+                <li><strong>Core Stack:</strong> JS/TS, React, Node.js, Python, AI/ML</li>
+                <li><strong>Mission:</strong> Building products that solve real problems</li>
+              </ul>
+            </div>
+
+            <!-- Stats Stamp Board -->
+            <div class="stats-scrapbook-row">
+              <div class="stat-box">
+                <span class="stat-number">01</span>
+                <span class="stat-label">PITSTOP AI VENTURE</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">90’</span>
+                <span class="stat-label">MINUTES ON PITCH</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">▲▲</span>
+                <span class="stat-label">PEAKS SUMMITED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================
+           SECTION 2: EDUCATION & FOUNDATIONS
+           ====================================================== -->
+      <section class="paper-sheet education-paper-sheet" id="education">
+        <!-- Notebook perforated holes effect on left -->
+        <div class="notebook-holes" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="sheet-corner-stamp blue-stamp">FOUNDER EDUCATION</div>
+
+        <div class="sheet-header">
+          <div class="section-tag-row">
+            <span class="section-num">[ 02 ]</span>
+            <span class="section-label">FOUNDATIONS</span>
+          </div>
+          <h2 class="section-heading">EDUCATION & TECHNICAL ROOTS</h2>
+        </div>
+
+        <div class="education-timeline">
+
+          <!-- Entry 1 -->
+          <div class="edu-card">
+            <div class="edu-year-tag">UNDERGRADUATE STUDIES</div>
+            <div class="edu-body">
+              <div class="edu-top-line">
+                <h3 class="edu-degree">Computer Science & Software Engineering</h3>
+                <span class="edu-badge gold">ENGINEERING DEGREE</span>
+              </div>
+              <p class="edu-school">Core Foundations in Algorithms, Distributed Systems & Modern Web</p>
+              <p class="edu-description">
+                Rigorous study of data structures, computational complexity, object-oriented systems, database design,
+                and machine learning principles. Built deep technical foundations that power scalable software
+                development and entrepreneurial ventures.
+              </p>
+              <div class="edu-pills">
+                <span class="edu-pill">Distributed Systems</span>
+                <span class="edu-pill">Full-Stack Architecture</span>
+                <span class="edu-pill">AI/ML Algorithms</span>
+                <span class="edu-pill">System Design</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entry 2 -->
+          <div class="edu-card">
+            <div class="edu-year-tag">VENTURE INTENSIVE</div>
+            <div class="edu-body">
+              <div class="edu-top-line">
+                <h3 class="edu-degree">Founder Mentorship & Product Building Sprint</h3>
+                <span class="edu-badge">ENTREPRENEURSHIP</span>
+              </div>
+              <p class="edu-school">Pitstop AI Product Incubation & Systems Engineering</p>
+              <p class="edu-description">
+                Focused research and rapid prototyping for Pitstop AI. Customer discovery, technical architecture
+                validation, lean MVP execution, and integrating modern AI models into seamless user experiences.
+              </p>
+              <div class="edu-pills">
+                <span class="edu-pill">MVP Execution</span>
+                <span class="edu-pill">AI Product Strategy</span>
+                <span class="edu-pill">User Feedback Loops</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entry 3 -->
+          <div class="edu-card">
+            <div class="edu-year-tag">OUTDOOR EXPEDITIONS</div>
+            <div class="edu-body">
+              <div class="edu-top-line">
+                <h3 class="edu-degree">Alpine Mountaineering & Team Leadership</h3>
+                <span class="edu-badge">MOUNTAIN & PITCH</span>
+              </div>
+              <p class="edu-school">High-Altitude Trails & Competitive Football Leagues</p>
+              <p class="edu-description">
+                Years of high-altitude peak climbs and competitive football that build grit, tactical focus under
+                pressure, endurance, and decisive team leadership.
+              </p>
+              <div class="edu-pills">
+                <span class="edu-pill">High-Altitude Grit</span>
+                <span class="edu-pill">Team Synergy</span>
+                <span class="edu-pill">Risk Management</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================
+           SECTION 3: SKILLS (JavaScript, React, Node.js, Python, AI/ML, Product)
+           ====================================================== -->
+      <section class="paper-sheet skills-paper-sheet" id="skills">
+        <div class="sheet-tape sheet-tape-left"></div>
+        <div class="sheet-corner-stamp red-stamp">TECH STACK</div>
+
+        <div class="sheet-header">
+          <div class="section-tag-row">
+            <span class="section-num">[ 03 ]</span>
+            <span class="section-label">TECHNICAL ARSENAL</span>
+          </div>
+          <h2 class="section-heading">SKILLS & CORE TOOLKIT</h2>
+          <p class="section-subtext">The modern engineering stack and founder toolchain I leverage to bring Pitstop AI
+            and robust web platforms to life.</p>
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- 1. JavaScript -->
+          <div class="skill-card js-card">
+            <div class="skill-icon-wrap js-icon">
+              <span class="tech-symbol">JS</span>
+            </div>
+            <div class="skill-info">
+              <div class="skill-title-row">
+                <h3 class="skill-name">JavaScript / TypeScript</h3>
+                <span class="skill-level">CORE / ADVANCED</span>
+              </div>
+              <p class="skill-desc">
+                Modern ES6+, TypeScript type safety, asynchronous concurrency, DOM engine optimization, and robust
+                architectural patterns.
+              </p>
+              <div class="skill-meter">
+                <div class="meter-fill" style="width: 95%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. React -->
+          <div class="skill-card react-card">
+            <div class="skill-icon-wrap react-icon">
+              <!-- React Atom Symbol -->
+              <svg viewBox="0 0 24 24" class="tool-svg" fill="currentColor">
+                <ellipse cx="12" cy="12" rx="10" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.6"
+                  transform="rotate(30 12 12)" />
+                <ellipse cx="12" cy="12" rx="10" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.6"
+                  transform="rotate(90 12 12)" />
+                <ellipse cx="12" cy="12" rx="10" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.6"
+                  transform="rotate(150 12 12)" />
+                <circle cx="12" cy="12" r="2" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="skill-info">
+              <div class="skill-title-row">
+                <h3 class="skill-name">React</h3>
+                <span class="skill-level">FRONTEND / PRO</span>
+              </div>
+              <p class="skill-desc">
+                Next.js, component lifecycle, custom hooks, atomic design systems, state management, and
+                high-performance interactive interfaces.
+              </p>
+              <div class="skill-meter">
+                <div class="meter-fill" style="width: 92%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Node.js -->
+          <div class="skill-card node-card">
+            <div class="skill-icon-wrap node-icon">
+              <!-- Node.js Hex Symbol -->
+              <svg viewBox="0 0 24 24" class="tool-svg" fill="currentColor">
+                <path d="M12 2l8.5 5v10L12 22l-8.5-5V7L12 2zm0 2.2L5.5 8.3v7.4L12 19.8l6.5-4.1V8.3L12 4.2z" />
+              </svg>
+            </div>
+            <div class="skill-info">
+              <div class="skill-title-row">
+                <h3 class="skill-name">Node.js</h3>
+                <span class="skill-level">BACKEND / ROBUST</span>
+              </div>
+              <p class="skill-desc">
+                Event-driven servers, REST & GraphQL APIs, microservices, auth flows, database ORMs, caching strategies,
+                and serverless runtimes.
+              </p>
+              <div class="skill-meter">
+                <div class="meter-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Python -->
+          <div class="skill-card python-card">
+            <div class="skill-icon-wrap python-icon">
+              <!-- Python Symbol -->
+              <svg viewBox="0 0 24 24" class="tool-svg" fill="currentColor">
+                <path
+                  d="M11.9 2c-3.1 0-5.1 1.4-5.1 3.5v2.6h5.2v.8H4.7c-2.1 0-3.7 1.8-3.7 4.2 0 2.4 1.7 4.1 3.7 4.1h2.1v-2.9c0-2.3 2-4.2 4.3-4.2h5.1V7.5c0-2.1-2-5.5-4.3-5.5zm-1.8 1.8c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1zm1.9 18.2c3.1 0 5.1-1.4 5.1-3.5v-2.6h-5.2v-.8h7.3c2.1 0 3.7-1.8 3.7-4.2 0-2.4-1.7-4.1-3.7-4.1h-2.1v2.9c0 2.3-2 4.2-4.3 4.2h-5.1v2.6c0 2.1 2 5.5 4.3 5.5zm1.8-1.8c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z" />
+              </svg>
+            </div>
+            <div class="skill-info">
+              <div class="skill-title-row">
+                <h3 class="skill-name">Python</h3>
+                <span class="skill-level">AI & BACKEND</span>
+              </div>
+              <p class="skill-desc">
+                FastAPI microservices, asynchronous data scraping, automated data pipelines, scripting, PyTorch and
+                scientific compute stacks.
+              </p>
+              <div class="skill-meter">
+                <div class="meter-fill" style="width: 89%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. AI / ML -->
+          <div class="skill-card aiml-card">
+            <div class="skill-icon-wrap aiml-icon">
+              <!-- AI / Neural Brain Symbol -->
+              <span class="tech-symbol">AI</span>
+            </div>
+            <div class="skill-info">
+              <div class="skill-title-row">
+                <h3 class="skill-name">AI / Machine Learning</h3>
+                <span class="skill-level">PITSTOP AI CORE</span>
+              </div>
+              <p class="skill-desc">
+                LLM integrations, agentic workflows, embeddings, vector databases, prompt engineering pipelines, and
+                intelligent automated decisions.
+              </p>
+              <div class="skill-meter">
+                <div class="meter-fill" style="width: 88%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Product Strategy & Design -->
+          <div class="skill-card product-card">
+            <div class="skill-icon-wrap product-icon">
+              <!-- Product Blueprint Symbol -->
+              <svg viewBox="0 0 24 24" class="tool-svg" fill="currentColor">
+                <path
+                  d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V18z" />
+              </svg>
+            </div>
+            <div class="skill-info">
+              <div class="skill-title-row">
+                <h3 class="skill-name">Product & Systems</h3>
+                <span class="skill-level">FOUNDER ROADMAP</span>
+              </div>
+              <p class="skill-desc">
+                Problem discovery, user journeys, MVP scoping, agile iterations, metric tracking, and transforming raw
+                tech into intuitive products.
+              </p>
+              <div class="skill-meter">
+                <div class="meter-fill" style="width: 94%;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Additional Craft Tags -->
+        <div class="craft-pills-row">
+          <span class="craft-pill">Pitstop AI Architecture</span>
+          <span class="craft-pill">Next.js</span>
+          <span class="craft-pill">PostgreSQL</span>
+          <span class="craft-pill">REST & GraphQL</span>
+          <span class="craft-pill">Docker & Cloud</span>
+          <span class="craft-pill">Vector Search</span>
+          <span class="craft-pill">Clean Code</span>
+          <span class="craft-pill">Agile Building</span>
+        </div>
+      </section>
+
+      <!-- ======================================================
+           SECTION 4: EXPERIENCE / CURRENT FOCUS
+           - Founder — Pitstop AI (Building)
+           - Software Engineer — Full-stack Development
+           ====================================================== -->
+      <section class="paper-sheet experience-paper-sheet" id="experience">
+        <div class="sheet-tape sheet-tape-right"></div>
+        <div class="sheet-corner-stamp black-stamp">VENTURE & CODE DOSSIER</div>
+
+        <div class="sheet-header">
+          <div class="section-tag-row">
+            <span class="section-num">[ 04 ]</span>
+            <span class="section-label">TRACK RECORD & CURRENT FOCUS</span>
+          </div>
+          <h2 class="section-heading">EXPERIENCE & VENTURES</h2>
+        </div>
+
+        <div class="experience-dossier">
+
+          <!-- Entry 1: Founder — Pitstop AI (Building) -->
+          <article class="exp-entry">
+            <div class="exp-meta">
+              <span class="exp-dates">2025 — PRESENT</span>
+              <span class="exp-status-pill">● ACTIVELY BUILDING</span>
+              <div class="exp-stamp">FOUNDER</div>
+            </div>
+            <div class="exp-content">
+              <div class="exp-title-row">
+                <h3 class="exp-role">Founder</h3>
+                <span class="exp-company">PITSTOP AI • CURRENT VENTURE</span>
+              </div>
+              <p class="exp-summary">
+                Leading the vision, engineering, and execution of <strong>Pitstop AI</strong> — building an intelligent
+                platform engineered to solve real friction points, optimize complex workflows, and automate high-value
+                decisions.
+              </p>
+              <ul class="exp-achievements">
+                <li>Architecting Pitstop AI from ground-level systems, designing the core algorithms, backend engine,
+                  and modern user interface.</li>
+                <li>Conducting user problem validation, rapid sprint prototypes, and shaping the product roadmap to
+                  solve real-world pain points.</li>
+                <li>Integrating cutting-edge AI pipelines with robust full-stack software to deliver instantaneous value
+                  and seamless usability.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Entry 2: Software Engineer — Full-stack Development -->
+          <article class="exp-entry">
+            <div class="exp-meta">
+              <span class="exp-dates">2023 — PRESENT</span>
+              <span class="exp-status-pill">FULL-STACK CRAFT</span>
+              <div class="exp-stamp">ENGINEER</div>
+            </div>
+            <div class="exp-content">
+              <div class="exp-title-row">
+                <h3 class="exp-role">Software Engineer</h3>
+                <span class="exp-company">FULL-STACK DEVELOPMENT • INDEPENDENT & COLLABORATIVE</span>
+              </div>
+              <p class="exp-summary">
+                Engineering reliable, scalable web applications and distributed architectures across
+                JavaScript/TypeScript, React, Node.js, and Python.
+              </p>
+              <ul class="exp-achievements">
+                <li>Developed and deployed production-ready full-stack applications with responsive frontends and
+                  resilient API services.</li>
+                <li>Optimized database queries, caching strategies, and server performance for latency-sensitive
+                  applications.</li>
+                <li>Championed clean code architecture, type safety, modular systems, and continuous delivery pipelines.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Entry 3: Athletics & Mountaineering Discipline -->
+          <article class="exp-entry">
+            <div class="exp-meta">
+              <span class="exp-dates">ONGOING</span>
+              <span class="exp-status-pill">FIELD & TRAIL</span>
+              <div class="exp-stamp">DISCIPLINE</div>
+            </div>
+            <div class="exp-content">
+              <div class="exp-title-row">
+                <h3 class="exp-role">Football Athlete & Alpine Mountaineer</h3>
+                <span class="exp-company">PITCHES & HIGH-ALTITUDE SUMMITS</span>
+              </div>
+              <p class="exp-summary">
+                Channeling the stamina, sharp tactical communication, and mental grit forged on football fields and
+                mountain summits directly into software engineering and entrepreneurial perseverance.
+              </p>
+              <ul class="exp-achievements">
+                <li>Navigated multi-day high-altitude mountain expeditions demanding rigorous preparation, crisis
+                  calmness, and mental endurance.</li>
+                <li>Active competitive football team player, cultivating high-trust teamwork, quick strategic pivots,
+                  and relentless drive.</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ======================================================
+           SECTION 5: THE STUDIO (Polaroids: Pitstop AI, Climbing, Football, Full-Stack)
+           ====================================================== -->
+      <section class="paper-sheet studio-paper-sheet" id="studio">
+        <div class="sheet-corner-stamp red-stamp">FEATURED ARCHIVE</div>
+
+        <div class="sheet-header studio-header-flex">
+          <div>
+            <div class="section-tag-row">
+              <span class="section-num">[ 05 ]</span>
+              <span class="section-label">SELECTED HIGHLIGHTS</span>
+            </div>
+            <h2 class="section-heading">THE STUDIO & PURSUITS</h2>
+            <p class="section-subtext">Click any polaroid to expand details on Pitstop AI, mountaineering expeditions,
+              and matchday grit.</p>
+          </div>
+          <div class="studio-polaroid-counter">
+            <span class="polaroid-badge-text">📷 4 POLAROIDS PINNED</span>
+          </div>
+        </div>
+
+        <!-- Polaroid Thumbnails Gallery Grid -->
+        <div class="polaroid-gallery-grid">
+
+          <!-- Polaroid 1: Pitstop AI -->
+          <div class="polaroid-card polaroid-tilt-left" data-project="0"
+            data-title="Pitstop AI: Intelligent Autonomous Platform" data-client="Pitstop AI (Founded & Building)"
+            data-year="2026" data-tools="Python • React • Node.js • AI/ML"
+            data-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+            data-desc="Pitstop AI is an ambitious venture I am actively building. Engineered to solve real-world bottlenecks, eliminate operational friction, and deliver intelligent, data-driven optimization. Combining automated AI workflows with a responsive, lightning-fast web experience.">
+            <!-- Washi tape at top -->
+            <div class="polaroid-tape polaroid-tape-yellow"></div>
+
+            <div class="polaroid-photo-frame">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80"
+                alt="Pitstop AI Analytics and Engine Dashboard" loading="lazy" width="700" height="500">
+              <span class="polaroid-overlay-btn">VIEW VENTURE ↗</span>
+            </div>
+            <div class="polaroid-caption">
+              <p class="polaroid-handwriting">"PITSTOP AI" VENTURE</p>
+              <span class="polaroid-tag">FOUNDER / AI PLATFORM</span>
+            </div>
+          </div>
+
+          <!-- Polaroid 2: Mountain Climbing -->
+          <div class="polaroid-card polaroid-tilt-right" data-project="1"
+            data-title="Alpine Mountain Climbing & High Peaks" data-client="High-Altitude Trails & Summits"
+            data-year="2025 - 2026" data-tools="Grit • Endurance • Altitude Resilience"
+            data-image="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+            data-desc="Climbing mountains pushes my physical and mental limits. Being thousands of meters above sea level teaches total focus, calculated risk management, patience, and staying grounded no matter how steep the climb gets. Those exact lessons guide how I build software and lead ventures.">
+            <div class="polaroid-tape polaroid-tape-pink"></div>
+
+            <div class="polaroid-photo-frame">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80"
+                alt="Mountain Climbing Peaks" loading="lazy" width="700" height="500">
+              <span class="polaroid-overlay-btn">VIEW EXPEDITION ↗</span>
+            </div>
+            <div class="polaroid-caption">
+              <p class="polaroid-handwriting">MOUNTAIN CLIMBING</p>
+              <span class="polaroid-tag">SUMMITS & EXPEDITION</span>
+            </div>
+          </div>
+
+          <!-- Polaroid 3: Football -->
+          <div class="polaroid-card polaroid-tilt-straight" data-project="2"
+            data-title="Football Pitch: 90 Minutes of Focus" data-client="Competitive Leagues & Matchdays"
+            data-year="2026" data-tools="Agility • Spatial Vision • Team Synergy"
+            data-image="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=80"
+            data-desc="Football is where competitive instincts and fast strategic thinking come alive. Reading the field, making split-second passes under pressure, and rallying with teammates for 90 intense minutes instills an unwavering hunger to win and execute as a united team.">
+            <div class="polaroid-tape polaroid-tape-white"></div>
+
+            <div class="polaroid-photo-frame">
+              <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=700&q=80"
+                alt="Football on the pitch" loading="lazy" width="700" height="500">
+              <span class="polaroid-overlay-btn">VIEW MATCHDAY ↗</span>
+            </div>
+            <div class="polaroid-caption">
+              <p class="polaroid-handwriting">FOOTBALL ON THE PITCH</p>
+              <span class="polaroid-tag">ATHLETICS / TEAMWORK</span>
+            </div>
+          </div>
+
+          <!-- Polaroid 4: Full-Stack Engineering -->
+          <div class="polaroid-card polaroid-tilt-slight" data-project="3"
+            data-title="Full-Stack Engineering & System Architecture" data-client="Web Platforms & Systems"
+            data-year="2025 - 2026" data-tools="JavaScript • React • Node.js • Python"
+            data-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+            data-desc="Crafting elegant, maintainable, and high-performance software systems. From modern React frontend architectures to high-throughput Node.js and Python backend microservices, building with precision and passion for real-world impact.">
+            <div class="polaroid-tape polaroid-tape-blue"></div>
+
+            <div class="polaroid-photo-frame">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=700&q=80"
+                alt="Full-Stack Code and Architecture" loading="lazy" width="700" height="500">
+              <span class="polaroid-overlay-btn">VIEW CODE LAB ↗</span>
+            </div>
+            <div class="polaroid-caption">
+              <p class="polaroid-handwriting">FULL-STACK LAB</p>
+              <span class="polaroid-tag">SOFTWARE ARCHITECTURE</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================
+           SECTION 6: CONTACT / POSTCARD FINALE
+           ====================================================== -->
+      <section class="paper-sheet contact-paper-sheet" id="contact">
+        <!-- Airmail border strip at top -->
+        <div class="airmail-strip" aria-hidden="true"></div>
+
+        <div class="sheet-corner-stamp red-stamp">PRIORITY AIRMAIL</div>
+
+        <div class="contact-postcard-grid">
+          <!-- Left: The Message -->
+          <div class="postcard-message-side">
+            <div class="section-tag-row">
+              <span class="section-num">[ 06 ]</span>
+              <span class="section-label">TRANSMISSION</span>
+            </div>
+            <h2 class="postcard-heading">LET’S BUILD SOMETHING IMPACTFUL.</h2>
+            <p class="postcard-copy">
+              Interested in Pitstop AI, collaborating on software engineering, discussing product ideas, or talking
+              about football and mountain expeditions? Drop a line anytime.
+            </p>
+
+            <div class="email-action-box">
+              <span class="action-label">OFFICIAL INBOX:</span>
+              <div class="email-copy-wrapper">
+                <code class="email-text" id="emailAddress">atharav.balota@gmail.com</code>
+                <button class="copy-btn" id="copyEmailBtn" aria-label="Copy email address to clipboard">
+                  <span class="copy-btn-text">COPY EMAIL</span>
+                  <span class="copy-icon">📋</span>
+                </button>
+              </div>
+              <span class="copy-toast" id="copyToast" aria-live="polite">✓ COPIED TO CLIPBOARD!</span>
+            </div>
+
+            <!-- Download Resume Action Card -->
+            <div class="resume-contact-card">
+              <div class="resume-contact-info">
+                <span class="resume-mini-badge">DOCUMENT DOSSIER</span>
+                <strong class="resume-card-title">ATHARAV BALOTA — OFFICIAL RESUME</strong>
+                <p class="resume-card-sub">PDF Format • Full-Stack Specs & Pitstop AI Overview</p>
+              </div>
+              <button class="stamp-btn resume-contact-btn" id="resumeContactBtn" aria-label="Download Atharav's Resume">
+                <span>DOWNLOAD RESUME</span>
+                <span class="stamp-arrow">↓</span>
+              </button>
+            </div>
+
+            <!-- Social Sticker Pills -->
+            <div class="social-stickers-wrap">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-sticker">
+                <span>GITHUB</span> ↗
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-sticker">
+                <span>LINKEDIN</span> ↗
+              </a>
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-sticker">
+                <span>TWITTER / X</span> ↗
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-sticker">
+                <span>INSTAGRAM</span> ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Postcard Stamp & Address Form -->
+          <div class="postcard-stamp-side">
+            <div class="vintage-postal-stamp">
+              <div class="stamp-perforations">
+                <div class="stamp-inner">
+                  <span class="stamp-post-icon">⚡</span>
+                  <span class="stamp-val">2026 AIRMAIL</span>
+                  <strong class="stamp-country">PITSTOP AI / GLOBAL</strong>
+                </div>
+              </div>
+              <div class="ink-cancellation-mark">
+                <svg viewBox="0 0 100 50" class="cancel-svg">
+                  <circle cx="25" cy="25" r="20" stroke="#111111" stroke-width="2" fill="none" stroke-dasharray="4 2" />
+                  <line x1="45" y1="15" x2="95" y2="15" stroke="#111111" stroke-width="2" />
+                  <line x1="45" y1="25" x2="95" y2="25" stroke="#111111" stroke-width="2" />
+                  <line x1="45" y1="35" x2="95" y2="35" stroke="#111111" stroke-width="2" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Recipient lines -->
+            <div class="postcard-address-lines">
+              <div class="addr-line"><span>TO:</span> <em>Fellow Builders, Mentors & Friends</em></div>
+              <div class="addr-line"><span>AT:</span> <em>Pitstop AI Headquarters & Global Tech</em></div>
+              <div class="addr-line"><span>RE:</span> <em>Building Products, Summits & Future Tech</em></div>
+              <div class="addr-barcode">|||| ||||| |||| || ||||| |||| |||</div>
+            </div>
+
+            <div class="postcard-signature-bottom">
+              <p class="bottom-sig-text">Warm regards & keep building,</p>
+              <p class="bottom-sig-hand">Atharav B.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Airmail border strip at bottom -->
+        <div class="airmail-strip airmail-bottom" aria-hidden="true"></div>
+      </section>
+
+    </div><!-- End content-paper-stack -->
+
+    <!-- ========================================================
+         FOOTER: Made with paper scraps & pure code
+         ======================================================== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-col-left">
+          <p class="footer-craft-note">
+            MADE WITH TORN PAPER SCRAPS, HIGH CONTRAST & PURE CODE (NO FRAMEWORKS).
+          </p>
+          <p class="footer-copyright">
+            © 2026 ATHARAV BALOTA. ASPIRING FOUNDER & SOFTWARE ENGINEER.
+          </p>
+        </div>
+
+        <div class="footer-col-right">
+          <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top">
+            <span>BACK TO TOP</span>
+            <span class="top-arrow">↑</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ========================================================
+       INTERACTIVE POLAROID MODAL (SCRAPBOOK CASE STUDY PREVIEW)
+       ======================================================== -->
+  <div class="scrapbook-modal-backdrop" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="modalTitle">
+    <div class="scrapbook-modal-card">
+      <!-- Tape pin on modal -->
+      <div class="modal-tape"></div>
+
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Case Study Modal">✕ CLOSE</button>
+
+      <div class="modal-grid">
+        <div class="modal-image-col">
+          <img src="" alt="" id="modalImg" class="modal-large-img" width="1200" height="900">
+        </div>
+
+        <div class="modal-details-col">
+          <div class="modal-badge-row">
+            <span class="modal-badge" id="modalYear">2026</span>
+            <span class="modal-badge outline" id="modalClient">Client Name</span>
+          </div>
+
+          <h3 class="modal-title" id="modalTitle">Project Title</h3>
+
+          <div class="modal-tools-box">
+            <strong>TOOLS / FOCUS:</strong>
+            <p id="modalTools">Python, React, AI/ML</p>
+          </div>
+
+          <div class="modal-desc-box">
+            <strong>HIGHLIGHT DETAILS:</strong>
+            <p id="modalDesc">Detailed narrative description.</p>
+          </div>
+
+          <div class="modal-action-row">
+            <a href="#contact" class="modal-hire-btn" id="modalContactBtn">CONNECT WITH ATHARAV ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MOUNTAIN-THEMED PAGE TRANSITION EFFECT
+       Multi-layered SVG mountain silhouettes rising up from bottom
+       ======================================================== -->
+  <div class="mountain-transition-overlay" id="mountainTransition" aria-hidden="true">
+    <div class="mountain-hud">
+      <div class="hud-stamp">
+        <span class="hud-icon">▲</span>
+        <span class="hud-text" id="mountainHudText">ELEVATION SHIFT • ASCENDING</span>
+        <span class="hud-alt" id="mountainAltText">ALTITUDE: 5,420M</span>
+      </div>
+    </div>
+
+    <!-- Mountain Layer 1: Distant Navy Peaks -->
+    <div class="mountain-layer mountain-layer-back">
+      <svg viewBox="0 0 1440 380" preserveAspectRatio="none" class="mountain-svg">
+        <path
+          d="M0 380 L0 180 L140 100 L300 220 L480 80 L620 190 L800 60 L960 210 L1120 70 L1280 180 L1440 90 L1440 380 Z"
+          fill="#334155" />
+        <polygon points="480,80 450,130 510,130" fill="#f8fafc" opacity="0.9" />
+        <polygon points="800,60 765,120 835,120" fill="#f8fafc" opacity="0.9" />
+        <polygon points="1120,70 1090,130 1150,130" fill="#f8fafc" opacity="0.9" />
+      </svg>
+    </div>
+
+    <!-- Mountain Layer 2: Midground Alpine Ridges -->
+    <div class="mountain-layer mountain-layer-mid">
+      <svg viewBox="0 0 1440 380" preserveAspectRatio="none" class="mountain-svg">
+        <path d="M0 380 L0 230 L180 130 L360 260 L540 120 L720 250 L900 110 L1080 240 L1260 120 L1440 220 L1440 380 Z"
+          fill="#1e293b" />
+        <polygon points="180,130 150,175 210,175" fill="#e2e8f0" opacity="0.85" />
+        <polygon points="540,120 510,170 570,170" fill="#e2e8f0" opacity="0.85" />
+        <polygon points="900,110 870,165 930,165" fill="#e2e8f0" opacity="0.85" />
+        <polygon points="1260,120 1230,175 1290,175" fill="#e2e8f0" opacity="0.85" />
+      </svg>
+    </div>
+
+    <!-- Mountain Layer 3: Foreground Ink-Black Summit Ridges -->
+    <div class="mountain-layer mountain-layer-front">
+      <svg viewBox="0 0 1440 380" preserveAspectRatio="none" class="mountain-svg">
+        <path
+          d="M0 380 L0 260 L120 190 L260 290 L420 160 L600 300 L780 150 L940 280 L1100 140 L1280 270 L1440 180 L1440 380 Z"
+          fill="#0f172a" />
+        <polygon points="420,160 390,210 450,210" fill="#ffffff" opacity="0.95" />
+        <polygon points="780,150 750,205 810,205" fill="#ffffff" opacity="0.95" />
+        <polygon points="1100,140 1070,200 1130,200" fill="#ffffff" opacity="0.95" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       RESUME DOWNLOAD MODAL WITH SPIDER-MAN WEB ANIMATION
+       ======================================================== -->
+  <div class="resume-download-modal-backdrop" id="resumeModal" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="resumeModalTitle">
+    <div class="resume-modal-card">
+      <div class="modal-tape"></div>
+      <button class="modal-close-btn" id="resumeModalCloseBtn" aria-label="Close download modal">✕ CLOSE</button>
+
+      <div class="resume-modal-header">
+        <div class="resume-spidey-avatar">
+          <span class="avatar-web">🕸️</span>
+          <span class="avatar-spidey">🕷️</span>
+        </div>
+        <div>
+          <span class="resume-badge">VERIFIED DOSSIER</span>
+          <h3 class="resume-modal-title" id="resumeModalTitle">ATHARAV BALOTA — RESUME</h3>
+          <p class="resume-modal-sub">Founder @ Pitstop AI • Software Engineer Full-Stack</p>
+        </div>
+      </div>
+
+      <!-- Web line sling animation box -->
+      <div class="resume-sling-box">
+        <div class="web-sling-thread" id="webSlingThread"></div>
+        <div class="web-sling-spider" id="webSlingSpider">🕷️</div>
+        <div class="resume-doc-preview">
+          <span class="doc-icon">📄</span>
+          <div class="doc-text-preview">
+            <span class="doc-name">ATHARAV_BALOTA_RESUME_2026.PDF</span>
+            <span class="doc-size">PDF DOCUMENT • READY TO DOWNLOAD</span>
+          </div>
+          <span class="doc-verified-check">✓</span>
+        </div>
+      </div>
+
+      <!-- Animated Progress Bar & Status -->
+      <div class="resume-progress-container">
+        <div class="progress-status-row">
+          <span class="progress-status-text" id="progressStatusText">🕸️ SLINGING WEB TO REPOSITORY...</span>
+          <span class="progress-percent-text" id="progressPercentText">0%</span>
+        </div>
+        <div class="resume-progress-track">
+          <div class="resume-progress-bar" id="resumeProgressBar"></div>
+        </div>
+      </div>
+
+      <!-- Action Button (auto triggers on 100% or click) -->
+      <div class="resume-modal-actions">
+        <a href="resume.pdf" download="Atharav_Balota_Resume.pdf" class="stamp-btn download-direct-btn"
+          id="triggerDownloadAnchor">
+          <span>DOWNLOAD RESUME (PDF)</span>
+          <span class="stamp-arrow">↓</span>
+        </a>
+        <span class="download-hint">Direct link: <a href="resume.pdf" target="_blank">open resume.pdf in new
+            tab</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atharav Balota — Aspiring Founder & Software Engineer</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Atharav Balota — Aspiring Founder & Software Engineer building Pitstop AI. Full-stack development, AI/ML, football, and mountaineering.">
+  <meta name="author" content="Atharav Balota">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans (ultra-clean modern body & headings) & Space Grotesk (tech badges & numbers) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========================================================
+       ACCESSIBILITY SKIP LINK
+       ======================================================== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================
+       STICKY TOP NAVIGATION BAR
+       ======================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo" aria-label="Atharav Balota Home">
+        <span class="logo-mark">AB</span>
+        <div class="logo-text">
+          <span class="logo-name">ATHARAV BALOTA</span>
+          <span class="logo-status">● BUILDING PITSTOP AI</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#pitstop" class="nav-link">Pitstop AI</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#pursuits" class="nav-link">Pursuits</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="resume.pdf" download="Atharav_Balota_Resume.pdf" class="btn btn-outline btn-sm resume-btn" id="navResumeBtn">
+          <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>Resume</span>
+        </a>
+        <a href="#contact" class="btn btn-primary btn-sm">Let’s Talk ↗</a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="toggle-line"></span>
+          <span class="toggle-line"></span>
+          <span class="toggle-line"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#pitstop" class="mobile-nav-link">Pitstop AI</a></li>
+        <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+        <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+        <li><a href="#education" class="mobile-nav-link">Education</a></li>
+        <li><a href="#pursuits" class="mobile-nav-link">Pursuits</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        <li class="mobile-cta-row">
+          <a href="resume.pdf" download="Atharav_Balota_Resume.pdf" class="btn btn-outline btn-full">Download Resume (PDF)</a>
+          <a href="#contact" class="btn btn-primary btn-full">Get In Touch ↗</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       MAIN PAGE CONTAINER
+       ======================================================== -->
+  <main id="main-content">
+
+    <!-- ======================================================
+         HERO SECTION: SPLIT SCREEN WITH TORN PAPER DIVIDER
+         Left Side: Clean Light Canvas with Soft Pastel Blobs
+         Right Side: Deep Blue (#0A2A5E) with Photo & Pill Badges
+         ====================================================== -->
+    <section class="hero-split-section" id="hero" aria-label="Hero Overview">
+      
+      <!-- Split Container -->
+      <div class="hero-split-grid">
+
+        <!-- --------------------------------------------------
+             LEFT SIDE (CLEAN LIGHT CANVAS)
+             -------------------------------------------------- -->
+        <div class="hero-left-col">
+          <!-- Soft Background Pastel Blobs -->
+          <div class="pastel-blob blob-light-blue" aria-hidden="true"></div>
+          <div class="pastel-blob blob-peach" aria-hidden="true"></div>
+
+          <div class="hero-content-inner">
+            
+            <!-- Rounded Speech-Bubble Style Label (Like reference) -->
+            <div class="speech-pill-wrapper">
+              <div class="speech-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-title">Aspiring Founder & Software Engineer</span>
+                <span class="speech-tail" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <!-- Big Modern Heading -->
+            <h1 class="hero-title">
+              Hi, I’m <span class="highlight-name">Atharav Balota</span>.
+            </h1>
+
+            <!-- Subtitle with secondary title -->
+            <p class="hero-tagline">
+              Building <strong>Pitstop AI</strong> • Crafting Full-Stack Scalable Systems
+            </p>
+
+            <!-- 3-4 Line Confident & Professional Bio -->
+            <p class="hero-bio-text">
+              I’m an aspiring founder and full-stack software engineer obsessed with building high-impact products from zero to one. Currently, I'm channeling my energy into building <strong>Pitstop AI</strong> — an intelligent platform engineered to solve real-world operational bottlenecks. When I step away from code, you’ll find me strategizing on the football field or climbing high-altitude mountain trails.
+            </p>
+
+            <!-- Call to Action Buttons -->
+            <div class="hero-cta-group">
+              <a href="#pitstop" class="btn btn-primary btn-lg">
+                <span>Explore Pitstop AI</span>
+                <span class="btn-arrow">→</span>
+              </a>
+              <a href="resume.pdf" download="Atharav_Balota_Resume.pdf" class="btn btn-secondary btn-lg" id="heroResumeBtn">
+                <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                <span>Download Resume</span>
+              </a>
+            </div>
+
+            <!-- Quick Metrics Cards (Modern Soft Shadow Style) -->
+            <div class="hero-quick-stats">
+              <div class="quick-stat-card">
+                <span class="stat-number">01</span>
+                <span class="stat-label">Venture (Pitstop AI)</span>
+              </div>
+              <div class="quick-stat-card">
+                <span class="stat-number">100K+</span>
+                <span class="stat-label">Lines of Scalable Code</span>
+              </div>
+              <div class="quick-stat-card">
+                <span class="stat-number">90’</span>
+                <span class="stat-label">Football Pitch Grit</span>
+              </div>
+              <div class="quick-stat-card">
+                <span class="stat-number">5K+m</span>
+                <span class="stat-label">Peak Summits</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- --------------------------------------------------
+             RIGHT SIDE (DEEP BLUE #0A2A5E WITH TORN PAPER SEAM)
+             -------------------------------------------------- -->
+        <div class="hero-right-col">
+          
+          <!-- Jagged Torn Paper Divider Edge (SVG Seam) -->
+          <div class="torn-paper-edge" aria-hidden="true">
+            <svg viewBox="0 0 24 1000" preserveAspectRatio="none" class="torn-svg">
+              <path d="M24 0 L24 1000 L12 980 L2 955 L16 930 L4 905 L18 880 L6 855 L20 830 L3 805 L17 780 L5 755 L19 730 L4 705 L18 680 L7 655 L21 630 L5 605 L17 580 L4 555 L19 530 L6 505 L20 480 L4 455 L18 430 L5 405 L19 380 L3 355 L17 330 L6 305 L20 280 L5 255 L18 230 L4 205 L19 180 L6 155 L21 130 L4 105 L18 80 L5 55 L19 30 L6 0 Z" fill="#0A2A5E" />
+            </svg>
+          </div>
+
+          <!-- Ambient Glow Blobs in Deep Blue Canvas -->
+          <div class="ambient-glow glow-blue" aria-hidden="true"></div>
+          <div class="ambient-glow glow-cyan" aria-hidden="true"></div>
+
+          <!-- Profile Photo with Clean Soft Mask -->
+          <div class="profile-presentation-wrap">
+            
+            <!-- Soft Floating Pill Badges around photo (Like reference style) -->
+            <div class="floating-badge badge-top-left">
+              <span class="badge-icon">⚡</span>
+              <span class="badge-text">Building Pitstop AI</span>
+            </div>
+
+            <div class="floating-badge badge-top-right">
+              <span class="badge-icon">💻</span>
+              <span class="badge-text">Full-Stack Architecture</span>
+            </div>
+
+            <!-- Profile Image Container with Soft Shadow & Border -->
+            <div class="profile-mask-frame">
+              <div class="profile-inner-glow"></div>
+              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80" 
+                   alt="Atharav Balota — Aspiring Founder & Software Engineer" 
+                   class="profile-img" 
+                   width="600" height="750" 
+                   loading="eager">
+              <div class="profile-gradient-scrim"></div>
+            </div>
+
+            <div class="floating-badge badge-bottom">
+              <span class="badge-icon">🏔️</span>
+              <span class="badge-text">Alpine Summits & Football</span>
+            </div>
+
+            <!-- Bottom Mini Dossier Strip in Blue Panel -->
+            <div class="right-dossier-pill">
+              <div class="dossier-item">
+                <span class="d-label">STATUS</span>
+                <span class="d-val">Actively Building</span>
+              </div>
+              <div class="dossier-divider"></div>
+              <div class="dossier-item">
+                <span class="d-label">SPECIALTY</span>
+                <span class="d-val">AI/ML & Systems</span>
+              </div>
+              <div class="dossier-divider"></div>
+              <div class="dossier-item">
+                <span class="d-label">BASE</span>
+                <span class="d-val">Global</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================================
+         SECTION 1: ABOUT (Clean Professional Narrative)
+         ====================================================== -->
+    <section class="content-section" id="about">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <div class="pill-tag">ABOUT ME</div>
+          <h2 class="section-heading">Driven by Curiosity, Grounded in Execution</h2>
+          <p class="section-subheading">A blend of technical depth, founder mindset, and relentless resilience.</p>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Narrative Card -->
+          <div class="about-card main-narrative-card">
+            <h3 class="card-title">Engineering Products that Matter</h3>
+            <p>
+              I believe software engineering is at its best when it moves beyond syntax and transforms into solutions that solve real, measurable problems. My journey combines deep technical craftsmanship in modern web architectures and AI systems with the strategic ambition of an entrepreneur.
+            </p>
+            <p>
+              Whether it’s architecting end-to-end full-stack applications, integrating state-of-the-art machine learning models, or testing prototypes with early users, I focus on velocity, code clarity, and scalable system design.
+            </p>
+            <div class="about-quote-box">
+              <span class="quote-symbol">“</span>
+              <p class="quote-text">Stay relentlessly resourceful. The steepest mountains and the hardest codebases are conquered one disciplined step at a time.</p>
+            </div>
+          </div>
+
+          <!-- Core Pillars Card -->
+          <div class="about-card pillars-card">
+            <h3 class="card-title">Core Principles</h3>
+            
+            <div class="pillar-item">
+              <div class="pillar-icon">🎯</div>
+              <div class="pillar-content">
+                <h4>Product-First Thinking</h4>
+                <p>Every line of code serves the end user. I prioritize fast iteration, user feedback loops, and measurable business utility.</p>
+              </div>
+            </div>
+
+            <div class="pillar-item">
+              <div class="pillar-icon">⚡</div>
+              <div class="pillar-content">
+                <h4>Full-Stack Mastery</h4>
+                <p>From reactive TypeScript interfaces to low-latency Python/Node backend microservices and cloud infrastructure.</p>
+              </div>
+            </div>
+
+            <div class="pillar-item">
+              <div class="pillar-icon">🏔️</div>
+              <div class="pillar-content">
+                <h4>High-Altitude Grit</h4>
+                <p>Endurance built through mountaineering expeditions and 90-minute competitive football matches translates directly to resilient building.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECTION 2: CURRENT VENTURE — PITSTOP AI
+         ====================================================== -->
+    <section class="content-section bg-surface" id="pitstop">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <div class="pill-tag pill-tag-accent">FLAGSHIP VENTURE</div>
+          <h2 class="section-heading">Pitstop AI — In Active Development</h2>
+          <p class="section-subheading">An intelligent platform engineered to eliminate operational bottlenecks with autonomous intelligence.</p>
+        </div>
+
+        <div class="venture-card">
+          <div class="venture-grid">
+            
+            <!-- Left Info -->
+            <div class="venture-info">
+              <div class="venture-status-badge">
+                <span class="status-pulse"></span>
+                <span>ALPHA PROTOTYPE IN SPRINT</span>
+              </div>
+
+              <h3 class="venture-title">Accelerating Intelligence & Autonomous Workflows</h3>
+              
+              <p class="venture-desc">
+                Pitstop AI is born out of the need for friction-free, high-speed execution. By leveraging specialized AI models, vector retrieval, and automated intelligence pipelines, Pitstop AI helps operators and teams optimize critical workflows in real-time.
+              </p>
+
+              <div class="venture-highlights">
+                <div class="v-highlight">
+                  <strong>Autonomous Pipeline</strong>
+                  <span>Zero-latency inference and real-time execution loops.</span>
+                </div>
+                <div class="v-highlight">
+                  <strong>Modern Full-Stack</strong>
+                  <span>Engineered with React, Next.js, FastAPI, Python, and PostgreSQL.</span>
+                </div>
+                <div class="v-highlight">
+                  <strong>Data-Driven Core</strong>
+                  <span>Intelligent telemetry and proactive operational guidance.</span>
+                </div>
+              </div>
+
+              <div class="venture-actions">
+                <a href="#contact" class="btn btn-primary">Connect Regarding Pitstop AI ↗</a>
+                <span class="venture-tag-note">Currently welcoming design partners & early feedback</span>
+              </div>
+            </div>
+
+            <!-- Right Visual Mockup -->
+            <div class="venture-visual">
+              <div class="mockup-frame">
+                <div class="mockup-header">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                  <span class="mockup-url">https://pitstop.ai/engine/dashboard</span>
+                </div>
+                <div class="mockup-body">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" 
+                       alt="Pitstop AI Analytics Dashboard" 
+                       class="mockup-img" 
+                       loading="lazy">
+                  <div class="mockup-overlay-badge">
+                    <span>PITSTOP ENGINE V1.0</span>
+                    <strong>LIVE TELEMETRY</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECTION 3: EXPERIENCE & CURRENT FOCUS
+         ====================================================== -->
+    <section class="content-section" id="experience">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <div class="pill-tag">TRACK RECORD</div>
+          <h2 class="section-heading">Experience & Roles</h2>
+          <p class="section-subheading">Demonstrated leadership, full-stack software development, and technical execution.</p>
+        </div>
+
+        <div class="experience-timeline">
+
+          <!-- Role 1: Founder — Pitstop AI -->
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-period">2025 — PRESENT</span>
+              <span class="timeline-badge badge-active">FOUNDER</span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header-row">
+                <h3 class="role-title">Founder & Lead Architect</h3>
+                <span class="role-org">PITSTOP AI • ACTIVE VENTURE</span>
+              </div>
+              <p class="role-summary">
+                Directing the complete product vision, technical architecture, and system engineering for Pitstop AI.
+              </p>
+              <ul class="role-bullets">
+                <li>Architecting core AI orchestration pipelines, integrating generative models and vector search for instant query resolution.</li>
+                <li>Conducting user problem discovery sessions, validating MVP features, and iterating through rapid prototype sprints.</li>
+                <li>Designing the reactive frontend dashboard with Next.js, TypeScript, and high-performance backend microservices.</li>
+              </ul>
+              <div class="role-tags">
+                <span class="tag-pill">Python</span>
+                <span class="tag-pill">React</span>
+                <span class="tag-pill">FastAPI</span>
+                <span class="tag-pill">Vector DBs</span>
+                <span class="tag-pill">Product Architecture</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 2: Software Engineer — Full-Stack Development -->
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-period">2023 — PRESENT</span>
+              <span class="timeline-badge">ENGINEER</span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header-row">
+                <h3 class="role-title">Software Engineer — Full-Stack Development</h3>
+                <span class="role-org">INDEPENDENT & COLLABORATIVE INITIATIVES</span>
+              </div>
+              <p class="role-summary">
+                Engineering responsive web applications, secure RESTful & GraphQL APIs, and robust backend systems with a focus on code quality and performance.
+              </p>
+              <ul class="role-bullets">
+                <li>Built and deployed production-grade applications serving scalable web interfaces and resilient database schemas.</li>
+                <li>Optimized API response times and database querying patterns through indexing, query caching, and async job queues.</li>
+                <li>Implemented clean architecture patterns, comprehensive type safety in TypeScript, and automated CI/CD deployments.</li>
+              </ul>
+              <div class="role-tags">
+                <span class="tag-pill">TypeScript</span>
+                <span class="tag-pill">Node.js</span>
+                <span class="tag-pill">PostgreSQL</span>
+                <span class="tag-pill">Docker</span>
+                <span class="tag-pill">CI/CD</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECTION 4: SKILLS & TECHNICAL ARSENAL
+         ====================================================== -->
+    <section class="content-section bg-surface" id="skills">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <div class="pill-tag pill-tag-accent">TECHNICAL ARSENAL</div>
+          <h2 class="section-heading">Core Skills & Toolkit</h2>
+          <p class="section-subheading">A modern, full-stack toolchain refined for shipping fast and building to scale.</p>
+        </div>
+
+        <div class="skills-grid-clean">
+
+          <!-- JavaScript / TypeScript -->
+          <div class="skill-card-modern">
+            <div class="skill-header">
+              <div class="skill-icon-box js-box">JS</div>
+              <div class="skill-name-wrap">
+                <h3 class="skill-heading">JavaScript / TypeScript</h3>
+                <span class="skill-level-tag">Advanced / Core</span>
+              </div>
+            </div>
+            <p class="skill-description">
+              ES6+, TypeScript type safety, async concurrency, browser runtime internals, and modern full-stack architectures.
+            </p>
+            <div class="skill-progress-bar"><div class="skill-fill" style="width: 95%;"></div></div>
+          </div>
+
+          <!-- React -->
+          <div class="skill-card-modern">
+            <div class="skill-header">
+              <div class="skill-icon-box react-box">Re</div>
+              <div class="skill-name-wrap">
+                <h3 class="skill-heading">React & Next.js</h3>
+                <span class="skill-level-tag">Frontend / Production</span>
+              </div>
+            </div>
+            <p class="skill-description">
+              Component lifecycle, custom hooks, atomic component design systems, server-side rendering, and responsive web apps.
+            </p>
+            <div class="skill-progress-bar"><div class="skill-fill" style="width: 92%;"></div></div>
+          </div>
+
+          <!-- Node.js -->
+          <div class="skill-card-modern">
+            <div class="skill-header">
+              <div class="skill-icon-box node-box">Node</div>
+              <div class="skill-name-wrap">
+                <h3 class="skill-heading">Node.js</h3>
+                <span class="skill-level-tag">Backend / APIs</span>
+              </div>
+            </div>
+            <p class="skill-description">
+              Event-driven servers, RESTful microservices, authentication pipelines, caching strategies, and ORMs.
+            </p>
+            <div class="skill-progress-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+          </div>
+
+          <!-- Python -->
+          <div class="skill-card-modern">
+            <div class="skill-header">
+              <div class="skill-icon-box python-box">Py</div>
+              <div class="skill-name-wrap">
+                <h3 class="skill-heading">Python</h3>
+                <span class="skill-level-tag">Backend & AI</span>
+              </div>
+            </div>
+            <p class="skill-description">
+              FastAPI services, asynchronous data pipelines, machine learning orchestration, scripting, and backend automation.
+            </p>
+            <div class="skill-progress-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+          </div>
+
+          <!-- AI / Machine Learning -->
+          <div class="skill-card-modern">
+            <div class="skill-header">
+              <div class="skill-icon-box ai-box">AI</div>
+              <div class="skill-name-wrap">
+                <h3 class="skill-heading">AI & Machine Learning</h3>
+                <span class="skill-level-tag">Pitstop AI Engine</span>
+              </div>
+            </div>
+            <p class="skill-description">
+              LLM integration, retrieval-augmented generation (RAG), vector embeddings, agentic workflows, and prompt engineering.
+            </p>
+            <div class="skill-progress-bar"><div class="skill-fill" style="width: 86%;"></div></div>
+          </div>
+
+          <!-- Product Thinking & Strategy -->
+          <div class="skill-card-modern">
+            <div class="skill-header">
+              <div class="skill-icon-box prod-box">Prod</div>
+              <div class="skill-name-wrap">
+                <h3 class="skill-heading">Product Thinking</h3>
+                <span class="skill-level-tag">Founder Strategy</span>
+              </div>
+            </div>
+            <p class="skill-description">
+              Problem validation, user journey mapping, rapid MVP scoping, metric tracking, and converting raw technology into real value.
+            </p>
+            <div class="skill-progress-bar"><div class="skill-fill" style="width: 94%;"></div></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECTION 5: EDUCATION
+         ====================================================== -->
+    <section class="content-section" id="education">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <div class="pill-tag">ACADEMIC FOUNDATIONS</div>
+          <h2 class="section-heading">Education</h2>
+          <p class="section-subheading">Strong computer science principles and continuous lifelong learning.</p>
+        </div>
+
+        <div class="education-grid">
+          
+          <div class="edu-clean-card">
+            <div class="edu-badge-row">
+              <span class="edu-year">UNDERGRADUATE DEGREE</span>
+              <span class="edu-tag-gold">ENGINEERING</span>
+            </div>
+            <h3 class="edu-title">Bachelor of Technology in Computer Science & Engineering</h3>
+            <p class="edu-desc">
+              Comprehensive coursework in Data Structures, Object-Oriented Software Design, Operating Systems, Database Management Systems, Algorithm Analysis, and Computer Networks.
+            </p>
+            <div class="edu-coursework">
+              <span class="c-pill">Distributed Systems</span>
+              <span class="c-pill">Algorithms</span>
+              <span class="c-pill">System Design</span>
+              <span class="c-pill">Software Engineering</span>
+            </div>
+          </div>
+
+          <div class="edu-clean-card">
+            <div class="edu-badge-row">
+              <span class="edu-year">VENTURE & PRODUCT INTENSIVE</span>
+              <span class="edu-tag-blue">INDEPENDENT LAB</span>
+            </div>
+            <h3 class="edu-title">Founder Engineering & Applied AI Specialization</h3>
+            <p class="edu-desc">
+              Hands-on deep dive into building production AI web systems, microservice architectures, and modern cloud deployment frameworks during the inception of Pitstop AI.
+            </p>
+            <div class="edu-coursework">
+              <span class="c-pill">LLM Frameworks</span>
+              <span class="c-pill">Next.js Full-Stack</span>
+              <span class="c-pill">Vector Search</span>
+              <span class="c-pill">Lean Startup Cycles</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECTION 6: PERSONAL PURSUITS (FOOTBALL & MOUNTAINEERING)
+         ====================================================== -->
+    <section class="content-section bg-surface" id="pursuits">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <div class="pill-tag pill-tag-accent">BEYOND THE TERMINAL</div>
+          <h2 class="section-heading">Pursuits & Passions</h2>
+          <p class="section-subheading">The disciplines that build mental toughness, teamwork, and perspective.</p>
+        </div>
+
+        <div class="pursuits-grid">
+          
+          <!-- Pursuit 1: Football -->
+          <div class="pursuit-card">
+            <div class="pursuit-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=700&q=80" 
+                   alt="Football on the pitch" 
+                   class="pursuit-img" 
+                   loading="lazy">
+              <span class="pursuit-tag">THE PITCH</span>
+            </div>
+            <div class="pursuit-body">
+              <h3 class="pursuit-title">Competitive Football</h3>
+              <p class="pursuit-desc">
+                Football demands 90 minutes of unwavering spatial vision, tactical decision-making under intense pressure, and selfless team chemistry. Whether controlling the tempo or pressing forward, the lessons learned on the pitch mirror building a company: speed, precision, and trusting your squad.
+              </p>
+              <div class="pursuit-stat-row">
+                <span>⚡ High-Pressure Decisions</span>
+                <span>⚽ Strategic Communication</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pursuit 2: Mountain Climbing -->
+          <div class="pursuit-card">
+            <div class="pursuit-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80" 
+                   alt="Mountain Climbing Peaks" 
+                   class="pursuit-img" 
+                   loading="lazy">
+              <span class="pursuit-tag">THE SUMMIT</span>
+            </div>
+            <div class="pursuit-body">
+              <h3 class="pursuit-title">Alpine Mountain Climbing</h3>
+              <p class="pursuit-desc">
+                High-altitude climbing strips away distractions and tests raw physical stamina and mental resolve. Standing above the clouds reinforces humble perspective, rigorous preparation, calculated risk management, and the patience needed to overcome any summit.
+              </p>
+              <div class="pursuit-stat-row">
+                <span>🏔️ Calculated Risk</span>
+                <span>▲ Mental Resilience</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECTION 7: CONTACT & PLACEHOLDERS
+         ====================================================== -->
+    <section class="content-section" id="contact">
+      <div class="section-container">
+        
+        <div class="contact-box-card">
+          <div class="contact-grid">
+            
+            <!-- Left Contact Info -->
+            <div class="contact-left-col">
+              <div class="pill-tag">GET IN TOUCH</div>
+              <h2 class="contact-heading">Let’s Build Something Meaningful Together.</h2>
+              <p class="contact-subtext">
+                Whether you're interested in Pitstop AI, discussing full-stack engineering challenges, exploring collaborative opportunities, or connecting over football and climbing — my inbox is always open.
+              </p>
+
+              <!-- Resume Button in Contact Section -->
+              <div class="contact-resume-cta">
+                <a href="resume.pdf" download="Atharav_Balota_Resume.pdf" class="btn btn-primary btn-lg" id="contactResumeBtn">
+                  <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  <span>Download Atharav's Resume</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Contact Channels (Clear Placeholders) -->
+            <div class="contact-right-col">
+              <div class="contact-channels-list">
+                
+                <!-- Email Item -->
+                <div class="contact-channel-item">
+                  <div class="channel-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  </div>
+                  <div class="channel-info">
+                    <span class="channel-label">EMAIL ADDRESS</span>
+                    <a href="mailto:atharav.balota@gmail.com" class="channel-val" id="emailVal">atharav.balota@gmail.com</a>
+                  </div>
+                  <button class="btn-copy-mini" id="copyEmailBtn" aria-label="Copy email address" title="Copy email address">
+                    <span id="copyIconText">Copy</span>
+                  </button>
+                </div>
+
+                <!-- Phone Item (Placeholder) -->
+                <div class="contact-channel-item">
+                  <div class="channel-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                  </div>
+                  <div class="channel-info">
+                    <span class="channel-label">PHONE NUMBER</span>
+                    <span class="channel-val placeholder-val">+91 ••••• ••••• (Available upon request)</span>
+                  </div>
+                </div>
+
+                <!-- LinkedIn Item -->
+                <div class="contact-channel-item">
+                  <div class="channel-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                      <rect x="2" y="9" width="4" height="12"/>
+                      <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                  </div>
+                  <div class="channel-info">
+                    <span class="channel-label">LINKEDIN</span>
+                    <a href="https://linkedin.com/in/atharav-balota" target="_blank" rel="noopener noreferrer" class="channel-val">
+                      linkedin.com/in/atharav-balota ↗
+                    </a>
+                  </div>
+                </div>
+
+                <!-- GitHub Item -->
+                <div class="contact-channel-item">
+                  <div class="channel-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    </svg>
+                  </div>
+                  <div class="channel-info">
+                    <span class="channel-label">GITHUB</span>
+                    <a href="https://github.com/atharavbalota" target="_blank" rel="noopener noreferrer" class="channel-val">
+                      github.com/atharavbalota ↗
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <span class="footer-brand">ATHARAV BALOTA</span>
+        <span class="footer-copy">© 2026. All rights reserved. Designed with precision & pure code.</span>
+      </div>
+      <div class="footer-right">
+        <a href="#hero" class="back-top-link" id="backToTop">
+          <span>Back to Top</span>
+          <span class="top-arrow">↑</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification for Email Copy -->
+  <div class="toast-message" id="copyToast" aria-live="polite">✓ Email copied to clipboard!</div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
+
