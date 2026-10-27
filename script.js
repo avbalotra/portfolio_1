@@ -397,17 +397,16 @@ document.addEventListener('DOMContentLoaded', () => {
       // Skills Matrix
       const skillsContainer = document.getElementById('skillsMatrixContainer');
       if (skillsContainer && Array.isArray(skills)) {
-        skillsContainer.innerHTML = skills.map(cat => `
-          <div class="skill-modern-card">
-            <div class="smc-header">
-              <h3 class="smc-title">${cat.category}</h3>
-              <span class="smc-count">[${cat.items.length}]</span>
+        skillsContainer.innerHTML = skills.map(skill => {
+          const name = typeof skill === 'string' ? skill : skill.name;
+          const idx = typeof skill === 'object' && skill.idx ? skill.idx : '';
+          return `
+            <div class="skill-item-card">
+              ${idx ? `<span class="sic-idx">${idx}</span>` : ''}
+              <h3 class="sic-name">${name}</h3>
             </div>
-            <div class="smc-pills-wrap">
-              ${cat.items.map(p => `<span class="smc-pill">${p}</span>`).join('')}
-            </div>
-          </div>
-        `).join('');
+          `;
+        }).join('');
       }
 
       // Education Focus Areas

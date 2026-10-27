@@ -1117,66 +1117,44 @@ div[tabindex="0"]:focus-visible {
    -------------------------------------------------------------------------- */
 .skills-modern-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-.skill-modern-card {
-  padding: 32px;
+.skill-item-card {
+  padding: 32px 28px;
   background: var(--bg-surface);
   border: 1px solid var(--border-line);
   border-radius: var(--radius-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
   transition: all var(--transition-fast);
 }
 
-.skill-modern-card:hover {
-  border-color: var(--border-line-hover);
+.skill-item-card:hover {
+  border-color: var(--accent-red-border);
+  background: var(--bg-surface-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px var(--accent-red-dim);
 }
 
-.smc-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-line);
-  padding-bottom: 14px;
-  margin-bottom: 20px;
+.sic-idx {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-red);
+  letter-spacing: 0.08em;
+  font-weight: 700;
 }
 
-.smc-title {
+.sic-name {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
   font-weight: 700;
   color: var(--text-pure);
-}
-
-.smc-count {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--accent-red);
-}
-
-.smc-pills-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.smc-pill {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  padding: 7px 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-line);
-  border-radius: 3px;
-  color: var(--text-primary);
-  transition: all var(--transition-fast);
-}
-
-.smc-pill:hover {
-  background: var(--accent-red-dim);
-  border-color: var(--accent-red-border);
-  color: var(--text-pure);
-  transform: translateY(-2px);
+  margin-top: 16px;
+  letter-spacing: -0.02em;
 }
 
 /* --------------------------------------------------------------------------
@@ -1531,6 +1509,9 @@ div[tabindex="0"]:focus-visible {
   .cuc-right-channels {
     border-left: none;
     border-top: 1px solid var(--border-line);
+  }
+  .skills-modern-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

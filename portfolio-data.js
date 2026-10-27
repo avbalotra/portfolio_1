@@ -111,22 +111,10 @@ const PORTFOLIO_DATA = {
   ],
 
   skills: [
-    {
-      category: "Core Languages",
-      items: ["Python", "JavaScript (ES6+)", "C / C++", "SQL", "HTML5 & CSS3"]
-    },
-    {
-      category: "Frontend & Creative Tech",
-      items: ["React.js", "Three.js (WebGL)", "Modern CSS Architecture", "DOM APIs", "Responsive Layouts"]
-    },
-    {
-      category: "AI/ML & Computational Concepts",
-      items: ["AI / ML Fundamentals", "Data Structures & Algorithms", "Linear Algebra Foundations", "Prompt Systems", "Predictive Logic"]
-    },
-    {
-      category: "Developer Tools & Workflow",
-      items: ["Git & GitHub", "Linux Shell / Bash", "VS Code", "Vite / Node Tooling", "Chrome DevTools"]
-    }
+    { name: "Python", idx: "01" },
+    { name: "C", idx: "02" },
+    { name: "Networking", idx: "03" },
+    { name: "Prompting", idx: "04" }
   ],
 
   education: {
