@@ -100,27 +100,27 @@ document.addEventListener('DOMContentLoaded', () => {
           // B. CENTRAL MORPHING WIREFRAME CELESTIAL CORE
           // ------------------------------------------------------------------------
           const coreGroup = new THREE.Group();
-          coreGroup.position.set(0, 15, -50);
+          coreGroup.position.set(0, 10, -75);
           scene.add(coreGroup);
 
           // Outer Wireframe Icosahedron
-          const icosaGeo = new THREE.IcosahedronGeometry(52, 2);
+          const icosaGeo = new THREE.IcosahedronGeometry(48, 2);
           const icosaMat = new THREE.MeshBasicMaterial({
             color: 0xffffff,
             wireframe: true,
             transparent: true,
-            opacity: 0.2
+            opacity: 0.15
           });
           const celestialCore = new THREE.Mesh(icosaGeo, icosaMat);
           coreGroup.add(celestialCore);
 
           // Inner Glowing Node Points
-          const innerGeo = new THREE.IcosahedronGeometry(40, 1);
+          const innerGeo = new THREE.IcosahedronGeometry(36, 1);
           const innerMat = new THREE.PointsMaterial({
             color: 0x38bdf8,
-            size: 2.2,
+            size: 2.0,
             transparent: true,
-            opacity: 0.55
+            opacity: 0.45
           });
           const innerPoints = new THREE.Points(innerGeo, innerMat);
           coreGroup.add(innerPoints);
