@@ -320,28 +320,68 @@ div[tabindex="0"]:focus-visible {
 .status-chip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 3px 10px;
-  background: var(--accent-red-dim);
-  border: 1px solid var(--accent-red-border);
+  gap: 8px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-pill);
-  color: var(--text-pure);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
   font-size: 0.68rem;
+  font-weight: 500;
   letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.status-chip:hover {
+  background: rgba(255, 48, 48, 0.08);
+  border-color: var(--accent-red-border);
+  color: var(--text-pure);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 12px var(--accent-red-dim);
 }
 
 .status-chip .chip-pulse {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   background: var(--accent-red);
   border-radius: 50%;
   box-shadow: 0 0 6px var(--accent-red);
-  animation: pulse-ring 2s infinite ease-in-out;
+  position: relative;
+  flex-shrink: 0;
 }
 
-@keyframes pulse-ring {
-  0%, 100% { opacity: 0.4; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.2); }
+.status-chip .chip-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-red);
+  opacity: 0.6;
+  animation: radar-ping 2.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes radar-ping {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.status-chip .chip-arrow {
+  font-size: 0.72rem;
+  color: var(--accent-red);
+  transition: transform var(--transition-fast);
+  opacity: 0.8;
+  margin-left: 2px;
+}
+
+.status-chip:hover .chip-arrow {
+  transform: translateX(2px);
+  opacity: 1;
 }
 
 .clock-display {
@@ -416,6 +456,19 @@ div[tabindex="0"]:focus-visible {
 
 .mobile-item:hover, .mobile-item.active {
   color: var(--text-pure);
+}
+
+.mobile-drawer-footer {
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+}
+
+.mobile-chip {
+  width: 100%;
+  justify-content: center;
+  padding: 10px 16px;
+  font-size: 0.74rem;
 }
 
 /* --------------------------------------------------------------------------
