@@ -11,10 +11,10 @@
   <!-- Monogram Vector Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23050505%22/><circle cx=%2250%22 cy=%2250%22 r=%2238%22 fill=%22none%22 stroke=%22%23FF3030%22 stroke-width=%223%22 stroke-dasharray=%224 4%22/><text y=%22.72em%22 x=%22.18em%22 font-size=%2255%22 font-family=%22sans-serif%22 font-weight=%22800%22 fill=%22%23ffffff%22>AB</text></svg>">
 
-  <!-- Google Fonts: Space Grotesk (Editorial Display), JetBrains Mono (Technical Monospace), Plus Jakarta Sans (Body) -->
+  <!-- Google Fonts: Space Grotesk (Display & Body), IBM Plex Mono (Technical Monospace) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -24,9 +24,11 @@
   <a href="#hero" class="skip-link">Skip to central content</a>
 
   <!-- ========================================================
-       GENERATIVE DIGITAL WAVE BACKGROUND (2D CANVAS)
+       GENERATIVE DIGITAL ENVIRONMENT (GLASSMORPHIC BACKDROP)
        ======================================================== -->
   <div class="generative-viewport" aria-hidden="true">
+    <div class="ambient-glow-orb ambient-orb-1"></div>
+    <div class="ambient-glow-orb ambient-orb-2"></div>
     <canvas id="generativeCanvas" class="canvas-generative"></canvas>
     <div class="screen-grid-overlay"></div>
     <div class="screen-dither-vignette"></div>
