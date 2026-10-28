@@ -146,131 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* --------------------------------------------------------------------------
-     2. INTERACTIVE ARCHITECTURAL PIPELINE CANVAS (PITSTOP AI)
-     Dynamic computational node diagram with active signal packets
-     -------------------------------------------------------------------------- */
-  const initSchematicCanvas = () => {
-    const canvas = document.getElementById('schematicCanvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let width = (canvas.width = canvas.parentElement.clientWidth);
-    let height = (canvas.height = canvas.parentElement.clientHeight || 280);
-
-    const onResize = () => {
-      width = canvas.width = canvas.parentElement.clientWidth;
-      height = canvas.height = canvas.parentElement.clientHeight || 280;
-    };
-    window.addEventListener('resize', onResize);
-
-    const nodes = [
-      { id: '01', x: 0.18, y: 0.5, label: 'INPUT' },
-      { id: '02', x: 0.40, y: 0.28, label: 'ROUTER' },
-      { id: '03', x: 0.62, y: 0.72, label: 'INFERENCE' },
-      { id: '04', x: 0.84, y: 0.5, label: 'OUTPUT' }
-    ];
-
-    const packets = [
-      { from: 0, to: 1, progress: 0.1, speed: 0.012 },
-      { from: 1, to: 2, progress: 0.5, speed: 0.009 },
-      { from: 2, to: 3, progress: 0.8, speed: 0.014 }
-    ];
-
-    let t = 0;
-
-    const animateSchematic = () => {
-      requestAnimationFrame(animateSchematic);
-      t += 0.02;
-
-      ctx.clearRect(0, 0, width, height);
-
-      // Grid background in schematic
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
-      ctx.lineWidth = 1;
-      const step = 20;
-      for (let x = 0; x < width; x += step) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-      }
-      for (let y = 0; y < height; y += step) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-      }
-
-      // Draw connecting channels
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
-      ctx.lineWidth = 1.2;
-
-      const getCoords = (n) => ({ x: n.x * width, y: n.y * height });
-
-      ctx.beginPath();
-      const p0 = getCoords(nodes[0]);
-      ctx.moveTo(p0.x, p0.y);
-      for (let i = 1; i < nodes.length; i++) {
-        const p = getCoords(nodes[i]);
-        ctx.lineTo(p.x, p.y);
-      }
-      ctx.stroke();
-
-      // Render animated signal packets
-      packets.forEach(pkt => {
-        pkt.progress += pkt.speed;
-        if (pkt.progress >= 1) pkt.progress = 0;
-
-        const start = getCoords(nodes[pkt.from]);
-        const end = getCoords(nodes[pkt.to]);
-
-        const curX = start.x + (end.x - start.x) * pkt.progress;
-        const curY = start.y + (end.y - start.y) * pkt.progress;
-
-        // Packet glow
-        ctx.fillStyle = '#FF3030';
-        ctx.beginPath();
-        ctx.arc(curX, curY, 3, 0, Math.PI * 2);
-        ctx.fill();
-
-        ctx.fillStyle = 'rgba(255, 48, 48, 0.3)';
-        ctx.beginPath();
-        ctx.arc(curX, curY, 7, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      // Render Node stations
-      nodes.forEach((n, idx) => {
-        const { x, y } = getCoords(n);
-
-        // Node Outer Box
-        ctx.strokeStyle = '#FF3030';
-        ctx.fillStyle = '#0a0a0a';
-        ctx.lineWidth = 1.2;
-        ctx.fillRect(x - 14, y - 14, 28, 28);
-        ctx.strokeRect(x - 14, y - 14, 28, 28);
-
-        // Node Index
-        ctx.font = '10px "JetBrains Mono", monospace';
-        ctx.fillStyle = '#ffffff';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(n.id, x, y);
-
-        // Node Label
-        ctx.font = '9px "JetBrains Mono", monospace';
-        ctx.fillStyle = '#8E8E93';
-        ctx.fillText(n.label, x, y + 24);
-      });
-    };
-
-    animateSchematic();
-  };
-
-  /* --------------------------------------------------------------------------
-     3. KINETIC TYPOGRAPHY CHARACTER SCRAMBLER
+     2. KINETIC TYPOGRAPHY CHARACTER SCRAMBLER
      -------------------------------------------------------------------------- */
   const initKineticScrambler = () => {
     const titleEl = document.getElementById('heroMassiveTitle');
@@ -341,6 +217,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const { about, featuredProject, secondaryProjects, experience, skills, education, contact } = PORTFOLIO_DATA;
+
+      // Pitstop AI Featured Project Hydration
+      if (featuredProject) {
+        const overviewEl = document.getElementById('pitstopOverviewText');
+        if (overviewEl && featuredProject.overview) {
+          overviewEl.textContent = featuredProject.overview;
+        }
+        const progressEl = document.getElementById('pitstopProgressText');
+        if (progressEl && featuredProject.currentProgress) {
+          progressEl.textContent = featuredProject.currentProgress;
+        }
+        const highlightsEl = document.getElementById('pitstopHighlightsList');
+        if (highlightsEl && Array.isArray(featuredProject.highlights)) {
+          highlightsEl.innerHTML = featuredProject.highlights.map((h, i) => `
+            <li>
+              <span class="ph-idx">0${i + 1}</span>
+              <div class="ph-content">
+                <strong>${h.title}</strong>
+                <p>${h.desc}</p>
+              </div>
+            </li>
+          `).join('');
+        }
+      }
 
       // About Manifesto Paragraphs
       const aboutContainer = document.getElementById('aboutManifestoContainer');
@@ -585,7 +485,6 @@ document.addEventListener('DOMContentLoaded', () => {
      -------------------------------------------------------------------------- */
   hydrateFromPortfolioData();
   initGenerativeWave();
-  initSchematicCanvas();
   initKineticScrambler();
   initTelemetryClock();
   initClipboardAction();

@@ -58,22 +58,26 @@ const PORTFOLIO_DATA = {
 
   featuredProject: {
     id: "pitstop-ai",
-    title: "Pitstop AI",
-    status: "In Progress",
-    statusDetail: "RESEARCH & PROTOTYPE PHASE",
-    category: "Intelligent Systems Architecture",
-    description: "An exploratory computational engine designed to investigate intelligent workflows, autonomous routing, and machine learning systems. Under active development.",
-    disclaimer: "Architectural specifications, source code, and internal benchmarks remain private during research. Concept visualizations below represent schematic system flow.",
+    eyebrow: "PROJECT 01 / IN DEVELOPMENT",
+    title: "PITSTOP AI",
+    headline: "Building Pitstop AI",
+    status: "IN DEVELOPMENT",
+    description: "Pitstop AI is an ongoing exploratory project investigating autonomous workflow orchestration, predictive execution pipelines, and machine learning system coordination.",
+    overview: "Modern software workflows often involve complex, multi-stage task handoffs that introduce manual overhead and operational latency. Pitstop AI investigates how intelligent routing heuristics and modular execution pipelines can automate and coordinate computational workloads cleanly and reliably.",
+    currentProgress: "Currently in development. The project is focused on concept design, architecture planning, and early core prototype experimentation.",
     highlights: [
-      "Investigating predictive heuristics and multi-step computational pipeline coordination",
-      "Focusing on latency-optimized execution paths and robust error-handling states",
-      "Designed with privacy-first system boundaries and modular architecture"
-    ],
-    schematicNodes: [
-      { step: "01", label: "Input Telemetry", desc: "Structured query ingestion & schema verification" },
-      { step: "02", label: "Heuristic Routing", desc: "Intent classification & pipeline dispatch" },
-      { step: "03", label: "Model Inference", desc: "Contextual reasoning & evaluation loops" },
-      { step: "04", label: "Response Synthesis", desc: "Verified delivery & output formatting" }
+      {
+        title: "Intelligent Task Routing",
+        desc: "Investigating autonomous pipeline coordination to streamline multi-stage execution flows."
+      },
+      {
+        title: "Latency & Reliability",
+        desc: "Focusing on execution-path optimization, predictable fallbacks, and robust error handling."
+      },
+      {
+        title: "Modular Architecture",
+        desc: "Designed with clean component separation, adaptable boundaries, and privacy-first system design."
+      }
     ]
   },
 

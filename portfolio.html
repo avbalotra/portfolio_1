@@ -194,91 +194,98 @@
           </div>
         </header>
 
-        <!-- Flagship Project Presentation -->
-        <article class="editorial-project-card">
-          <div class="epc-split-layout">
+        <!-- Flagship Project Presentation: Pitstop AI -->
+        <article class="project-showcase-card">
+          <div class="psc-inner-grid">
             
-            <!-- Left Info Column -->
-            <div class="epc-info-column">
-              <div>
-                <div class="epc-top-bar">
-                  <span class="status-badge-red">
-                    <span class="badge-dot-ping"></span>
-                    <span>STATUS: IN PROGRESS // RESEARCH SPRINT</span>
+            <!-- Left Narrative Column -->
+            <div class="psc-col-main">
+              <div class="psc-header-group">
+                <div class="psc-eyebrow-row">
+                  <span class="psc-eyebrow">PROJECT 01 / IN DEVELOPMENT</span>
+                  <span class="psc-status-pill">
+                    <span class="psc-status-dot"></span>
+                    <span>IN DEVELOPMENT</span>
                   </span>
-                  <span class="epc-tag">[ INTELLIGENT SYSTEMS ]</span>
                 </div>
-
-                <h3 class="epc-project-title">Pitstop AI</h3>
-
-                <p class="epc-summary">
-                  An exploratory computational engine designed to investigate intelligent workflows, autonomous routing, and machine learning systems. Under active development.
+                <h3 class="psc-project-title">PITSTOP AI</h3>
+                <h4 class="psc-headline">Building Pitstop AI</h4>
+                <p class="psc-lead-desc">
+                  Pitstop AI is an ongoing exploratory project investigating autonomous workflow orchestration, predictive execution pipelines, and machine learning system coordination.
                 </p>
+              </div>
 
-                <!-- Truthful Privacy Notice -->
-                <div class="privacy-boundary-box">
-                  <svg class="pbb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                  </svg>
-                  <div class="pbb-text">
-                    <strong>SYSTEM PRIVACY NOTICE:</strong> Architectural specifications, internal benchmarks, and source repository remain private during research sprint. Visualizations demonstrate schematic concept flow.
-                  </div>
-                </div>
+              <!-- Project Overview -->
+              <div class="psc-block">
+                <h5 class="psc-block-heading">Project Overview</h5>
+                <p class="psc-block-text" id="pitstopOverviewText">
+                  Modern software workflows often involve complex, multi-stage task handoffs that introduce manual overhead and operational latency. Pitstop AI investigates how intelligent routing heuristics and modular execution pipelines can automate and coordinate computational workloads cleanly and reliably.
+                </p>
+              </div>
 
-                <ul class="epc-bullet-list">
-                  <li>Investigating predictive heuristics and multi-step computational pipeline coordination</li>
-                  <li>Focusing on latency-optimized execution paths and robust error-handling states</li>
-                  <li>Designed with privacy-first system boundaries and modular architecture</li>
-                </ul>
+              <!-- Current Progress -->
+              <div class="psc-block">
+                <h5 class="psc-block-heading">Current Progress</h5>
+                <p class="psc-block-text" id="pitstopProgressText">
+                  Currently in development. The project is focused on concept design, architecture planning, and early core prototype experimentation.
+                </p>
               </div>
             </div>
 
-            <!-- Right Interactive Schematic Column -->
-            <div class="epc-visual-column">
-              <div class="visual-column-header">
-                <span class="v-tag">INTERACTIVE PIPELINE SCHEMATIC</span>
-                <span>STATE: RUNNING</span>
+            <!-- Right Aside Column -->
+            <div class="psc-col-aside">
+              <div class="psc-block">
+                <h5 class="psc-block-heading">Key Highlights</h5>
+                <ul class="psc-highlights-list" id="pitstopHighlightsList">
+                  <li>
+                    <span class="ph-idx">01</span>
+                    <div class="ph-content">
+                      <strong>Intelligent Task Routing</strong>
+                      <p>Investigating autonomous pipeline coordination to streamline multi-stage execution flows.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="ph-idx">02</span>
+                    <div class="ph-content">
+                      <strong>Latency &amp; Reliability</strong>
+                      <p>Focusing on execution-path optimization, predictable fallbacks, and robust error handling.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="ph-idx">03</span>
+                    <div class="ph-content">
+                      <strong>Modular Architecture</strong>
+                      <p>Designed with clean component separation, adaptable boundaries, and privacy-first system design.</p>
+                    </div>
+                  </li>
+                </ul>
               </div>
 
-              <!-- Interactive 2D Canvas -->
-              <div class="schematic-canvas-wrap">
-                <canvas id="schematicCanvas" class="schematic-canvas"></canvas>
+              <!-- Restrained Schematic Graphic -->
+              <div class="psc-linework-frame" aria-hidden="true">
+                <svg class="psc-linework-svg" viewBox="0 0 320 120" fill="none">
+                  <line x1="20" y1="60" x2="300" y2="60" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                  <line x1="80" y1="20" x2="80" y2="100" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="2 3"/>
+                  <line x1="160" y1="10" x2="160" y2="110" stroke="rgba(255,48,48,0.25)" stroke-width="1"/>
+                  <line x1="240" y1="20" x2="240" y2="100" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="2 3"/>
+                  <circle cx="80" cy="60" r="3" fill="#ffffff"/>
+                  <circle cx="160" cy="60" r="4" fill="#FF3030"/>
+                  <circle cx="240" cy="60" r="3" fill="#ffffff"/>
+                  <rect x="153" y="53" width="14" height="14" stroke="#FF3030" stroke-width="1" fill="none"/>
+                  <text x="160" y="86" font-family="'JetBrains Mono', monospace" font-size="8" fill="#8E8E93" text-anchor="middle" letter-spacing="1">PITSTOP_AI // ARCH_V01</text>
+                </svg>
               </div>
 
-              <div class="pipeline-nodes-stack">
-                <div class="pipeline-node-item">
-                  <span class="pni-idx">01</span>
-                  <div class="pni-info">
-                    <span class="pni-name">Input Telemetry</span>
-                    <span class="pni-sub">Structured query ingestion &amp; schema verification</span>
-                  </div>
+              <!-- Status Footer -->
+              <div class="psc-meta-footer">
+                <div class="pmf-item">
+                  <span class="pmf-label">PROJECT STATUS</span>
+                  <span class="pmf-value highlight-red">IN DEVELOPMENT</span>
                 </div>
-                <div class="pipeline-node-item">
-                  <span class="pni-idx">02</span>
-                  <div class="pni-info">
-                    <span class="pni-name">Heuristic Routing</span>
-                    <span class="pni-sub">Intent classification &amp; pipeline dispatch</span>
-                  </div>
+                <div class="pmf-item">
+                  <span class="pmf-label">DEVELOPMENT STAGE</span>
+                  <span class="pmf-value">CONCEPT &amp; PROTOTYPE</span>
                 </div>
-                <div class="pipeline-node-item">
-                  <span class="pni-idx">03</span>
-                  <div class="pni-info">
-                    <span class="pni-name">Model Inference</span>
-                    <span class="pni-sub">Contextual reasoning &amp; evaluation loops</span>
-                  </div>
-                </div>
-                <div class="pipeline-node-item">
-                  <span class="pni-idx">04</span>
-                  <div class="pni-info">
-                    <span class="pni-name">Response Synthesis</span>
-                    <span class="pni-sub">Verified delivery &amp; output formatting</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="visual-column-footer">
-                ILLUSTRATIVE SYSTEM DESIGN MODEL // PROTOTYPE STAGE
               </div>
             </div>
 
